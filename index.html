@@ -136,6 +136,116 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-reOS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/26/reOS/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/26/reOS/" class="archive-article-date">
+  	<time datetime="2018-06-26T15:19:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>注意</p>
+</blockquote>
+<ol>
+<li>全自动安装默认root密码:Vicer,安装完成后请立即更改密码</li>
+<li>请使用 passwd root 命令更改密码</li>
+<li>OpenVZ构架不适用</li>
+</ol>
+<blockquote>
+<p>确保安装了所需软件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Debian/Ubuntu:</span></span><br><span class="line">apt-get install -y gawk sed grep</span><br><span class="line"> </span><br><span class="line"><span class="comment">#RedHat/CentOS:</span></span><br><span class="line">yum install -y gawk sed grep</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果出现了错误,请运行</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Debian/Ubuntu:</span></span><br><span class="line">apt-get update</span><br><span class="line"> </span><br><span class="line"><span class="comment">#RedHat/CentOS:</span></span><br><span class="line">yum update</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一键下载</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -qO DebianNET.sh <span class="string">'https://moeclub.org/attachment/LinuxShell/DebianNET.sh'</span> &amp;&amp; chmod a+x DebianNET.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">        bash DebianNET.sh       -d/--debian [dist-name]</span><br><span class="line">                                -u/--ubuntu [dist-name]</span><br><span class="line">                                -v/--ver [32/i386|64/amd64]</span><br><span class="line">                                --ip-addr/--ip-gate/--ip-mask</span><br><span class="line">                                -apt/--mirror</span><br><span class="line">                                -dd/--image</span><br><span class="line">                                -a/-m</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用示例</p>
+</blockquote>
+<h3 id="【默认】安装Debian-7-x32"><a href="#【默认】安装Debian-7-x32" class="headerlink" title="【默认】安装Debian 7 x32"></a>【默认】安装Debian 7 x32</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 7 -v 32</span><br></pre></td></tr></table></figure>
+<h3 id="安装Debian-8-x64"><a href="#安装Debian-8-x64" class="headerlink" title="安装Debian 8 x64"></a>安装Debian 8 x64</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d jessie -v amd64</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 8 -v 64</span><br></pre></td></tr></table></figure>
+<h3 id="安装Debian-9-x64"><a href="#安装Debian-9-x64" class="headerlink" title="安装Debian 9 x64"></a>安装Debian 9 x64</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d stretch -v amd64</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 9 -v 64</span><br></pre></td></tr></table></figure>
+<h3 id="安装Ubuntu-14-04-x64"><a href="#安装Ubuntu-14-04-x64" class="headerlink" title="安装Ubuntu 14.04 x64"></a>安装Ubuntu 14.04 x64</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u trusty -v 64</span><br></pre></td></tr></table></figure>
+<h3 id="安装Ubuntu-16-04-x64"><a href="#安装Ubuntu-16-04-x64" class="headerlink" title="安装Ubuntu 16.04 x64"></a>安装Ubuntu 16.04 x64</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u xenial -v 64</span><br></pre></td></tr></table></figure>
+<h3 id="安装Ubuntu-18-04-x64"><a href="#安装Ubuntu-18-04-x64" class="headerlink" title="安装Ubuntu 18.04 x64"></a>安装Ubuntu 18.04 x64</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u bionic -v 64</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>转载自</p>
+</blockquote>
+<p>[转载自] (<a href="https://moeclub.org/2017/03/25/82/?v=656" target="_blank" rel="noopener">https://moeclub.org/2017/03/25/82/?v=656</a>)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/26/reOS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-paypalfees" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -436,6 +546,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">PayPal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>
