@@ -391,17 +391,50 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -qO DebianNET.sh <span class="string">'https://moeclub.org/attachment/LinuxShell/DebianNET.sh'</span> &amp;&amp; chmod a+x DebianNET.sh</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">        bash DebianNET.sh       -d/--debian [dist-name]</span><br><span class="line">                                -u/--ubuntu [dist-name]</span><br><span class="line">                                -v/--ver [32/i386|64/amd64]</span><br><span class="line">                                --ip-addr/--ip-gate/--ip-mask</span><br><span class="line">                                -apt/--mirror</span><br><span class="line">                                -dd/--image</span><br><span class="line">                                -a/-m</span><br></pre></td></tr></table></figure>
 <blockquote>
+<p>全自动/非自动示例</p>
+</blockquote>
+<ul>
+<li>全自动安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386 -a</span><br></pre></td></tr></table></figure>
+<ul>
+<li>VNC手动安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386 -m</span><br></pre></td></tr></table></figure>
+<ul>
+<li>全自动安装(指定网络参数)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将X.X.X.X替换为自己的网络参数.</span></span><br><span class="line"><span class="comment"># --ip-addr :IP Address/IP地址</span></span><br><span class="line"><span class="comment"># --ip-gate :Gateway   /网关</span></span><br><span class="line"><span class="comment"># --ip-mask :Netmask   /子网掩码</span></span><br><span class="line">bash DebianNET.sh -d wheezy -v i386 -a --ip-addr X.X.X.X --ip-mask X.X.X.X --ip-gate X.X.X.X</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>使用示例</p>
 </blockquote>
-<h3 id="【默认】安装Debian-7-x32"><a href="#【默认】安装Debian-7-x32" class="headerlink" title="【默认】安装Debian 7 x32"></a>【默认】安装Debian 7 x32</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386</span><br></pre></td></tr></table></figure>
+<ul>
+<li>【默认】安装Debian 7 x32</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 7 -v 32</span><br></pre></td></tr></table></figure>
-<h3 id="安装Debian-8-x64"><a href="#安装Debian-8-x64" class="headerlink" title="安装Debian 8 x64"></a>安装Debian 8 x64</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d jessie -v amd64</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装Debian 8 x64</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d jessie -v amd64</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 8 -v 64</span><br></pre></td></tr></table></figure>
-<h3 id="安装Debian-9-x64"><a href="#安装Debian-9-x64" class="headerlink" title="安装Debian 9 x64"></a>安装Debian 9 x64</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d stretch -v amd64</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装Debian 9 x64</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d stretch -v amd64</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 9 -v 64</span><br></pre></td></tr></table></figure>
-<h3 id="安装Ubuntu-14-04-x64"><a href="#安装Ubuntu-14-04-x64" class="headerlink" title="安装Ubuntu 14.04 x64"></a>安装Ubuntu 14.04 x64</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u trusty -v 64</span><br></pre></td></tr></table></figure>
-<h3 id="安装Ubuntu-16-04-x64"><a href="#安装Ubuntu-16-04-x64" class="headerlink" title="安装Ubuntu 16.04 x64"></a>安装Ubuntu 16.04 x64</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u xenial -v 64</span><br></pre></td></tr></table></figure>
-<h3 id="安装Ubuntu-18-04-x64"><a href="#安装Ubuntu-18-04-x64" class="headerlink" title="安装Ubuntu 18.04 x64"></a>安装Ubuntu 18.04 x64</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u bionic -v 64</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装Ubuntu 14.04 x64</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u trusty -v 64</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装Ubuntu 16.04 x64</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u xenial -v 64</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装Ubuntu 18.04 x64</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u bionic -v 64</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>转载自</p>
 </blockquote>
