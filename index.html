@@ -142,6 +142,115 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Git学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/15/Git学习/">Git学习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/15/Git学习/" class="archive-article-date">
+  	<time datetime="2018-10-14T16:58:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Login</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"username"</span></span><br><span class="line">git config --global email.name <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>初始化一个Git仓库</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//GitHub创建库后<span class="built_in">clone</span></span><br><span class="line">git <span class="built_in">clone</span> &lt;URL&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>添加文件到Git仓库</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//可以用git add .直接将所有文件放入暂存区</span><br><span class="line">git add &lt;file&gt;</span><br><span class="line"></span><br><span class="line">//提交到版本库, 描述本次提交的说明</span><br><span class="line">git commit -m <span class="string">"本次提交的说明"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>获取工作区的状态</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//查看是否有文件进行修改</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line">//查看修改内容</span><br><span class="line">git diff</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>版本控制</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//查看提交日志</span><br><span class="line">git <span class="built_in">log</span></span><br><span class="line">//HEAD代表当前版本, HEAD^是上个版本, HEAD^^上上个版本, HEAD~N前N个版本</span><br><span class="line">//也可以用版本号指定</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;version&gt;</span><br><span class="line">//由于使用reset回退版本后之前版本的提交日志也会消失</span><br><span class="line">//可以显示你每次命令可以查看到被你回退的版本号</span><br><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>撤销修改</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//让文件回到最近一次git add或者git commit的状态</span><br><span class="line">git checkout -- &lt;file&gt;</span><br><span class="line"></span><br><span class="line">//将文件移出暂存区, 即取消git add操作</span><br><span class="line">git reset HEAD -- &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>删除文件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//与git add的用法一样</span><br><span class="line">//从版本库里中删除文件</span><br><span class="line">git rm &lt;file&gt;</span><br><span class="line">git commit -m <span class="string">"本次提交的说明"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>远程仓库</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//添加远程仓库</span><br><span class="line">//origin是远程仓库的默认名称可更改</span><br><span class="line">git remote add origin git@github.com:&lt;github_username&gt;/&lt;repository&gt;</span><br><span class="line"></span><br><span class="line">//第一次推送加上-u参数, Git会将本地 master 分支和远程 master 分支关联起来, 以后在推送时可简化命令</span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line">//将远程仓库中的改动同步到本地</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>分支</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//创建分支, 并且切换到该分支</span><br><span class="line">git branch &lt;branch&gt;</span><br><span class="line">git checkout &lt;branch&gt;</span><br><span class="line">//-b参数相当于上面两条命令</span><br><span class="line">git checkout -b &lt;branch&gt;</span><br><span class="line"></span><br><span class="line">//合并指定分支到当前分支</span><br><span class="line">git merge &lt;branch&gt;</span><br><span class="line"></span><br><span class="line">//删除分支</span><br><span class="line">git branch -d &lt;branch&gt;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/15/Git学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bbr" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -786,6 +895,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">PayPal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">bbr</a>
               </li>
              
@@ -794,7 +911,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">PayPal</a>
+                <a href="javascript:void(0)" class="js-tag color5">note</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -807,10 +924,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mail</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">note</a>
               </li>
             
             <div class="clearfix"></div>
