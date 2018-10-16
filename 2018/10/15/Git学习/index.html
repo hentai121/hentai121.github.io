@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="UerAx的博客">
 <meta property="og:description" content="Login  12git config --global user.name &quot;username&quot;git config --global email.name &quot;email&quot;  初始化一个Git仓库  1git init 12//GitHub创建库后clonegit clone &amp;lt;URL&amp;gt;  添加文件到Git仓库  12345//可以用git add .直接将所有文件放入暂存区git">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-15T16:35:51.162Z">
+<meta property="og:updated_time" content="2018-10-16T02:31:11.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习">
 <meta name="twitter:description" content="Login  12git config --global user.name &quot;username&quot;git config --global email.name &quot;email&quot;  初始化一个Git仓库  1git init 12//GitHub创建库后clonegit clone &amp;lt;URL&amp;gt;  添加文件到Git仓库  12345//可以用git add .直接将所有文件放入暂存区git">
@@ -214,6 +214,13 @@
 <p>创建别名</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//将命令名用一个&lt;new-name&gt;代替作为别名</span><br><span class="line">//--global参数使该命令作用在当前用户, 如不加则只针对当前仓库</span><br><span class="line">git config --global <span class="built_in">alias</span>.&lt;new-name&gt; <span class="string">'old-name'</span></span><br><span class="line">//也可通过修改.git/config文件</span><br><span class="line">//在[<span class="built_in">alias</span>]后面添加</span><br><span class="line">&lt;new-name&gt; = &lt;old-name&gt;</span><br><span class="line"></span><br><span class="line">//删除别名</span><br><span class="line">//直接修改.git/config文件</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>忽略特殊文件</p>
+</blockquote>
+<p>Git为我们提供了.gitignore文件，此文件专门来做忽略，只要在此文件中设置你想忽略的内容就可以了。<br>不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。<br>所有配置文件可以直接在线浏览：<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a></p>
+<p>如希望.gitignore文件作用于所有工作目录, 不希望每次都要在工作目录添加.gitignore文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在用户文件夹下创建.gitconfig_global并写入规则</span><br><span class="line">如果无法创建空文件名</span><br><span class="line">直接创建 .gitignore_global. 文件, 系统提示&quot;如果改变文件扩展名，可能会导致文件不可用。确实要更改吗？&quot;选择确定即可</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在用户文件夹(Users/用户名/)下修改.gitconfig配置, 在[core]下添加</span><br><span class="line">excludesfile = 用户文件夹\\.gitconfig_global</span><br><span class="line"></span><br><span class="line">也可以使用Git命令进行设置</span><br><span class="line">git config --global core.excludesfile ~/.gitconfig_global</span><br><span class="line"></span><br><span class="line">最后可以通过git config --list查看是否设置成功</span><br></pre></td></tr></table></figure>
       
 
       
