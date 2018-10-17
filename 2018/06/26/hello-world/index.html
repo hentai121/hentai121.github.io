@@ -9,14 +9,14 @@
   <title>GitHub + Hexo 搭建博客 | UerAx的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="花了一下午建立的博客,顺便记录建立的步骤 事先准备 Node.js git  创建 GitHub Pages这个百度都有 安装 Hexo 并检查是否安装成功在D盘创建 hexo 文件夹123cd D://hexonpm install hexo -ghexo -v 初始化 Hexo1hexo init 依赖包安装1npm install 编译1hexo g 打开服务器1hexo s 默认是 loc">
-<meta name="keywords" content="note">
+<meta name="keywords" content="hexo,github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHub + Hexo 搭建博客">
 <meta property="og:url" content="http://yoursite.com/2018/06/26/hello-world/index.html">
 <meta property="og:site_name" content="UerAx的博客">
 <meta property="og:description" content="花了一下午建立的博客,顺便记录建立的步骤 事先准备 Node.js git  创建 GitHub Pages这个百度都有 安装 Hexo 并检查是否安装成功在D盘创建 hexo 文件夹123cd D://hexonpm install hexo -ghexo -v 初始化 Hexo1hexo init 依赖包安装1npm install 编译1hexo g 打开服务器1hexo s 默认是 loc">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-26T13:56:59.580Z">
+<meta property="og:updated_time" content="2018-10-16T15:36:35.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub + Hexo 搭建博客">
 <meta name="twitter:description" content="花了一下午建立的博客,顺便记录建立的步骤 事先准备 Node.js git  创建 GitHub Pages这个百度都有 安装 Hexo 并检查是否安装成功在D盘创建 hexo 文件夹123cd D://hexonpm install hexo -ghexo -v 初始化 Hexo1hexo init 依赖包安装1npm install 编译1hexo g 打开服务器1hexo s 默认是 loc">
@@ -179,7 +179,8 @@
 <p>默认是 localhost:4000</p>
 <h2 id="联系到-GitHub"><a href="#联系到-GitHub" class="headerlink" title="联系到 GitHub"></a>联系到 GitHub</h2><p>打开 Hexo 文件夹里的 _config.yml 文件<br>配置Deployment<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: 你的 repo 值</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
 <h2 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;file-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
       
 
@@ -224,7 +225,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
         		</li>
       		
 		</ul>
@@ -443,10 +448,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">bbr</a>
               </li>
              
@@ -455,11 +456,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">PayPal</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">note</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
