@@ -10,14 +10,12 @@
 
     <!--Description-->
     
-        <meta name="description" content="花了一下午建立的博客,顺便记录建立的步骤
-事先准备
-Node.js
-git
+        <meta name="description" content="Spring JDBC
 
-创建 GitHub Pages这个百度都有
-安装 Hexo 并检查是否安装成功在D盘创建 hexo 文件夹123cd D://hexonpm install hexo -ghexo -v
-初始化 Hexo1hexo ini">
+
+需要引入的 jar 包 : Spring 的 JDBC , tx , aop 的包和数据库驱动的包
+
+1234567891011121314151617181920// 将连接池和模板交给 Spring 管理// 配置连接池&amp;lt;bean id=&#34;dataSourceI">
     
 
     <!--Author-->
@@ -27,7 +25,7 @@ git
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="GitHub + Hexo 搭建博客"/>
+        <meta property="og:title" content="Spring学习笔记(2)"/>
     
 
     <!--Open Graph Description-->
@@ -49,7 +47,7 @@ git
 
     <!-- Title -->
     
-    <title>GitHub + Hexo 搭建博客 - UerAx的博客</title>
+    <title>Spring学习笔记(2) - UerAx的博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -153,13 +151,13 @@ git
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2018/06/26/hello-world/">
-                GitHub + Hexo 搭建博客
+            <a href="/2018/10/28/springnote-2/">
+                Spring学习笔记(2)
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2018-06-26</span>
+                <span class="date">2018-10-28</span>
             
             
             
@@ -172,22 +170,25 @@ git
         
 
         <!-- Post Content -->
-        <p>花了一下午建立的博客,顺便记录建立的步骤</p>
-<h2 id="事先准备"><a href="#事先准备" class="headerlink" title="事先准备"></a>事先准备</h2><ul>
-<li>Node.js</li>
-<li>git</li>
+        <blockquote>
+<p>Spring JDBC</p>
+</blockquote>
+<ul>
+<li>需要引入的 jar 包 : Spring 的 JDBC , tx , aop 的包和数据库驱动的包</li>
 </ul>
-<h2 id="创建-GitHub-Pages"><a href="#创建-GitHub-Pages" class="headerlink" title="创建 GitHub Pages"></a>创建 GitHub Pages</h2><p>这个百度都有</p>
-<h2 id="安装-Hexo-并检查是否安装成功"><a href="#安装-Hexo-并检查是否安装成功" class="headerlink" title="安装 Hexo 并检查是否安装成功"></a>安装 Hexo 并检查是否安装成功</h2><p>在D盘创建 hexo 文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> D://hexo</span><br><span class="line">npm install hexo -g</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure></p>
-<h2 id="初始化-Hexo"><a href="#初始化-Hexo" class="headerlink" title="初始化 Hexo"></a>初始化 Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<h2 id="依赖包安装"><a href="#依赖包安装" class="headerlink" title="依赖包安装"></a>依赖包安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<h2 id="打开服务器"><a href="#打开服务器" class="headerlink" title="打开服务器"></a>打开服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>默认是 localhost:4000</p>
-<h2 id="联系到-GitHub"><a href="#联系到-GitHub" class="headerlink" title="联系到 GitHub"></a>联系到 GitHub</h2><p>打开 Hexo 文件夹里的 _config.yml 文件<br>配置Deployment<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: 你的 repo 值</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;file-name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 将连接池和模板交给 Spring 管理</span><br><span class="line">// 配置连接池</span><br><span class="line">&lt;bean id="dataSourceId" class="org.springframework.jdbc.datasource.DriverManagerDataSource"&gt;</span><br><span class="line">    // 配置数据库驱动</span><br><span class="line">    &lt;property name=<span class="string">"driverClassName"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span><br><span class="line">    // 配置数据库 database</span><br><span class="line">    &lt;property name=<span class="string">"url"</span> value=<span class="string">"jdbc:mysql:///database"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"username"</span> value=<span class="string">"username"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"password"</span> value=<span class="string">"password"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSourceId"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 增 删 改 使用 update方法</span><br><span class="line">jdbcTemplate.update(<span class="string">"sql"</span>, args);</span><br><span class="line"></span><br><span class="line">// 查 使用 queryForObject方法</span><br><span class="line">// 返回 String 类型的值</span><br><span class="line">String str = jdbcTemplate.queryForObject(<span class="string">"sql"</span>, String.<span class="keyword">class</span>, args)</span><br></pre></td></tr></table></figure>
+<h3 id="使用开源连接池-DBCP-连接池"><a href="#使用开源连接池-DBCP-连接池" class="headerlink" title="使用开源连接池 DBCP 连接池"></a>使用开源连接池 DBCP 连接池</h3><ul>
+<li>需要引入的 jar 包 : apache 的 dbcp , pool 包</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 只需要将配置连接池的 <span class="class"><span class="keyword">class</span> 改成 <span class="title">org</span>.<span class="title">apache</span>.<span class="title">commons</span>.<span class="title">dbcp2</span>.<span class="title">BasicDataSource</span> 其他用法不变</span></span><br><span class="line">&lt;bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"driverClassName"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"url"</span> value=<span class="string">"jdbc:mysql:///spring"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"username"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"password"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="使用-C3P0-连接池"><a href="#使用-C3P0-连接池" class="headerlink" title="使用 C3P0 连接池"></a>使用 C3P0 连接池</h3><ul>
+<li>需要引入的 jar 包 : c3p0 的 c3p0 , mchange-commons 包</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"driverClass"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"jdbcUrl"</span> value=<span class="string">"jdbc:mysql:///spring"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"user"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"password"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过 properties 文件保存</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 创建 properties 文件, 语法为 key=value</span><br><span class="line">driverClass=com.mysql.jdbc.Driver</span><br><span class="line"></span><br><span class="line">// 需要在配置文件配置</span><br><span class="line">&lt;context:property-placeholder location=<span class="string">"classpath:file.properties"</span>&gt;</span><br><span class="line"></span><br><span class="line">// 通过 $&#123;&#125; 调用</span><br><span class="line">&lt;property name=<span class="string">""</span> value=<span class="string">"$&#123;key&#125;"</span>&gt;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -196,7 +197,7 @@ git
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/hexo/">#hexo</a> <a href="/tags/github/">#github</a>
+            <a href="/tags/java/">#java</a> <a href="/tags/spring/">#spring</a>
         </div>
     
 
