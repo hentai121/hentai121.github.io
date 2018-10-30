@@ -10,7 +10,7 @@
     
     
     
-    <title>Debian(Ubuntu)网络安装/重装系统一键脚本 | UerAx</title>
+    <title>404 | UerAx</title>
     <link href=”http://yoursite.com“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -186,140 +186,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="http://yoursite.com">UerAx</a>
-        >
-        <span>Debian(Ubuntu)网络安装/重装系统一键脚本</span>
-    </div>
-    <!-- 大型设备详细文章 -->
-    <div class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2018/06/26/reOS/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/linux/">linux</a>, 
-                
-                <a href="/tags/debian/">debian</a>, 
-                
-                <a href="/tags/ubuntu/">ubuntu</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-06-26
-            </span>
-            
-        </div>
-    </div>
-    <!-- 小型设备详细文章 -->
-    <div class="visible-xs">
-        <center>
-            <div class="title-article">
-                <h4>
-                    <a href="/2018/06/26/reOS/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
-                </h4>
-            </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2018-06-26
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/linux/">linux</a>, 
-                
-                <a href="/tags/debian/">debian</a>, 
-                
-                <a href="/tags/ubuntu/">ubuntu</a>
-                
-                
-                
-            </p>
-        </center>
-    </div>
-    <div class="content-article">
-        <blockquote>
-<p>注意</p>
-</blockquote>
-<ol>
-<li>全自动安装默认root密码:Vicer,安装完成后请立即更改密码</li>
-<li>请使用 passwd root 命令更改密码</li>
-<li>OpenVZ构架不适用</li>
-</ol>
-<blockquote>
-<p>确保安装了所需软件</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Debian/Ubuntu:</span></span><br><span class="line">apt-get install -y gawk sed grep</span><br><span class="line"> </span><br><span class="line"><span class="comment">#RedHat/CentOS:</span></span><br><span class="line">yum install -y gawk sed grep</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果出现了错误,请运行</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Debian/Ubuntu:</span></span><br><span class="line">apt-get update</span><br><span class="line"> </span><br><span class="line"><span class="comment">#RedHat/CentOS:</span></span><br><span class="line">yum update</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>一键下载</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -qO DebianNET.sh <span class="string">'https://moeclub.org/attachment/LinuxShell/DebianNET.sh'</span> &amp;&amp; chmod a+x DebianNET.sh</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">        bash DebianNET.sh       -d/--debian [dist-name]</span><br><span class="line">                                -u/--ubuntu [dist-name]</span><br><span class="line">                                -v/--ver [32/i386|64/amd64]</span><br><span class="line">                                --ip-addr/--ip-gate/--ip-mask</span><br><span class="line">                                -apt/--mirror</span><br><span class="line">                                -dd/--image</span><br><span class="line">                                -a/-m</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>全自动/非自动示例</p>
-</blockquote>
-<ul>
-<li>全自动安装</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386 -a</span><br></pre></td></tr></table></figure>
-<ul>
-<li>VNC手动安装</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386 -m</span><br></pre></td></tr></table></figure>
-<ul>
-<li>全自动安装(指定网络参数)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将X.X.X.X替换为自己的网络参数.</span></span><br><span class="line"><span class="comment"># --ip-addr :IP Address/IP地址</span></span><br><span class="line"><span class="comment"># --ip-gate :Gateway   /网关</span></span><br><span class="line"><span class="comment"># --ip-mask :Netmask   /子网掩码</span></span><br><span class="line">bash DebianNET.sh -d wheezy -v i386 -a --ip-addr X.X.X.X --ip-mask X.X.X.X --ip-gate X.X.X.X</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用示例</p>
-</blockquote>
-<ul>
-<li>【默认】安装Debian 7 x32</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 7 -v 32</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Debian 8 x64</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d jessie -v amd64</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 8 -v 64</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Debian 9 x64</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d stretch -v amd64</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 9 -v 64</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Ubuntu 14.04 x64</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u trusty -v 64</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Ubuntu 16.04 x64</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u xenial -v 64</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Ubuntu 18.04 x64</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u bionic -v 64</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>转载自</p>
-</blockquote>
-<h1 id="萌咖"><a href="#萌咖" class="headerlink" title="萌咖"></a><a href="https://moeclub.org/2017/03/25/82/?v=656" target="_blank" rel="noopener">萌咖</a></h1>
-    </div>
-</article>
+                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
 
+<!-- 404 自定义页面 -->
+<!-- 有其他想自定义的page在这里添加判断条件, 并且写好对应的模板渲染文件 -->
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -508,43 +378,43 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/2018/06/26/reOS/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/404/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/2018/06/26/reOS/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/404/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/2018/06/26/reOS/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/404/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/git/" style="font-size: 9.03455608425682px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 18.086950115232852px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/bbr/" style="font-size: 18.90073002703178px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/bbr/" style="font-size: 12.781000057227457px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/linux/" style="font-size: 12.611943881509227px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/linux/" style="font-size: 17.074722839976815px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/hexo/" style="font-size: 10.217938686182993px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 11.503932789674547px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/github/" style="font-size: 18.889380975914868px;" class="tag-cloud-link">github</a>
+    <a href="/tags/github/" style="font-size: 12.442738931832084px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/java/" style="font-size: 12.074931525037343px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 10.335808005916682px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/regex/" style="font-size: 17.755861294876816px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 8.063561158465152px;" class="tag-cloud-link">regex</a>
     
-    <a href="/tags/email/" style="font-size: 13.1735919958291px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 17.270979730445536px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/PayPal/" style="font-size: 14.071923439124642px;" class="tag-cloud-link">PayPal</a>
+    <a href="/tags/PayPal/" style="font-size: 12.192315468820834px;" class="tag-cloud-link">PayPal</a>
     
-    <a href="/tags/spring/" style="font-size: 14.48796252693798px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 14.106020079379494px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/debian/" style="font-size: 8.262753419858797px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/debian/" style="font-size: 18.929249645190964px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 10.617405774587471px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/ubuntu/" style="font-size: 9.656600598303925px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/paypal/" style="font-size: 12.25788368157529px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/paypal/" style="font-size: 10.622615462205083px;" class="tag-cloud-link">paypal</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

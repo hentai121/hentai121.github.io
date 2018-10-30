@@ -10,7 +10,7 @@
     
     
     
-    <title>All tags | UerAx的博客</title>
+    <title>分类 | UerAx</title>
     <link href=”http://yoursite.com“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -104,10 +104,34 @@
                 
                 
                 
-                <li class="current">
-                    <a href="/categories">
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
                         <i class="fa fa-list"></i>分类
                     </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/bbr/">bbr</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/note/">note</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/java/">java</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
                 </li>
                 
                 
@@ -128,11 +152,11 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/hexo/">hexo</a>
+                            <a href="/tags/bbr/">bbr</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/github/">github</a>
+                            <a href="/tags/linux/">linux</a>
                         </li>
                         
                         
@@ -162,21 +186,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
-
-
-<article class="article well article-body" id="article">
+                    <article class="article well article-body" id="article-categories">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://yoursite.com">UerAx</a>
+        >
+        <span>目录</span>
+    </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/categories/index.html">All tags</a>
+                <a href="/categories">目录集合</a>
             </h1>
-        </div>
-        <div class="tag-article">
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-10-28
-            </span>
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -184,21 +206,30 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/categories/index.html">All tags</a>
+                    <a href="/categories">目录集合</a>
                 </h4>
             </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2018-10-28
-            </p>
         </center>
     </div>
-    <div class="content-article">
-        
+    <div class="content-article" style="margin-top: 30px;">
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            
+            <a href="/categories/bbr/">bbr</a>
+            <br>
+            
+            <a href="/categories/note/">note</a>
+            <br>
+            
+            <a href="/categories/java/">java</a>
+            <br>
+            
+            <a href="/categories/linux/">linux</a>
+            <br>
+            
+            
+        </div>
     </div>
 </article>
-
-
-
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -243,7 +274,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(3)</a>
+                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(1)</a>
                 </span>
             </li>
             
@@ -325,13 +356,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
+                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
@@ -349,19 +380,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(3)</a>
+                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/27/spring学习/">Spring学习笔记(1)</a>
+                    <a href="/2018/06/26/reOS/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
                 </span>
             </li>
             
@@ -373,7 +398,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/26/reOS/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
+                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring学习/">Spring学习笔记(1)</a>
                 </span>
             </li>
             
@@ -398,25 +429,31 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/git/" style="font-size: 11.771064308715877px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 14.829863773695488px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/hexo/" style="font-size: 12.621640675725065px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/bbr/" style="font-size: 11.91123166620243px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/github/" style="font-size: 11.771472337162077px;" class="tag-cloud-link">github</a>
+    <a href="/tags/linux/" style="font-size: 13.668267532649041px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/PayPal/" style="font-size: 17.310074656684705px;" class="tag-cloud-link">PayPal</a>
+    <a href="/tags/hexo/" style="font-size: 18.585726591422723px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/java/" style="font-size: 8.494030777269758px;" class="tag-cloud-link">java</a>
+    <a href="/tags/github/" style="font-size: 19.306258736480316px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/regex/" style="font-size: 11.80089623665145px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/java/" style="font-size: 18.81016227005411px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/email/" style="font-size: 10.679563880577513px;" class="tag-cloud-link">email</a>
+    <a href="/tags/regex/" style="font-size: 12.498867955727443px;" class="tag-cloud-link">regex</a>
     
-    <a href="/tags/spring/" style="font-size: 13.049744841420136px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/email/" style="font-size: 15.746666438855893px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/bbr/" style="font-size: 17.089581071474015px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/PayPal/" style="font-size: 14.684339464223983px;" class="tag-cloud-link">PayPal</a>
     
-    <a href="/tags/linux/" style="font-size: 17.957110202291982px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/spring/" style="font-size: 19.83590466782905px;" class="tag-cloud-link">spring</a>
+    
+    <a href="/tags/debian/" style="font-size: 19.37849066019804px;" class="tag-cloud-link">debian</a>
+    
+    <a href="/tags/ubuntu/" style="font-size: 9.195530108686352px;" class="tag-cloud-link">ubuntu</a>
+    
+    <a href="/tags/paypal/" style="font-size: 10.451200100700593px;" class="tag-cloud-link">paypal</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
