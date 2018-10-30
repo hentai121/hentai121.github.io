@@ -114,11 +114,11 @@
                         
                         
                         <li>
-                            <a href="/categories/bbr/">bbr</a>
+                            <a href="/categories/note/">note</a>
                         </li>
                         
                         <li>
-                            <a href="/categories/note/">note</a>
+                            <a href="/categories/bbr/">bbr</a>
                         </li>
                         
                         <li>
@@ -152,11 +152,11 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/bbr/">bbr</a>
+                            <a href="/tags/hexo/">hexo</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/linux/">linux</a>
+                            <a href="/tags/github/">github</a>
                         </li>
                         
                         
@@ -172,7 +172,7 @@
                 
                 
                 <li class="">
-                    <a href="/about">
+                    <a href="https://github.com/hentai121">
                         <i class="fa fa-user"></i>关于我
                     </a>
                 </li>
@@ -258,10 +258,7 @@
 <li>需要引入的 jar 包 : c3p0 的 c3p0 , mchange-commons 包</li>
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"driverClass"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"jdbcUrl"</span> value=<span class="string">"jdbc:mysql:///spring"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"user"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"password"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>通过 properties 文件保存</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 创建 properties 文件, 语法为 key=value</span><br><span class="line">driverClass=com.mysql.jdbc.Driver</span><br><span class="line"></span><br><span class="line">// 需要在配置文件配置</span><br><span class="line">&lt;context:property-placeholder location=<span class="string">"classpath:file.properties"</span>&gt;</span><br><span class="line"></span><br><span class="line">// 通过 $&#123;&#125; 调用</span><br><span class="line">&lt;property name=<span class="string">""</span> value=<span class="string">"$&#123;key&#125;"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="通过-properties-文件保存"><a href="#通过-properties-文件保存" class="headerlink" title="通过 properties 文件保存"></a>通过 properties 文件保存</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 创建 properties 文件, 语法为 key=value</span><br><span class="line">driverClass=com.mysql.jdbc.Driver</span><br><span class="line"></span><br><span class="line">// 需要在配置文件配置</span><br><span class="line">&lt;context:property-placeholder location=<span class="string">"classpath:file.properties"</span>&gt;</span><br><span class="line"></span><br><span class="line">// 通过 $&#123;&#125; 调用</span><br><span class="line">&lt;property name=<span class="string">""</span> value=<span class="string">"$&#123;key&#125;"</span>&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Spring 事务管理</p>
 </blockquote>
@@ -323,7 +320,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(1)</a>
+                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(3)</a>
                 </span>
             </li>
             
@@ -405,13 +402,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
                 </span>
             </li>
             
@@ -447,7 +444,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(1)</a>
+                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(3)</a>
                 </span>
             </li>
             
@@ -478,52 +475,42 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/git/" style="font-size: 11.605736192405116px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 19.15488881883673px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/bbr/" style="font-size: 9.233896857308615px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/hexo/" style="font-size: 12.066661736435115px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/linux/" style="font-size: 15.942905433899377px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/github/" style="font-size: 12.16239507263293px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/hexo/" style="font-size: 16.583199958792502px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/bbr/" style="font-size: 11.79871237552727px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/github/" style="font-size: 15.53032733121109px;" class="tag-cloud-link">github</a>
+    <a href="/tags/linux/" style="font-size: 8.891216703730365px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/java/" style="font-size: 18.320498950348902px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 11.856632527657773px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/regex/" style="font-size: 17.81943938159364px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 19.201528801649914px;" class="tag-cloud-link">regex</a>
     
-    <a href="/tags/email/" style="font-size: 13.556710755010172px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 16.497911774325186px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/PayPal/" style="font-size: 19.657131727939273px;" class="tag-cloud-link">PayPal</a>
+    <a href="/tags/paypal/" style="font-size: 16.11122628673872px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/spring/" style="font-size: 14.585529694422807px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/debian/" style="font-size: 18.660025495473413px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/debian/" style="font-size: 14.989784917698731px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/ubuntu/" style="font-size: 14.954420308464261px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 10.622613258796864px;" class="tag-cloud-link">ubuntu</a>
-    
-    <a href="/tags/paypal/" style="font-size: 12.719909306367072px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/spring/" style="font-size: 17.1031141047874px;" class="tag-cloud-link">spring</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
-    </li>
-    
-    <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
-    </li>
-    
-    <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://github.com/hentai121" target="_blank">UerAx</a>
     </li>
     
 </div>
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/hentai121" target="_blank">Github</a>
     </li>
     
 </div>

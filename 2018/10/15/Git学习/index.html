@@ -114,11 +114,11 @@
                         
                         
                         <li>
-                            <a href="/categories/bbr/">bbr</a>
+                            <a href="/categories/note/">note</a>
                         </li>
                         
                         <li>
-                            <a href="/categories/note/">note</a>
+                            <a href="/categories/bbr/">bbr</a>
                         </li>
                         
                         <li>
@@ -152,11 +152,11 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/bbr/">bbr</a>
+                            <a href="/tags/hexo/">hexo</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/linux/">linux</a>
+                            <a href="/tags/github/">github</a>
                         </li>
                         
                         
@@ -172,7 +172,7 @@
                 
                 
                 <li class="">
-                    <a href="/about">
+                    <a href="https://github.com/hentai121">
                         <i class="fa fa-user"></i>关于我
                     </a>
                 </li>
@@ -287,14 +287,14 @@
 <blockquote>
 <p>创建别名</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//将命令名用一个&lt;new-name&gt;代替作为别名</span><br><span class="line">//--global参数使该命令作用在当前用户, 如不加则只针对当前仓库</span><br><span class="line">git config --global <span class="built_in">alias</span>.&lt;new-name&gt; <span class="string">'old-name'</span></span><br><span class="line">//也可通过修改.git/config文件</span><br><span class="line">//在[<span class="built_in">alias</span>]后面添加</span><br><span class="line">&lt;new-name&gt; = &lt;old-name&gt;</span><br><span class="line"></span><br><span class="line">//删除别名</span><br><span class="line">//直接修改.git/config文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//将命令名用一个&lt;new-name&gt;代替作为别名</span><br><span class="line">//--<span class="keyword">global</span>参数使该命令作用在当前用户, 如不加则只针对当前仓库</span><br><span class="line">git config --<span class="keyword">global</span> alias.&lt;new-name&gt; <span class="string">'old-name'</span></span><br><span class="line">//也可通过修改.git/config文件</span><br><span class="line">//在[alias]后面添加</span><br><span class="line">&lt;new-name&gt; = &lt;old-name&gt;</span><br><span class="line"></span><br><span class="line">//删除别名</span><br><span class="line">//直接修改.git/config文件</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>忽略特殊文件</p>
 </blockquote>
 <p>Git为我们提供了.gitignore文件，此文件专门来做忽略，只要在此文件中设置你想忽略的内容就可以了。<br>不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。<br>所有配置文件可以直接在线浏览：<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a></p>
 <p>如希望.gitignore文件作用于所有工作目录, 不希望每次都要在工作目录添加.gitignore文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在用户文件夹下创建.gitconfig_global并写入规则</span><br><span class="line">如果无法创建空文件名</span><br><span class="line">直接创建 .gitignore_global. 文件, 系统提示&quot;如果改变文件扩展名，可能会导致文件不可用。确实要更改吗？&quot;选择确定即可</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在用户文件夹(Users/用户名/)下修改.gitconfig配置, 在[core]下添加</span><br><span class="line">excludesfile = 用户文件夹\\.gitconfig_global</span><br><span class="line"></span><br><span class="line">也可以使用Git命令进行设置</span><br><span class="line">git config --global core.excludesfile ~/.gitconfig_global</span><br><span class="line"></span><br><span class="line">最后可以通过git config --list查看是否设置成功</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在用户文件夹下创建.gitconfig_global并写入规则</span><br><span class="line">如果无法创建空文件名</span><br><span class="line">直接创建 .gitignore_global. 文件, 系统提示<span class="string">"如果改变文件扩展名，可能会导致文件不可用。确实要更改吗？"</span>选择确定即可</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在用户文件夹(Users/用户名/)下修改.gitconfig配置, 在[core]下添加</span><br><span class="line">excludesfile = 用户文件夹\\.gitconfig_global</span><br><span class="line"></span><br><span class="line">也可以使用Git命令进行设置</span><br><span class="line">git config --<span class="keyword">global</span> core.excludesfile ~/.gitconfig_global</span><br><span class="line"></span><br><span class="line">最后可以通过git config --list查看是否设置成功</span><br></pre></td></tr></table></figure>
     </div>
 </article>
 
@@ -343,7 +343,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(1)</a>
+                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(3)</a>
                 </span>
             </li>
             
@@ -425,13 +425,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
                 </span>
             </li>
             
@@ -467,7 +467,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(1)</a>
+                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(3)</a>
                 </span>
             </li>
             
@@ -498,52 +498,42 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/git/" style="font-size: 19.9460380903547px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 18.107372557133758px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/bbr/" style="font-size: 19.2968245895164px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/hexo/" style="font-size: 17.933033977307833px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/linux/" style="font-size: 13.736610460469143px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/github/" style="font-size: 16.367742748564513px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/hexo/" style="font-size: 18.86409450464363px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/bbr/" style="font-size: 19.084016844905253px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/github/" style="font-size: 13.155527570340178px;" class="tag-cloud-link">github</a>
+    <a href="/tags/linux/" style="font-size: 13.468227064549248px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/java/" style="font-size: 19.8812967327207px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 10.051056478696697px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/regex/" style="font-size: 19.005093032677422px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 14.274078568828468px;" class="tag-cloud-link">regex</a>
     
-    <a href="/tags/email/" style="font-size: 9.499979866977181px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 15.08102858015031px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/PayPal/" style="font-size: 12.686772325123464px;" class="tag-cloud-link">PayPal</a>
+    <a href="/tags/paypal/" style="font-size: 10.075178433548992px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/spring/" style="font-size: 13.711996260266847px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/debian/" style="font-size: 13.435113701221017px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/debian/" style="font-size: 11.575514552964666px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/ubuntu/" style="font-size: 12.773246090444072px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 19.58245110286463px;" class="tag-cloud-link">ubuntu</a>
-    
-    <a href="/tags/paypal/" style="font-size: 11.916672136102733px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/spring/" style="font-size: 18.099797445909395px;" class="tag-cloud-link">spring</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
     
     <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
-    </li>
-    
-    <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
-    </li>
-    
-    <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+        <a href="https://github.com/hentai121" target="_blank">UerAx</a>
     </li>
     
 </div>
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/hentai121" target="_blank">Github</a>
     </li>
     
 </div>
