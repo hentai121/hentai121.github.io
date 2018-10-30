@@ -147,6 +147,32 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2018/10/28/springnote-3/">
+                Spring学习笔记(3)
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-10-28</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2018/10/28/springnote-2/">
                 Spring学习笔记(2)
             </a>
@@ -181,7 +207,19 @@
 <p>通过 properties 文件保存</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 创建 properties 文件, 语法为 key=value</span><br><span class="line">driverClass=com.mysql.jdbc.Driver</span><br><span class="line"></span><br><span class="line">// 需要在配置文件配置</span><br><span class="line">&lt;context:property-placeholder location=<span class="string">"classpath:file.properties"</span>&gt;</span><br><span class="line"></span><br><span class="line">// 通过 $&#123;&#125; 调用</span><br><span class="line">&lt;property name=<span class="string">""</span> value=<span class="string">"$&#123;key&#125;"</span>&gt;</span><br></pre></td></tr></table></figure>
-
+<blockquote>
+<p>Spring 事务管理</p>
+</blockquote>
+<h3 id="声明式事务"><a href="#声明式事务" class="headerlink" title="声明式事务"></a>声明式事务</h3><ul>
+<li>通过配置实现</li>
+<li>需要引入的 jar 包 : AOP 所需要的全部包</li>
+</ul>
+<h4 id="XML-配置方法"><a href="#XML-配置方法" class="headerlink" title="XML 配置方法"></a>XML 配置方法</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 配置平台管理器</span><br><span class="line">&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;</span><br><span class="line">    // 配置数据库连接池</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 配置增强</span><br><span class="line">&lt;tx:advice id=<span class="string">"txAdvice"</span> transaction-manager=<span class="string">"transactionManager"</span>&gt;</span><br><span class="line">    &lt;tx:attributes&gt;</span><br><span class="line">        &lt;tx:method name=<span class="string">"methodName"</span> propagation=<span class="string">"REQUIRED"</span>/&gt;</span><br><span class="line">    &lt;/tx:attributes&gt;</span><br><span class="line">&lt;/tx:advice&gt;</span><br><span class="line"></span><br><span class="line">// AOP 配置</span><br><span class="line">&lt;aop:config&gt;</span><br><span class="line">    &lt;aop:pointcut expression=<span class="string">"execution(* com.uerax.spring.tx.demo1.StudentServiceImpl.*(..))"</span> id=<span class="string">"pointcut1"</span> /&gt;</span><br><span class="line">    &lt;aop:advisor advice-ref=<span class="string">"txAdvice"</span> pointcut-ref=<span class="string">"pointcut1"</span> /&gt;</span><br><span class="line">&lt;/aop:config&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="注解方法"><a href="#注解方法" class="headerlink" title="注解方法"></a>注解方法</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 配置平台管理器</span><br><span class="line">&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;</span><br><span class="line">    // 配置数据库连接池</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 开启注解事务</span><br><span class="line">&lt;tx:annotation-driven transaction-manager=<span class="string">"transactionManager"</span>/&gt;</span><br><span class="line"></span><br><span class="line">// 在业务层添加注解</span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line">public class Service &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="编程式事务"><a href="#编程式事务" class="headerlink" title="编程式事务"></a>编程式事务</h3><ul>
+<li>需要手动书写代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 配置平台管理器</span><br><span class="line">&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;</span><br><span class="line">    // 配置数据库连接池</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 配置事务管理模板</span><br><span class="line">&lt;bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"transactionManager"</span> ref=<span class="string">"transactionManager"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 在需要添加事务的方法中添加</span><br><span class="line">transactionTemplate.execute(new TransactionCallbackWithoutResult() &#123;</span><br><span class="line">    protected void doInTransactionWithoutResult(TransactionStatus arg0) &#123;</span><br><span class="line">        // 需要添加事务的方法</span><br><span class="line">    &#125;&#125;);</span><br></pre></td></tr></table></figure>
         </div>
     
 
@@ -674,6 +712,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2018/10/28/springnote-3/">Spring学习笔记(3)</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2018/10/28/springnote-2/">Spring学习笔记(2)</a>
             </li>
             
@@ -683,10 +725,6 @@
             
             <li>
                 <a class="footer-post" href="/2018/10/16/javaRegex/">javaRegex</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2018/10/15/Git学习/">Git学习</a>
             </li>
             
         </ul>
