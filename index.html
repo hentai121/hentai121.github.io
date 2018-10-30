@@ -1,815 +1,1409 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="UerAx">
     
-
-    <!--Author-->
     
-        <meta name="author" content="UerAx">
     
-
-    <!--Open Graph Title-->
     
-        <meta property="og:title" content="UerAx的博客"/>
     
-
-    <!--Open Graph Description-->
-    
-
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="UerAx的博客"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website" />
-    
-
-    <!--Page Cover-->
-    
-
-    <meta name="twitter:card" content="summary" />
-    
-
-    <!-- Title -->
     
     <title>UerAx的博客</title>
+    <link href=”http://yoursite.com“ rel=”prefetch” />
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-
-    <!-- Google Analytics -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
     
-
-
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
 </head>
-
-
 <body>
-
-<div class="bg-gradient"></div>
-<div class="bg-pattern"></div>
-
-<!-- Menu -->
-<!--Menu Links and Overlay-->
-<div class="menu-bg">
-    <div class="menu-container">
-        <ul>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Home
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/archives">
-                    Archives
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/">
-                    About
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/tags">
-                    Tags
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/categories">
-                    Categories
-                </a>
-            </li>
-            
-            <li class="menu-item">
-                <a href="/">
-                    Contact
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
-
-<!--Hamburger Icon-->
-<nav>
-    <a href="#menu"></a>
-</nav>
-
-<div class="container">
-
-    <!-- Main Content -->
-    <div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
-        
-            <h1 id="main-title" class="title">UerAx的博客</h1>
-        
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://yoursite.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">UerAx</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="current">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/categories">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/github/">github</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
     </div>
 </header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<div class="alert well fade in" id="gal-issue" role="alert">
+    <!-- TODO 添加关闭公告框功能 -->
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <!-- 这里自行配置公告内容 -->
+    <strong>喂,刚刚点进来的时候名字下面的头像你偷看了吧?这么想看就让你看个够了(震声)</strong>
+    <!-- 自行配置公告内容结束 -->
+</div>
 
-        <section class="main">
+<div id="article-list">
+     
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">10月</span>
+        <span class="day">28</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/10/28/springnote-3/">
+                    <span>Spring学习笔记(3)</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
             
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
                 
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2018/10/28/springnote-3/">
-                Spring学习笔记(3)
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-10-28</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            
-        </div>
-    
-
-</div>
-            
+                <a href="/tags/java/">java</a>, 
                 
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2018/10/28/springnote-2/">
-                Spring学习笔记(2)
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-10-28</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <blockquote>
-<p>Spring JDBC</p>
-</blockquote>
-<ul>
-<li>需要引入的 jar 包 : Spring 的 JDBC , tx , aop 的包和数据库驱动的包</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 将连接池和模板交给 Spring 管理</span><br><span class="line">// 配置连接池</span><br><span class="line">&lt;bean id="dataSourceId" class="org.springframework.jdbc.datasource.DriverManagerDataSource"&gt;</span><br><span class="line">    // 配置数据库驱动</span><br><span class="line">    &lt;property name=<span class="string">"driverClassName"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span><br><span class="line">    // 配置数据库 database</span><br><span class="line">    &lt;property name=<span class="string">"url"</span> value=<span class="string">"jdbc:mysql:///database"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"username"</span> value=<span class="string">"username"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"password"</span> value=<span class="string">"password"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSourceId"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 增 删 改 使用 update方法</span><br><span class="line">jdbcTemplate.update(<span class="string">"sql"</span>, args);</span><br><span class="line"></span><br><span class="line">// 查 使用 queryForObject方法</span><br><span class="line">// 返回 String 类型的值</span><br><span class="line">String str = jdbcTemplate.queryForObject(<span class="string">"sql"</span>, String.<span class="keyword">class</span>, args)</span><br></pre></td></tr></table></figure>
-<h3 id="使用开源连接池-DBCP-连接池"><a href="#使用开源连接池-DBCP-连接池" class="headerlink" title="使用开源连接池 DBCP 连接池"></a>使用开源连接池 DBCP 连接池</h3><ul>
-<li>需要引入的 jar 包 : apache 的 dbcp , pool 包</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 只需要将配置连接池的 <span class="class"><span class="keyword">class</span> 改成 <span class="title">org</span>.<span class="title">apache</span>.<span class="title">commons</span>.<span class="title">dbcp2</span>.<span class="title">BasicDataSource</span> 其他用法不变</span></span><br><span class="line">&lt;bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"driverClassName"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"url"</span> value=<span class="string">"jdbc:mysql:///spring"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"username"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"password"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="使用-C3P0-连接池"><a href="#使用-C3P0-连接池" class="headerlink" title="使用 C3P0 连接池"></a>使用 C3P0 连接池</h3><ul>
-<li>需要引入的 jar 包 : c3p0 的 c3p0 , mchange-commons 包</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"driverClass"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"jdbcUrl"</span> value=<span class="string">"jdbc:mysql:///spring"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"user"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"password"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>通过 properties 文件保存</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 创建 properties 文件, 语法为 key=value</span><br><span class="line">driverClass=com.mysql.jdbc.Driver</span><br><span class="line"></span><br><span class="line">// 需要在配置文件配置</span><br><span class="line">&lt;context:property-placeholder location=<span class="string">"classpath:file.properties"</span>&gt;</span><br><span class="line"></span><br><span class="line">// 通过 $&#123;&#125; 调用</span><br><span class="line">&lt;property name=<span class="string">""</span> value=<span class="string">"$&#123;key&#125;"</span>&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Spring 事务管理</p>
-</blockquote>
-<h3 id="声明式事务"><a href="#声明式事务" class="headerlink" title="声明式事务"></a>声明式事务</h3><ul>
-<li>通过配置实现</li>
-<li>需要引入的 jar 包 : AOP 所需要的全部包</li>
-</ul>
-<h4 id="XML-配置方法"><a href="#XML-配置方法" class="headerlink" title="XML 配置方法"></a>XML 配置方法</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 配置平台管理器</span><br><span class="line">&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;</span><br><span class="line">    // 配置数据库连接池</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 配置增强</span><br><span class="line">&lt;tx:advice id=<span class="string">"txAdvice"</span> transaction-manager=<span class="string">"transactionManager"</span>&gt;</span><br><span class="line">    &lt;tx:attributes&gt;</span><br><span class="line">        &lt;tx:method name=<span class="string">"methodName"</span> propagation=<span class="string">"REQUIRED"</span>/&gt;</span><br><span class="line">    &lt;/tx:attributes&gt;</span><br><span class="line">&lt;/tx:advice&gt;</span><br><span class="line"></span><br><span class="line">// AOP 配置</span><br><span class="line">&lt;aop:config&gt;</span><br><span class="line">    &lt;aop:pointcut expression=<span class="string">"execution(* com.uerax.spring.tx.demo1.StudentServiceImpl.*(..))"</span> id=<span class="string">"pointcut1"</span> /&gt;</span><br><span class="line">    &lt;aop:advisor advice-ref=<span class="string">"txAdvice"</span> pointcut-ref=<span class="string">"pointcut1"</span> /&gt;</span><br><span class="line">&lt;/aop:config&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="注解方法"><a href="#注解方法" class="headerlink" title="注解方法"></a>注解方法</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 配置平台管理器</span><br><span class="line">&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;</span><br><span class="line">    // 配置数据库连接池</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 开启注解事务</span><br><span class="line">&lt;tx:annotation-driven transaction-manager=<span class="string">"transactionManager"</span>/&gt;</span><br><span class="line"></span><br><span class="line">// 在业务层添加注解</span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line">public class Service &#123;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="编程式事务"><a href="#编程式事务" class="headerlink" title="编程式事务"></a>编程式事务</h3><ul>
-<li>需要手动书写代码</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 配置平台管理器</span><br><span class="line">&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;</span><br><span class="line">    // 配置数据库连接池</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 配置事务管理模板</span><br><span class="line">&lt;bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"transactionManager"</span> ref=<span class="string">"transactionManager"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 在需要添加事务的方法中添加</span><br><span class="line">transactionTemplate.execute(new TransactionCallbackWithoutResult() &#123;</span><br><span class="line">    protected void doInTransactionWithoutResult(TransactionStatus arg0) &#123;</span><br><span class="line">        // 需要添加事务的方法</span><br><span class="line">    &#125;&#125;);</span><br></pre></td></tr></table></figure>
-        </div>
-    
-
-</div>
-            
+                <a href="/tags/spring/">spring</a>
                 
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2018/10/27/spring学习/">
-                Spring学习笔记(1)
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-10-27</span>
+            </span>
             
             
-            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/10/28/springnote-3/#comments">739</a>
+            </span>-->
         </div>
-    </div>
-
-    
-        <div class="content">
-            <blockquote>
-<p>环境配置</p>
-</blockquote>
-<ul>
-<li>基础 jar 包 : Spring 自带的 beans, core, context, expression 包另外还需要 log4j 和 commons-logging 两个日志包</li>
-</ul>
-<blockquote>
-<p>bean 标签来完成实例化</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">// 需要添加 xml 的 bean 约束用 Eclipse 的 Spring tools 插件自动生成</span><br><span class="line">// beanId -&gt; 实例化后的id    classPath -&gt; 类的包路径</span><br><span class="line">&lt;bean id="beanId" class="classPath"&gt;&lt;bean/&gt;</span><br><span class="line"></span><br><span class="line">// 属性注入 - set 方法注入, 属性必须实现 set 方法</span><br><span class="line">&lt;bean id="beanId" class="classPath"&gt;</span><br><span class="line"></span><br><span class="line">    // 普通属性注入</span><br><span class="line">    &lt;property name=<span class="string">"属性名"</span> value=<span class="string">"注入的值"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    // 对象类型注入</span><br><span class="line">    &lt;property name=<span class="string">"属性名"</span> ref=<span class="string">"beanId"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    // SpEL的属性注入</span><br><span class="line">    &lt;property name=<span class="string">"属性名"</span> value=<span class="string">"&#123;注入的值(非字符)&#125;"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"属性名"</span> value=<span class="string">"&#123;'字符串或者字符'&#125;"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    // 集合类型注入</span><br><span class="line">    // 数组和 List 类型</span><br><span class="line">    &lt;property name=<span class="string">"属性名"</span>&gt;</span><br><span class="line">        &lt;list&gt;</span><br><span class="line">            &lt;value&gt;注入的值&lt;/value&gt;</span><br><span class="line">            &lt;value&gt;注入的值&lt;/value&gt;</span><br><span class="line">        &lt;list/&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    // Set 类型</span><br><span class="line">    &lt;property name=<span class="string">"属性名"</span>&gt;</span><br><span class="line">        &lt;set&gt;</span><br><span class="line">            &lt;value&gt;注入的值&lt;/value&gt;</span><br><span class="line">        &lt;/set&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line"></span><br><span class="line">    // Map 类型</span><br><span class="line">    &lt;property name=<span class="string">"属性名"</span>&gt;</span><br><span class="line">        &lt;map&gt;</span><br><span class="line">            &lt;entry key=<span class="string">"keyName"</span> value=<span class="string">"value"</span>&gt;</span><br><span class="line">        &lt;/map&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;bean/&gt;</span><br><span class="line"></span><br><span class="line">// 可导入其他配置文件</span><br><span class="line">&lt;<span class="keyword">import</span> resource=<span class="string">"path"</span>&gt;</span><br><span class="line"></span><br><span class="line">// 在 applicationContext.xml 文件下配置好后</span><br><span class="line">// ClassPathXmlApplicationContext -&gt; 读取类包同路径下(如同类包在 src 文件夹下)</span><br><span class="line">ApplicationContext applicationContext = new ClassPathXmlApplicationContext(<span class="string">"xml文件路径"</span>);</span><br><span class="line">// FileSystemXmlApplicationContext -&gt; 读取工程目录下</span><br><span class="line">ApplicationContext applicationContext = new FileSystemXmlApplicationContext(<span class="string">"xml文件路径"</span>);</span><br><span class="line">ClassName className = (ClassName) applicationContext.getBean(<span class="string">"beanId"</span>);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>通过注释实现实例化</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 需要添加 xml 的 context 约束用 Eclipse 的 Spring tools 插件自动生成</span><br><span class="line">// 需要在配置文件指定扫描的包</span><br><span class="line">&lt;context:component-scan base-package=<span class="string">"需要扫描的包及其子包"</span>&gt;</span><br><span class="line"></span><br><span class="line">// Contorller 和 Service 和 Repository 一样的功能</span><br><span class="line"><span class="meta">@Controller("beanId")</span></span><br><span class="line">public class className &#123;</span><br><span class="line"></span><br><span class="line">    // 普通类型使用 Value</span><br><span class="line"><span class="meta">    @Value("value")</span></span><br><span class="line">    private int intValue;</span><br><span class="line"></span><br><span class="line"><span class="meta">    @Value("&#123;'value'&#125;")</span></span><br><span class="line">    private String StringValue;</span><br><span class="line"></span><br><span class="line">    // 对象类型使用 Resource 或者 Autowired + Qualifier</span><br><span class="line"><span class="meta">    @Resource(name="beanId")</span></span><br><span class="line">    private ClassName className;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用 Spring 整合 JUnit4 的功能</p>
-</blockquote>
-<ul>
-<li>需要引入的 jar 包 : Spring 的 Test 包</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringJUnit4ClassRunner.class)</span></span><br><span class="line"><span class="meta">@ContextConfiguration("classpath:配置文件") // 配置文件放在类包同路径下</span></span><br><span class="line">// 配置文件放在工程目录下 @ContextConfiguration(<span class="string">"file:path/配置文件"</span>)</span><br><span class="line">public class classTester() &#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">    @Resource(name="beanId")</span></span><br><span class="line">    private ClassName className;</span><br><span class="line"></span><br><span class="line"><span class="meta">    @Test</span></span><br><span class="line">    public void method() &#123;</span><br><span class="line">        className.method();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Spring AOP</p>
-</blockquote>
-<ul>
-<li>需要引入的 jar 包 : Spring 的 aop, aspect 包</li>
-</ul>
-<h3 id="AOP-的配置方法"><a href="#AOP-的配置方法" class="headerlink" title="AOP 的配置方法"></a>AOP 的配置方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 在配置文件或者注解配置切面类</span><br><span class="line">&lt;bean id="aspectClass" class="path"&gt;&lt;bean/&gt;</span><br><span class="line"></span><br><span class="line">// AOP 配置</span><br><span class="line">&lt;aop:config&gt;</span><br><span class="line">    // 配置切点</span><br><span class="line">    // 常见写法</span><br><span class="line">    // execution(public * *(..))                                   所有的public方法  </span><br><span class="line">    // execution(* set*(..))                                       所有set开头的方法  </span><br><span class="line">    // execution(* com.uerax.service.AccountService.*(..))         AccountService类中的所有方法</span><br><span class="line">    // execution(* com.uerax.service.*.*(..))                      com.uerax.service包下所有的方法  </span><br><span class="line">    // execution(* com.uerax.service..*.*(..))                     com.uerax.service包及其子包下所有的方法</span><br><span class="line">    &lt;aop:pointcut expression=<span class="string">"execution(* path.className.method(..))"</span> id=<span class="string">"切点名"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    // 配置切面</span><br><span class="line">    &lt;aop:aspect ref=<span class="string">"aspectClass"</span>&gt;</span><br><span class="line">        // 前置通知 -&gt; 执行前检查</span><br><span class="line">        &lt;aop:before method=<span class="string">"aspectClass的方法"</span> pointcut-ref=<span class="string">"切点名"</span> /&gt;</span><br><span class="line"></span><br><span class="line">        // 后置通知 -&gt; 执行后检查</span><br><span class="line">        &lt;aop:after-returning method=<span class="string">""</span> pointcut-ref=<span class="string">""</span> /&gt;</span><br><span class="line"></span><br><span class="line">        // 环绕通知 -&gt; 执行前后都检查</span><br><span class="line">        &lt;aop:around method=<span class="string">""</span> pointcut-ref=<span class="string">""</span> /&gt;</span><br><span class="line"></span><br><span class="line">        // 异常抛出通知</span><br><span class="line">        &lt;aop:after-throwing method=<span class="string">""</span> pointcut-ref=<span class="string">""</span> throwing=<span class="string">"ex(抛出的异常id)"</span>/&gt;</span><br><span class="line"></span><br><span class="line">        // finally 通知 -&gt; 方法报错也会执行</span><br><span class="line">        &lt;aop:after method=<span class="string">""</span> pointcut-ref=<span class="string">""</span> /&gt;</span><br><span class="line">    &lt;/aop:aspect&gt;</span><br><span class="line">&lt;/aop:config&gt;</span><br><span class="line"></span><br><span class="line">// 切面类</span><br><span class="line">public class AspectClass &#123;</span><br><span class="line">    // 前置通知</span><br><span class="line">    // joinPoint 连接点，指的是被增强的那个方法</span><br><span class="line">    public void before(JoinPoint joinPoint) &#123;&#125;</span><br><span class="line">  </span><br><span class="line">    // 后置通知</span><br><span class="line">    // result 增强的方法的返回值</span><br><span class="line">    public void afterReturning(JoinPoint joinPoint, Object result) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 环绕通知</span><br><span class="line">    // proceedingJoinPoint 正在执行的连接点</span><br><span class="line">    public Object around(ProceedingJoinPoint proceedingJoinPoint) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 异常抛出通知</span><br><span class="line">    // ex 目标方法抛出的异常 要与配置文件命名一致</span><br><span class="line">    public void afterThrowing(JoinPoint joinPoint, Throwable ex) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 最终通知</span><br><span class="line">    // 作用：不管目标方法是否发生异常，最终通知都会执行 (类似于<span class="keyword">finally</span>代码功能)</span><br><span class="line">    // 应用场景 : 释放资源 (关闭文件、 关闭数据库连接、 网络连接、 释放内存对象)</span><br><span class="line">    public void after(JoinPoint joinPoint) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="AOP-的注释方法"><a href="#AOP-的注释方法" class="headerlink" title="AOP 的注释方法"></a>AOP 的注释方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// 需要先在配置文件开启注解的 AOP 开发</span><br><span class="line">&lt;aop:aspectj-autoproxy/&gt;</span><br><span class="line"></span><br><span class="line">// 在切面类上添加</span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line">public void AspectClass &#123;</span><br><span class="line">    // 前置通知</span><br><span class="line"><span class="meta">    @Before("execution(* *.className.method(..))")</span></span><br><span class="line">    public void before() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 后置通知</span><br><span class="line">    // Object 声名的变量必须与注释配置的 returning 一致</span><br><span class="line"><span class="meta">    @AfterReturning(value="execution(* *.className.method(..))", returning="result")</span></span><br><span class="line">    public void afterReturning(Object result) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 环绕通知</span><br><span class="line"><span class="meta">    @Around(value="execution(* *.className.method(..))")</span></span><br><span class="line">    public void around(ProceedingJoinPoint joinPoint) throws Throwable &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 异常抛出通知</span><br><span class="line"><span class="meta">    @AfterThrowing(value="execution()")</span></span><br><span class="line"></span><br><span class="line">    // 最终通知</span><br><span class="line"><span class="meta">    @After(value="AspectClass.pointcut()", throwing="e")</span></span><br><span class="line"></span><br><span class="line">    // 配置切入点</span><br><span class="line">    // 直接用 className.pointcut() 选择该切入点</span><br><span class="line"><span class="meta">    @Pointcut("execution()")</span></span><br><span class="line">    private void pointcut() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2018/10/16/javaRegex/">
-                javaRegex
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-10-16</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//匹配除换行符（\n、\r）之外的任何单个字符。要匹配包括 <span class="string">'\n'</span> 在内的任何字符，请使用像<span class="string">"(.|\n)"</span>的模式。</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">//匹配 x 或 y。例如，<span class="string">'z|food'</span> 能匹配 <span class="string">"z"</span> 或 <span class="string">"food"</span>。<span class="string">'(z|f)ood'</span> 则匹配 <span class="string">"zood"</span> 或 <span class="string">"food"</span>。</span><br><span class="line">** x|y **</span><br><span class="line"></span><br><span class="line">//字符集合。匹配所包含的任意一个字符。例如， <span class="string">'[abc]'</span> 可以匹配 <span class="string">"plain"</span> 中的 <span class="string">'a'</span>。</span><br><span class="line">** [xyz] **</span><br><span class="line"></span><br><span class="line">//负值字符集合。匹配未包含的任意字符。例如， <span class="string">'[^abc]'</span> 可以匹配 <span class="string">"plain"</span> 中的<span class="string">'p'</span>、<span class="string">'l'</span>、<span class="string">'i'</span>、<span class="string">'n'</span>。</span><br><span class="line">[^xyz]	</span><br><span class="line"></span><br><span class="line">//字符范围。匹配指定范围内的任意字符。例如，<span class="string">'[a-z]'</span> 可以匹配 <span class="string">'a'</span> 到 <span class="string">'z'</span> 范围内的任意小写字母字符。</span><br><span class="line">[a-z]</span><br><span class="line"></span><br><span class="line">//负值字符范围。匹配任何不在指定范围内的任意字符。例如，<span class="string">'[^a-z]'</span> 可以匹配任何不在 <span class="string">'a'</span> 到 <span class="string">'z'</span> 范围内的任意字符。</span><br><span class="line">[^a-z]</span><br><span class="line"></span><br><span class="line">//匹配一个数字字符。等价于 [0-9]。</span><br><span class="line">\d</span><br><span class="line"></span><br><span class="line">//匹配一个非数字字符。等价于 [^0-9]。</span><br><span class="line">\D</span><br><span class="line"></span><br><span class="line">//匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。</span><br><span class="line">\s</span><br><span class="line"></span><br><span class="line">//匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。</span><br><span class="line">\S</span><br><span class="line"></span><br><span class="line">//匹配字母、数字、下划线。等价于<span class="string">'[A-Za-z0-9_]'</span>。</span><br><span class="line">\w</span><br><span class="line"></span><br><span class="line">//匹配非字母、数字、下划线。等价于 <span class="string">'[^A-Za-z0-9_]'</span>。</span><br><span class="line">\W</span><br></pre></td></tr></table></figure>
-<h2 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//匹配任何空白字符，包括空格、制表符、换页符等等。等价于 [ \f\n\r\t\v]。注意 Unicode 正则表达式会匹配全角空格符。</span><br><span class="line">\s</span><br><span class="line"></span><br><span class="line">//匹配任何非空白字符。等价于 [^ \f\n\r\t\v]。</span><br><span class="line">\S</span><br><span class="line"></span><br><span class="line">//匹配输入字符串的结尾位置。要匹配 $ 字符本身，请使用 \$</span><br><span class="line">$</span><br><span class="line"></span><br><span class="line">//匹配输入字符串的开始位置</span><br><span class="line">//在方括号表达式中使用，此时它表示不接受该字符集合。</span><br><span class="line">//要匹配 ^ 字符本身，请使用 \^。</span><br><span class="line">^</span><br><span class="line"></span><br><span class="line">//匹配前面的子表达式零次或多次。要匹配 * 字符，请使用 \*。</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line">//匹配前面的子表达式一次或多次。要匹配 + 字符，请使用 \+。</span><br><span class="line">+</span><br><span class="line"></span><br><span class="line">//匹配除换行符 \n 之外的任何单字符。要匹配 . ，请使用 \.。</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">//匹配前面的子表达式零次或一次，或指明一个非贪婪限定符。要匹配 ? 字符，请使用 \?。</span><br><span class="line">?</span><br></pre></td></tr></table></figure>
-<h2 id="限定符"><a href="#限定符" class="headerlink" title="限定符"></a>限定符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//匹配前面的子表达式零次或多次。例如，zo* 能匹配 <span class="string">"z"</span> 以及 <span class="string">"zoo"</span>。* 等价于&#123;0,&#125;。</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line">//匹配前面的子表达式一次或多次。例如，<span class="string">'zo+'</span> 能匹配 <span class="string">"zo"</span> 以及 <span class="string">"zoo"</span>，但不能匹配 <span class="string">"z"</span>。+ 等价于 &#123;1,&#125;。</span><br><span class="line">+</span><br><span class="line"></span><br><span class="line">//匹配前面的子表达式零次或一次。例如，<span class="string">"do(es)?"</span> 可以匹配 <span class="string">"do"</span> </span><br><span class="line">//<span class="string">"does"</span> 中的 <span class="string">"does"</span> 、 <span class="string">"doxy"</span> 中的 <span class="string">"do"</span> 。? 等价于 &#123;0,1&#125;。</span><br><span class="line">?</span><br><span class="line"></span><br><span class="line">//n 是一个非负整数。匹配确定的 n 次。例如，<span class="string">'o&#123;2&#125;'</span> 不能匹配 <span class="string">"Bob"</span> 中的 <span class="string">'o'</span>，但是能匹配 <span class="string">"food"</span> 中的两个 o。</span><br><span class="line">&#123;n&#125;</span><br><span class="line"></span><br><span class="line">//n 是一个非负整数。至少匹配n 次。例如，<span class="string">'o&#123;2,&#125;'</span> 不能匹配 <span class="string">"Bob"</span> 中的 <span class="string">'o'</span>，但能匹配 <span class="string">"foooood"</span> 中的所有 o。</span><br><span class="line">//<span class="string">'o&#123;1,&#125;'</span> 等价于 <span class="string">'o+'</span>。<span class="string">'o&#123;0,&#125;'</span> 则等价于 <span class="string">'o*'</span>。</span><br><span class="line">&#123;n,&#125;</span><br><span class="line"></span><br><span class="line">//m 和 n 均为非负整数，其中n &lt;= m。最少匹配 n 次且最多匹配 m 次。例如，<span class="string">"o&#123;1,3&#125;"</span> 将匹配 <span class="string">"fooooood"</span> 中的前三个 o。</span><br><span class="line">//<span class="string">'o&#123;0,1&#125;'</span> 等价于 <span class="string">'o?'</span>。请注意在逗号和两个数之间不能有空格。</span><br><span class="line">&#123;n,m&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="定位符"><a href="#定位符" class="headerlink" title="定位符"></a>定位符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//匹配输入字符串开始的位置。</span><br><span class="line">^</span><br><span class="line"></span><br><span class="line">//匹配输入字符串结尾的位置。</span><br><span class="line">$</span><br><span class="line"></span><br><span class="line">//匹配一个单词边界，即字与空格间的位置。	</span><br><span class="line">//例如， <span class="string">'er\b'</span> 可以匹配<span class="string">"never"</span> 中的 <span class="string">'er'</span>，但不能匹配 <span class="string">"verb"</span> 中的 <span class="string">'er'</span>。</span><br><span class="line">\b</span><br><span class="line"></span><br><span class="line">//非单词边界匹配。<span class="string">'er\B'</span> 能匹配 <span class="string">"verb"</span> 中的 <span class="string">'er'</span>，但不能匹配 <span class="string">"never"</span> 中的 <span class="string">'er'</span>。</span><br><span class="line">\B</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>常用正则表达式</p>
-</blockquote>
-<h2 id="校验数字的表达式"><a href="#校验数字的表达式" class="headerlink" title="校验数字的表达式"></a>校验数字的表达式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">数字：^[0-9]*$</span><br><span class="line"></span><br><span class="line">n位的数字：^\d&#123;n&#125;$</span><br><span class="line"></span><br><span class="line">至少n位的数字：^\d&#123;n,&#125;$</span><br><span class="line"></span><br><span class="line">m-n位的数字：^\d&#123;m,n&#125;$</span><br><span class="line"></span><br><span class="line">零和非零开头的数字：^(0|[1-9][0-9]*)$</span><br><span class="line"></span><br><span class="line">非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(\.[0-9]&#123;1,2&#125;)?$</span><br><span class="line"></span><br><span class="line">带1-2位小数的正数或负数：^(\-)?\d+(\.\d&#123;1,2&#125;)$</span><br><span class="line"></span><br><span class="line">正数、负数、和小数：^(\-|\+)?\d+(\.\d+)?$</span><br><span class="line"></span><br><span class="line">有两位小数的正实数：^[0-9]+(\.[0-9]&#123;2&#125;)?$</span><br><span class="line"></span><br><span class="line">有1~3位小数的正实数：^[0-9]+(\.[0-9]&#123;1,3&#125;)?$</span><br><span class="line"></span><br><span class="line">非零的正整数：^[1-9]\d*$ 或 ^([1-9][0-9]*)&#123;1,3&#125;$ 或 ^\+?[1-9][0-9]*$</span><br><span class="line"></span><br><span class="line">非零的负整数：^\-[1-9][]0-9<span class="string">"*$ 或 ^-[1-9]\d*$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">非负整数：^\d+$ 或 ^[1-9]\d*|0$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">非正整数：^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">非负浮点数：^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">非正浮点数：^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">正浮点数：^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">负浮点数：^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">浮点数：^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$</span></span><br></pre></td></tr></table></figure>
-<h2 id="校验字符的表达式"><a href="#校验字符的表达式" class="headerlink" title="校验字符的表达式"></a>校验字符的表达式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">汉字：^[\u4e00-\u9fa5]&#123;0,&#125;$</span><br><span class="line"></span><br><span class="line">英文和数字：^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]&#123;4,40&#125;$</span><br><span class="line"></span><br><span class="line">长度为3-20的所有字符：^.&#123;3,20&#125;$</span><br><span class="line"></span><br><span class="line">由26个英文字母组成的字符串：^[A-Za-z]+$</span><br><span class="line"></span><br><span class="line">由26个大写英文字母组成的字符串：^[A-Z]+$</span><br><span class="line"></span><br><span class="line">由26个小写英文字母组成的字符串：^[a-z]+$</span><br><span class="line"></span><br><span class="line">由数字和26个英文字母组成的字符串：^[A-Za-z0-9]+$</span><br><span class="line"></span><br><span class="line">由数字、26个英文字母或者下划线组成的字符串：^\w+$ 或 ^\w&#123;3,20&#125;$</span><br><span class="line"></span><br><span class="line">中文、英文、数字包括下划线：^[\u4E00-\u9FA5A-Za-z0-9_]+$</span><br><span class="line"></span><br><span class="line">中文、英文、数字但不包括下划线等符号：^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]&#123;2,20&#125;$</span><br><span class="line"></span><br><span class="line">可以输入含有^%&amp;<span class="string">',;=?$\"等字符：[^%&amp;'</span>,;=?$\x22]+</span><br><span class="line"></span><br><span class="line">禁止输入含有~的字符：[^~\x22]+</span><br></pre></td></tr></table></figure>
-<h2 id="特殊需求表达式"><a href="#特殊需求表达式" class="headerlink" title="特殊需求表达式"></a>特殊需求表达式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">Email地址：^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</span><br><span class="line"></span><br><span class="line">域名：[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(/.[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/.?</span><br><span class="line"></span><br><span class="line">InternetURL：[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</span><br><span class="line"></span><br><span class="line">手机号码：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d&#123;8&#125;$</span><br><span class="line"></span><br><span class="line">电话号码(<span class="string">"XXX-XXXXXXX"</span>、<span class="string">"XXXX-XXXXXXXX"</span>、<span class="string">"XXX-XXXXXXX"</span>、<span class="string">"XXX-XXXXXXXX"</span>、<span class="string">"XXXXXXX"</span>和<span class="string">"XXXXXXXX)：^(\(\d&#123;3,4&#125;-)|\d&#123;3.4&#125;-)?\d&#123;7,8&#125;$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">国内电话号码(0511-4405222、021-87888822)：\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">电话号码正则表达式（支持手机号码，3-4位区号，7-8位直播号码，1－4位分机号）: ((\d&#123;11&#125;)|^((\d&#123;7,8&#125;)|(\d&#123;4&#125;|\d&#123;3&#125;)-(\d&#123;7,</span></span><br><span class="line"><span class="string">8&#125;)|(\d&#123;4&#125;|\d&#123;3&#125;)-(\d&#123;7,8&#125;)-(\d&#123;4&#125;|\d&#123;3&#125;|\d&#123;2&#125;|\d&#123;1&#125;)|(\d&#123;7,8&#125;)-(\d&#123;4&#125;|\d&#123;3&#125;|\d&#123;2&#125;|\d&#123;1&#125;))$)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">身份证号(15位、18位数字)，最后一位是校验位，可能为数字或字符X：(^\d&#123;15&#125;$)|(^\d&#123;18&#125;$)|(^\d&#123;17&#125;(\d|X|x)$)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]&#123;4,15&#125;$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w&#123;5,17&#125;$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在 8-10 之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]&#123;8,10&#125;$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">强密码(必须包含大小写字母和数字的组合，可以使用特殊字符，长度在8-10之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,10&#125;$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">日期格式：^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">一年的12个月(01～09和1～12)：^(0?[1-9]|1[0-2])$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">一个月的31天(01～09和1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">xml文件：^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">中文字符的正则表达式：[\u4e00-\u9fa5]</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">双字节字符：[^\x00-\xff] (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">空白行的正则表达式：\n\s*\r (可以用来删除空白行)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">HTML标记的正则表达式：&lt;(\S*?)[^&gt;]*&gt;.*?|&lt;.*? /&gt; ( 首尾空白字符的正则表达式：^\s*|\s*$或(^\s*)|(\s*$) (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">腾讯QQ号：[1-9][0-9]&#123;4,&#125; (腾讯QQ号从10000开始)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">中国邮政编码：[1-9]\d&#123;5&#125;(?!\d) (中国邮政编码为6位数字)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">IP地址：((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.)&#123;3&#125;(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))</span></span><br></pre></td></tr></table></figure>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2018/10/15/Git学习/">
-                Git学习
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-10-15</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <blockquote>
-<p>Login</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"username"</span></span><br><span class="line">git config --global email.name <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>初始化一个Git仓库</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//GitHub创建库后<span class="built_in">clone</span></span><br><span class="line">git <span class="built_in">clone</span> &lt;URL&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>添加文件到Git仓库</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//可以用git add .直接将所有文件放入暂存区</span><br><span class="line">git add &lt;file-name&gt;</span><br><span class="line"></span><br><span class="line">//提交到版本库, 描述本次提交的说明</span><br><span class="line">git commit -m <span class="string">"本次提交的说明"</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>获取工作区的状态</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//查看是否有文件进行修改</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line">//查看修改内容</span><br><span class="line">git diff</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>版本控制</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//查看提交日志</span><br><span class="line">git <span class="built_in">log</span></span><br><span class="line">//</span><br><span class="line">git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br><span class="line"></span><br><span class="line">//HEAD代表当前版本, HEAD^是上个版本, HEAD^^上上个版本, HEAD~N前N个版本</span><br><span class="line">//也可以用版本号指定</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;version&gt;</span><br><span class="line">//由于使用reset回退版本后之前版本的提交日志也会消失</span><br><span class="line">//可以显示你每次命令可以查看到被你回退的版本号</span><br><span class="line">git reflog</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>撤销修改</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//让文件回到最近一次git add或者git commit的状态</span><br><span class="line">git checkout -- &lt;file-name&gt;</span><br><span class="line"></span><br><span class="line">//将文件移出暂存区, 即取消git add操作</span><br><span class="line">git reset HEAD -- &lt;file-name&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>删除文件</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//与git add的用法一样</span><br><span class="line">//从版本库里中删除文件</span><br><span class="line">git rm &lt;file-name&gt;</span><br><span class="line">git commit -m <span class="string">"本次提交的说明"</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>远程仓库</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//添加远程仓库</span><br><span class="line">//origin是远程仓库的默认名称可更改</span><br><span class="line">git remote add origin git@github.com:&lt;github_username&gt;/&lt;repository&gt;</span><br><span class="line"></span><br><span class="line">//第一次推送加上-u参数, Git会将本地 master 分支和远程 master 分支关联起来, 以后在推送时可简化命令</span><br><span class="line">git push -u origin master</span><br><span class="line">//推送分支</span><br><span class="line">git push origin &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//将远程仓库中的改动同步到本地</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line">//如果git pull提示no tracking information, 则说明本地分支和远程分支的链接关系没有创建</span><br><span class="line">git branch --<span class="built_in">set</span>-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//查看远程仓库信息, 添加-v常熟可显示更详细信息</span><br><span class="line">git remote</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>分支</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//创建分支, 并且切换到该分支</span><br><span class="line">git branch &lt;branch-name&gt;</span><br><span class="line">git checkout &lt;branch-name&gt;</span><br><span class="line">//-b参数相当于上面两条命令</span><br><span class="line">git checkout -b &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//在本地创建和远程分支对应的分支, 本地和远程分支的名称最好一致</span><br><span class="line">git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//合并指定分支到当前分支</span><br><span class="line">git merge &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//删除分支</span><br><span class="line">git branch -d &lt;branch-name&gt;</span><br><span class="line">//如果当前分支还未合并则需要-D参数强行删除</span><br><span class="line">git branch -D &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>工作暂存</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//将未提交的修改（包括暂存的和非暂存的）都保存起来</span><br><span class="line">git stash</span><br><span class="line">//推荐使用可添加说明方法</span><br><span class="line">git stash save  <span class="string">"本次提交的说明"</span></span><br><span class="line"></span><br><span class="line">//将缓存堆栈中的stash应用到当前工作目录下, 不删除stash</span><br><span class="line">git stash apply &lt;stash&gt;</span><br><span class="line"></span><br><span class="line">//移除stash</span><br><span class="line">git stash drop &lt;stash&gt;</span><br><span class="line"></span><br><span class="line">//将缓存堆栈中的第一个stash删除, 并将对应修改应用到当前工作目录下</span><br><span class="line">git stash pop</span><br><span class="line"></span><br><span class="line">//查看现有的stash</span><br><span class="line">git stash list</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>标签</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//新建一个标签，不写&lt;commit-id&gt;则默认为HEAD</span><br><span class="line">git tag &lt;tag-name&gt; &lt;commit-id&gt;</span><br><span class="line">//可以用参数-a指定标签名，-m指定说明文字</span><br><span class="line">git tag -a &lt;tag-name&gt; -m <span class="string">"说明"</span> &lt;commit-id&gt;</span><br><span class="line"></span><br><span class="line">//查看标签信息和说明文字, 按字母排序</span><br><span class="line">git show &lt;tag-name&gt;</span><br><span class="line"></span><br><span class="line">//删除本地标签</span><br><span class="line">git tag -d &lt;tag-name&gt;</span><br><span class="line">//删除远程仓库标签</span><br><span class="line">git push origin :refs/tags/&lt;tag-name&gt;</span><br><span class="line"></span><br><span class="line">//将标签推送到远程仓库, 可以用--tags参数代替&lt;tag-name&gt;直接将所有标签推送到远程仓库</span><br><span class="line">git push origin &lt;tag-name&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>创建别名</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//将命令名用一个&lt;new-name&gt;代替作为别名</span><br><span class="line">//--global参数使该命令作用在当前用户, 如不加则只针对当前仓库</span><br><span class="line">git config --global <span class="built_in">alias</span>.&lt;new-name&gt; <span class="string">'old-name'</span></span><br><span class="line">//也可通过修改.git/config文件</span><br><span class="line">//在[<span class="built_in">alias</span>]后面添加</span><br><span class="line">&lt;new-name&gt; = &lt;old-name&gt;</span><br><span class="line"></span><br><span class="line">//删除别名</span><br><span class="line">//直接修改.git/config文件</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>忽略特殊文件</p>
-</blockquote>
-<p>Git为我们提供了.gitignore文件，此文件专门来做忽略，只要在此文件中设置你想忽略的内容就可以了。<br>不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。<br>所有配置文件可以直接在线浏览：<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a></p>
-<p>如希望.gitignore文件作用于所有工作目录, 不希望每次都要在工作目录添加.gitignore文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在用户文件夹下创建.gitconfig_global并写入规则</span><br><span class="line">如果无法创建空文件名</span><br><span class="line">直接创建 .gitignore_global. 文件, 系统提示&quot;如果改变文件扩展名，可能会导致文件不可用。确实要更改吗？&quot;选择确定即可</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在用户文件夹(Users/用户名/)下修改.gitconfig配置, 在[core]下添加</span><br><span class="line">excludesfile = 用户文件夹\\.gitconfig_global</span><br><span class="line"></span><br><span class="line">也可以使用Git命令进行设置</span><br><span class="line">git config --global core.excludesfile ~/.gitconfig_global</span><br><span class="line"></span><br><span class="line">最后可以通过git config --list查看是否设置成功</span><br></pre></td></tr></table></figure>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2018/06/27/bbr/">
-                一键安装最新内核并开启 BBR 脚本
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-06-27</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <blockquote>
-<p>本脚本适用环境</p>
-</blockquote>
-<ul>
-<li>系统支持：CentOS 6+，Debian 7+，Ubuntu 12+</li>
-<li>虚拟技术：OpenVZ 以外的，比如 KVM、Xen、VMware 等</li>
-<li>内存要求：≥128M</li>
-<li><strong>日期 : 2018 年 06 月 09 日</strong></li>
-</ul>
-<blockquote>
-<p>使用root用户登录，运行以下命令</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</span><br></pre></td></tr></table></figure>
-<p>安装完成后，脚本会提示需要重启 VPS，输入 y 并回车后重启</p>
-<blockquote>
-<p>验证</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
-<p>查看内核是否为你刚刚选择版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br></pre></td></tr></table></figure>
-<p>返回值一般为：<br>net.ipv4.tcp_available_congestion_control = bbr cubic reno<br>或者为：<br>net.ipv4.tcp_available_congestion_control = reno cubic bbr</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
-<p>返回值一般为：<br>net.ipv4.tcp_congestion_control = bbr</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.core.default_qdisc</span><br></pre></td></tr></table></figure>
-<p>返回值一般为：<br>net.core.default_qdisc = fq</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
-<p>返回值有 tcp_bbr 模块即说明 bbr 已启动。<br>注意：并不是所有的 VPS 都会有此返回值，若没有也属正常。</p>
-<blockquote>
-<p>特别说明</p>
-</blockquote>
-<p>如果你使用的是 Google Cloud Platform （GCP）更换内核，有时会遇到重启后，整个磁盘变为只读的情况。只需执行以下命令即可恢复</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount rw /</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>转载自</p>
-</blockquote>
-<h1 id="秋水逸冰"><a href="#秋水逸冰" class="headerlink" title="秋水逸冰"></a><a href="https://teddysun.com/489.html" target="_blank" rel="noopener">秋水逸冰</a></h1>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2018/06/27/livemail/">
-                如何申请msn.com、live.com、live.cn等后缀邮箱
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-06-27</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <blockquote>
-<p>登录邮箱</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://account.live.com/AddAssocId</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>F12(打开调试)  -&gt; Console(控制台) -&gt;  粘贴脚本 （回车）</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var sub = window.prompt(<span class="string">'1. 输入域名，支持live.com/msn.com/live.cn等等...\r\n 2. 更多后缀请访问：https://51.ruyo.net/p/3194.html\r\n 提醒：直接点击取消即可前往上面的网址！\r\n 3. 点击确定后，页面会刷新。\r\n 4. 页面刷新后，请添加你想要的别名即可。'</span>,<span class="string">'live.com'</span>);<span class="keyword">if</span>(sub)&#123;document.getElementById(<span class="string">"SingleDomain"</span>).value = sub;document.getElementById(<span class="string">"idSingleDomain"</span>).innerText = <span class="string">"@"</span>+sub;document.getElementById(<span class="string">"AssociatedIdLive"</span>).value=<span class="string">"a"</span>;document.getElementById(<span class="string">"SubmitYes"</span>).click();&#125;<span class="keyword">else</span>&#123;window.open(<span class="string">"https://51.ruyo.net/p/3194.html"</span>)&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>添加别名</p>
-</blockquote>
-<blockquote>
-<p>转载自</p>
-</blockquote>
-<h1 id="如有乐享"><a href="#如有乐享" class="headerlink" title="如有乐享"></a><a href="https://51.ruyo.net/1327.html" target="_blank" rel="noopener">如有乐享</a></h1>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2018/06/26/reOS/">
-                Debian(Ubuntu)网络安装/重装系统一键脚本
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-06-26</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <blockquote>
-<p>注意</p>
-</blockquote>
-<ol>
-<li>全自动安装默认root密码:Vicer,安装完成后请立即更改密码</li>
-<li>请使用 passwd root 命令更改密码</li>
-<li>OpenVZ构架不适用</li>
-</ol>
-<blockquote>
-<p>确保安装了所需软件</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Debian/Ubuntu:</span></span><br><span class="line">apt-get install -y gawk sed grep</span><br><span class="line"> </span><br><span class="line"><span class="comment">#RedHat/CentOS:</span></span><br><span class="line">yum install -y gawk sed grep</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果出现了错误,请运行</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Debian/Ubuntu:</span></span><br><span class="line">apt-get update</span><br><span class="line"> </span><br><span class="line"><span class="comment">#RedHat/CentOS:</span></span><br><span class="line">yum update</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>一键下载</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -qO DebianNET.sh <span class="string">'https://moeclub.org/attachment/LinuxShell/DebianNET.sh'</span> &amp;&amp; chmod a+x DebianNET.sh</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Usage:</span><br><span class="line">        bash DebianNET.sh       -d/--debian [dist-name]</span><br><span class="line">                                -u/--ubuntu [dist-name]</span><br><span class="line">                                -v/--ver [32/i386|64/amd64]</span><br><span class="line">                                --ip-addr/--ip-gate/--ip-mask</span><br><span class="line">                                -apt/--mirror</span><br><span class="line">                                -dd/--image</span><br><span class="line">                                -a/-m</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>全自动/非自动示例</p>
-</blockquote>
-<ul>
-<li>全自动安装</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386 -a</span><br></pre></td></tr></table></figure>
-<ul>
-<li>VNC手动安装</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386 -m</span><br></pre></td></tr></table></figure>
-<ul>
-<li>全自动安装(指定网络参数)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将X.X.X.X替换为自己的网络参数.</span></span><br><span class="line"><span class="comment"># --ip-addr :IP Address/IP地址</span></span><br><span class="line"><span class="comment"># --ip-gate :Gateway   /网关</span></span><br><span class="line"><span class="comment"># --ip-mask :Netmask   /子网掩码</span></span><br><span class="line">bash DebianNET.sh -d wheezy -v i386 -a --ip-addr X.X.X.X --ip-mask X.X.X.X --ip-gate X.X.X.X</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用示例</p>
-</blockquote>
-<ul>
-<li>【默认】安装Debian 7 x32</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d wheezy -v i386</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 7 -v 32</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Debian 8 x64</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d jessie -v amd64</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 8 -v 64</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Debian 9 x64</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d stretch -v amd64</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -d 9 -v 64</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Ubuntu 14.04 x64</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u trusty -v 64</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Ubuntu 16.04 x64</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u xenial -v 64</span><br></pre></td></tr></table></figure>
-<ul>
-<li>安装Ubuntu 18.04 x64</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash DebianNET.sh -u bionic -v 64</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>转载自</p>
-</blockquote>
-<h1 id="萌咖"><a href="#萌咖" class="headerlink" title="萌咖"></a><a href="https://moeclub.org/2017/03/25/82/?v=656" target="_blank" rel="noopener">萌咖</a></h1>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2018/06/26/paypalfees/">
-                PayPal 更换汇率结算
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-06-26</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <blockquote>
-<p>点击右上角齿轮</p>
-</blockquote>
-<p><img src="/2018/06/26/paypalfees/paypal_1.png" alt="1"></p>
-<blockquote>
-<p>付款 - 管理自动付款</p>
-</blockquote>
-<p><img src="/2018/06/26/paypalfees/paypal_2.png" alt="2"></p>
-<blockquote>
-<p>管理预核准付款</p>
-</blockquote>
-<p><img src="/2018/06/26/paypalfees/paypal_3.png" alt="3"></p>
-<blockquote>
-<p>设置可用资金来源</p>
-</blockquote>
-<p><img src="/2018/06/26/paypalfees/paypal_4.png" alt="4"></p>
-<blockquote>
-<p>兑换选项</p>
-</blockquote>
-<p><img src="/2018/06/26/paypalfees/paypal_5.png" alt="5"></p>
-<blockquote>
-<p>在给我的账单中使用卖家列出的币种</p>
-</blockquote>
-<p><img src="/2018/06/26/paypalfees/paypal_6.png" alt="6"></p>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2018/06/26/hello-world/">
-                GitHub + Hexo 搭建博客
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018-06-26</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>花了一下午建立的博客,顺便记录建立的步骤</p>
-<h2 id="事先准备"><a href="#事先准备" class="headerlink" title="事先准备"></a>事先准备</h2><ul>
-<li>Node.js</li>
-<li>git</li>
-</ul>
-<h2 id="创建-GitHub-Pages"><a href="#创建-GitHub-Pages" class="headerlink" title="创建 GitHub Pages"></a>创建 GitHub Pages</h2><p>这个百度都有</p>
-<h2 id="安装-Hexo-并检查是否安装成功"><a href="#安装-Hexo-并检查是否安装成功" class="headerlink" title="安装 Hexo 并检查是否安装成功"></a>安装 Hexo 并检查是否安装成功</h2><p>在D盘创建 hexo 文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> D://hexo</span><br><span class="line">npm install hexo -g</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure></p>
-<h2 id="初始化-Hexo"><a href="#初始化-Hexo" class="headerlink" title="初始化 Hexo"></a>初始化 Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<h2 id="依赖包安装"><a href="#依赖包安装" class="headerlink" title="依赖包安装"></a>依赖包安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<h2 id="打开服务器"><a href="#打开服务器" class="headerlink" title="打开服务器"></a>打开服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>默认是 localhost:4000</p>
-<h2 id="联系到-GitHub"><a href="#联系到-GitHub" class="headerlink" title="联系到 GitHub"></a>联系到 GitHub</h2><p>打开 Hexo 文件夹里的 _config.yml 文件<br>配置Deployment<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: 你的 repo 值</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<h2 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;file-name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-        </div>
-    
-
-</div>
-            
-        </section>
-    </div>
-</div>
-
-
-
-
-
-
-</div>
-
-<!-- Footer -->
-<div class="push"></div>
-
-<footer class="footer-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
-                <h2>About</h2>
-                <p>
-                    Make Websites. Make Magic.
-                </p>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/10/28/springnote-3/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview1.jpg" alt="Spring学习笔记(3)">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
             </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/10/28/springnote-3/">
+                        <span>Spring学习笔记(3)</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-10-28
+        </center>
+        <p></p>
+        <p></p>
+        <center>
             
-    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
-        <h2>Recent Posts</h2>
-        <ul>
+            <i class="fa fa-tags"></i>
             
-            <li>
-                <a class="footer-post" href="/2018/10/28/springnote-3/">Spring学习笔记(3)</a>
+            <a href="/tags/java/">java</a>, 
+            
+            <a href="/tags/spring/">spring</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/10/28/springnote-3/">
+                    
+                    <img src="/imgs/preview/preview3.jpg" alt="Spring学习笔记(3)">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/10/28/springnote-3/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">10月</span>
+        <span class="day">28</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/10/28/springnote-2/">
+                    <span>Spring学习笔记(2)</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/spring/">spring</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/10/28/springnote-2/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/10/28/springnote-2/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview4.jpg" alt="Spring学习笔记(2)">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/10/28/springnote-2/">
+                        <span>Spring学习笔记(2)</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-10-28
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/java/">java</a>, 
+            
+            <a href="/tags/spring/">spring</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/10/28/springnote-2/">
+                    
+                    <img src="/imgs/preview/preview4.jpg" alt="Spring学习笔记(2)">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/10/28/springnote-2/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">10月</span>
+        <span class="day">27</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/10/27/spring学习/">
+                    <span>Spring学习笔记(1)</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/spring/">spring</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/10/27/spring学习/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/10/27/spring学习/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview2.jpg" alt="Spring学习笔记(1)">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/10/27/spring学习/">
+                        <span>Spring学习笔记(1)</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-10-27
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/java/">java</a>, 
+            
+            <a href="/tags/spring/">spring</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/10/27/spring学习/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="Spring学习笔记(1)">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/10/27/spring学习/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">10月</span>
+        <span class="day">16</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/10/16/javaRegex/">
+                    <span>javaRegex</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/regex/">regex</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/10/16/javaRegex/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/10/16/javaRegex/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview2.jpg" alt="javaRegex">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/10/16/javaRegex/">
+                        <span>javaRegex</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-10-16
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/java/">java</a>, 
+            
+            <a href="/tags/regex/">regex</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/10/16/javaRegex/">
+                    
+                    <img src="/imgs/preview/preview4.jpg" alt="javaRegex">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/10/16/javaRegex/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">10月</span>
+        <span class="day">15</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/10/15/Git学习/">
+                    <span>Git学习</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/git/">git</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/10/15/Git学习/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/10/15/Git学习/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview1.jpg" alt="Git学习">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/10/15/Git学习/">
+                        <span>Git学习</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-10-15
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/git/">git</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/10/15/Git学习/">
+                    
+                    <img src="/imgs/preview/preview3.jpg" alt="Git学习">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/10/15/Git学习/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">06月</span>
+        <span class="day">27</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/06/27/bbr/">
+                    <span>一键安装最新内核并开启 BBR 脚本</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/bbr/">bbr</a>, 
+                
+                <a href="/tags/linux/">linux</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/06/27/bbr/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/06/27/bbr/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview4.jpg" alt="一键安装最新内核并开启 BBR 脚本">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/06/27/bbr/">
+                        <span>一键安装最新内核并开启 BBR 脚本</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-06-27
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/bbr/">bbr</a>, 
+            
+            <a href="/tags/linux/">linux</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/06/27/bbr/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="一键安装最新内核并开启 BBR 脚本">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/06/27/bbr/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">06月</span>
+        <span class="day">27</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/06/27/livemail/">
+                    <span>如何申请msn.com、live.com、live.cn等后缀邮箱</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/email/">email</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/06/27/livemail/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/06/27/livemail/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview1.jpg" alt="如何申请msn.com、live.com、live.cn等后缀邮箱">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/06/27/livemail/">
+                        <span>如何申请msn.com、live.com、live.cn等后缀邮箱</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-06-27
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/email/">email</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/06/27/livemail/">
+                    
+                    <img src="/imgs/preview/preview2.jpg" alt="如何申请msn.com、live.com、live.cn等后缀邮箱">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/06/27/livemail/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">06月</span>
+        <span class="day">26</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/06/26/reOS/">
+                    <span>Debian(Ubuntu)网络安装/重装系统一键脚本</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/linux/">linux</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/06/26/reOS/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/06/26/reOS/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview2.jpg" alt="Debian(Ubuntu)网络安装/重装系统一键脚本">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/06/26/reOS/">
+                        <span>Debian(Ubuntu)网络安装/重装系统一键脚本</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-06-26
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/linux/">linux</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/06/26/reOS/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="Debian(Ubuntu)网络安装/重装系统一键脚本">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/06/26/reOS/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">06月</span>
+        <span class="day">26</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/06/26/paypalfees/">
+                    <span>PayPal 更换汇率结算</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/PayPal/">PayPal</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/06/26/paypalfees/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/06/26/paypalfees/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview3.jpg" alt="PayPal 更换汇率结算">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/06/26/paypalfees/">
+                        <span>PayPal 更换汇率结算</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-06-26
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/PayPal/">PayPal</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/06/26/paypalfees/">
+                    
+                    <img src="/imgs/preview/preview2.jpg" alt="PayPal 更换汇率结算">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/06/26/paypalfees/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">06月</span>
+        <span class="day">26</span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/06/26/hello-world/">
+                    <span>GitHub + Hexo 搭建博客</span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/hexo/">hexo</a>, 
+                
+                <a href="/tags/github/">github</a>
+                
+            </span>
+            
+            
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2018/06/26/hello-world/#comments">739</a>
+            </span>-->
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2018/06/26/hello-world/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview1.jpg" alt="GitHub + Hexo 搭建博客">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2018/06/26/hello-world/">
+                        <span>GitHub + Hexo 搭建博客</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2018-06-26
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/hexo/">hexo</a>, 
+            
+            <a href="/tags/github/">github</a>
+            
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2018/06/26/hello-world/">
+                    
+                    <img src="/imgs/preview/preview3.jpg" alt="GitHub + Hexo 搭建博客">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2018/06/26/hello-world/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+</div>
+<!-- 前方最多7个 < 1 2 3 4 5 6 -->
+<!-- 前方超过第7页则分为 < 1 ... (n - 3) (n - 2) (n - 1) n, 此时前面为固定的6个 -->
+
+<!-- 后方最多8个 (n + 1) 到 (n + 7) > -->
+<!-- 如果末页和当前页相差超过7, 此时后面为固定的6个, (n + 1) (n + 2) (n + 3) ... total > -->
+
+
+
+<div id="gal-pagination" class="clearfix">
+    <ul class="pagination pagination-gal pull-right">
+        
+        
+        
+        
+        <li class="current">
+            <span>1</span>
+        </li>
+        
+        
+        
+        
+    </ul>
+</div>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            UerAx
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(3)</a>
+                </span>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2018/10/28/springnote-2/">Spring学习笔记(2)</a>
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/springnote-2/">Spring学习笔记(2)</a>
+                </span>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2018/10/27/spring学习/">Spring学习笔记(1)</a>
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring学习/">Spring学习笔记(1)</a>
+                </span>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2018/10/16/javaRegex/">javaRegex</a>
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/16/javaRegex/">javaRegex</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/15/Git学习/">Git学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/livemail/">如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/reOS/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
+                </span>
             </li>
             
         </ul>
     </div>
-
-
-
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
             
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <ul class="list-inline footer-social-icons">
-                    
-                    <li class="list-inline-item">
-                        <a href="https://github.com/hentai121">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-github"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="https://twitter.com/U_erAx">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-twitter"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="mailto:uerax@live.com">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-envelope-o"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="list-inline-item">
-                        <a href="\#">
-                            <span class="footer-icon-container">
-                                <i class="fa fa-rss"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
-                </ul>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/15/Git学习/">Git学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/16/javaRegex/">javaRegex</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/livemail/">如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/springnote-3/">Spring学习笔记(3)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring学习/">Spring学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/springnote-2/">Spring学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/reOS/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/git/" style="font-size: 18.214942853595588px;" class="tag-cloud-link">git</a>
+    
+    <a href="/tags/hexo/" style="font-size: 16.64860816675265px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/github/" style="font-size: 10.414052252681646px;" class="tag-cloud-link">github</a>
+    
+    <a href="/tags/PayPal/" style="font-size: 10.810109948977313px;" class="tag-cloud-link">PayPal</a>
+    
+    <a href="/tags/java/" style="font-size: 18.11417628653987px;" class="tag-cloud-link">java</a>
+    
+    <a href="/tags/regex/" style="font-size: 8.07323469273346px;" class="tag-cloud-link">regex</a>
+    
+    <a href="/tags/email/" style="font-size: 12.171425297875997px;" class="tag-cloud-link">email</a>
+    
+    <a href="/tags/spring/" style="font-size: 19.260065957129655px;" class="tag-cloud-link">spring</a>
+    
+    <a href="/tags/bbr/" style="font-size: 11.344456341585776px;" class="tag-cloud-link">bbr</a>
+    
+    <a href="/tags/linux/" style="font-size: 16.371831058091956px;" class="tag-cloud-link">linux</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+</div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="footer-copyright">
-                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
-                </div>
+    </aside>
+    
+</aside>
             </div>
         </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 UerAx Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
     </div>
 </footer>
 
-<!-- After footer scripts -->
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Tween Max -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Custom JavaScript -->
-<script src="/js/main.js"></script>
-
-<!-- Disqus Comments -->
-
-
-
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
 </body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
 
 </html>
