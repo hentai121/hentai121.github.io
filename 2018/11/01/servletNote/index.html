@@ -10,7 +10,7 @@
     
     
     
-    <title>tags: git | UerAx</title>
+    <title>Servlet / JDBC 笔记(补) | UerAx</title>
     <link href=”“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -185,19 +185,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="">UerAx</a>
         >
-        <span>标签</span>
+        <span>Servlet / JDBC 笔记(补)</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/git/index.html">git</a>
+                <a href="/2018/11/01/servletNote/">Servlet / JDBC 笔记(补)</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/serlvet/">serlvet</a>, 
+                
+                <a href="/tags/jdbc/">jdbc</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-11-01
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -205,21 +224,35 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/git/index.html">git</a>
+                    <a href="/2018/11/01/servletNote/">Servlet / JDBC 笔记(补)</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-11-01
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/serlvet/">serlvet</a>, 
+                
+                <a href="/tags/jdbc/">jdbc</a>
+                
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2018/10/15/Git学习/">Git学习</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <h3 id="Servlet-配置"><a href="#Servlet-配置" class="headerlink" title="Servlet 配置"></a>Servlet 配置</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;ServletName&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">package</span>.<span class="title">ServletName</span>&lt;/<span class="title">servlet</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"><span class="class">&lt;<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">servlet</span>-<span class="title">name</span>&gt;<span class="title">ServletName</span>&lt;/<span class="title">servlet</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;/<span class="title">urlName</span>&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">// 表单传递</span></span><br><span class="line">&lt;form action="urlName"&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"valueName"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Servlet-编写"><a href="#Servlet-编写" class="headerlink" title="Servlet 编写"></a>Servlet 编写</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 获取表单参数</span><br><span class="line">String str = request.getParameter(<span class="string">"valueName"</span>);</span><br><span class="line"></span><br><span class="line">// 参数放入暂存区</span><br><span class="line">request.setAttribute(<span class="string">"number"</span>, str);</span><br><span class="line">// 从暂存区取出参数</span><br><span class="line">String str = (String) request.getAttribute(<span class="string">"number"</span>);</span><br><span class="line">// 从暂存区删除删除</span><br><span class="line">request.removeAttribute(<span class="string">"number"</span>);</span><br><span class="line"></span><br><span class="line">// 跳转到 servletName , 地址栏中的地址不变</span><br><span class="line">request.getRequestDispatcher(<span class="string">"servletName"</span>).forward(request, response);</span><br><span class="line">// 运行(不跳转) servletName 后继续运行原 Servlet</span><br><span class="line">request.getRequestDispatcher(<span class="string">"servletName"</span>).include(request, response);</span><br><span class="line">// 重定向到 servletName , 地址栏中的地址改变</span><br><span class="line">request.sendRedirect(<span class="string">"servletName"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">private String JDBC_URL = <span class="string">"jdbc:mysql:///database_name"</span>;</span><br><span class="line">private String USERNAME = <span class="string">"username"</span>;</span><br><span class="line">private String PASSWORD = <span class="string">"password"</span>;</span><br><span class="line">// 使用 ? 作为占位符</span><br><span class="line">private String SQL = <span class="string">"select * from table where id = ?"</span> </span><br><span class="line"></span><br><span class="line">// 检查驱动是否存在</span><br><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">// 获取连接</span><br><span class="line">Connection conn = DriverManager.gerConnection(JDBC_URL, USERNAME, PASSWORD;</span><br><span class="line">// 读取 SQL 语句 </span><br><span class="line">PreparedStatement ps = conn.prepareStatement(SQL);</span><br><span class="line">// 按输入的数据类型选择方法, <span class="number">1</span> 代表第一个 ？</span><br><span class="line">ps.setString(<span class="number">1</span>, <span class="string">"test"</span>);</span><br><span class="line"></span><br><span class="line">// 增删改</span><br><span class="line">ps.executeUpdate();</span><br><span class="line"></span><br><span class="line">// 查</span><br><span class="line">// 使用 ResultSet 保存取出来的数据</span><br><span class="line">ResultSet rs = ps.executeQuery();</span><br><span class="line">// 遍历 ResultSet 获取数据, 每次一条</span><br><span class="line"><span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">    int sqlCol = rs.setInt(<span class="string">"sql_col"</span>);</span><br><span class="line">    String sqlColName = rs.setString(<span class="string">"sql_col_name"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -340,13 +373,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/15/Git学习/">Git学习</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                    <a href="/2018/10/30/mybatisNote1/">MyBatis学习笔记(1)</a>
                 </span>
             </li>
             
@@ -364,7 +391,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/16/javaRegex/">javaRegex</a>
+                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
                 </span>
             </li>
             
@@ -398,6 +425,12 @@
                 </span>
             </li>
             
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/springnote-2/">Spring学习笔记(2)</a>
+                </span>
+            </li>
+            
         </ul>
     </div>
 </aside>
@@ -407,47 +440,47 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/tags/git/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/11/01/servletNote/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/tags/git/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/11/01/servletNote/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/tags/git/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/11/01/servletNote/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/git/" style="font-size: 12.80488050022776px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 12.209178652548282px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/bbr/" style="font-size: 8.106365633798465px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/bbr/" style="font-size: 15.36822963443916px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/linux/" style="font-size: 15.848685701280079px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/linux/" style="font-size: 12.947617307185634px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/mybatis/" style="font-size: 11.057314350524404px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/mybatis/" style="font-size: 11.316892065220996px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/java/" style="font-size: 17.037992061089575px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 13.832122846635992px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/email/" style="font-size: 17.643920722546476px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 14.21290110742953px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/paypal/" style="font-size: 11.130255556527842px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/paypal/" style="font-size: 12.906762542788467px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/regex/" style="font-size: 10.218940440234988px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 18.67717742905981px;" class="tag-cloud-link">regex</a>
     
-    <a href="/tags/serlvet/" style="font-size: 11.650115075853137px;" class="tag-cloud-link">serlvet</a>
+    <a href="/tags/serlvet/" style="font-size: 14.109338205715044px;" class="tag-cloud-link">serlvet</a>
     
-    <a href="/tags/jdbc/" style="font-size: 13.817235894832589px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/jdbc/" style="font-size: 17.308601544286883px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/spring/" style="font-size: 12.342065532871038px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 16.017726095046392px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/hexo/" style="font-size: 11.757451256897197px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 8.446547212388122px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/github/" style="font-size: 9.053876872309646px;" class="tag-cloud-link">github</a>
+    <a href="/tags/github/" style="font-size: 15.781993549087879px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/debian/" style="font-size: 13.012281004980215px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/debian/" style="font-size: 14.308468216718932px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 11.739639348258152px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/ubuntu/" style="font-size: 9.891813926902092px;" class="tag-cloud-link">ubuntu</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

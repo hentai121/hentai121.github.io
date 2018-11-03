@@ -11,7 +11,7 @@
     
     
     <title>MyBatis学习笔记(1) | UerAx</title>
-    <link href=”http://yoursite.com“ rel=”prefetch” />
+    <link href=”“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -113,15 +113,15 @@
                         
                         
                         <li>
+                            <a href="/categories/note/">note</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/java/">java</a>
                         </li>
                         
                         <li>
                             <a href="/categories/java/note/">note</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/linux/">linux</a>
                         </li>
                         
                         
@@ -147,15 +147,15 @@
                         
                         
                         <li>
+                            <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/bbr/">bbr</a>
                         </li>
                         
                         <li>
                             <a href="/tags/linux/">linux</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/mybatis/">mybatis</a>
                         </li>
                         
                         
@@ -189,7 +189,7 @@
 <article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="http://yoursite.com">UerAx</a>
+        <a href="">UerAx</a>
         >
         <span>MyBatis学习笔记(1)</span>
     </div>
@@ -246,12 +246,14 @@
 <li>基础 jar 包 : MyBatis 自带所有 jar 包</li>
 <li>编写数据库的 JAVA 类并提供 GET / Set 方法</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 配置文件依赖</span><br><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line">&lt;!DOCTYPE configuration</span><br><span class="line">  PUBLIC <span class="string">"-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line">  <span class="string">"http://mybatis.org/dtd/mybatis-3-config.dtd"</span>&gt;</span><br><span class="line">  </span><br><span class="line">// 映射文件依赖</span><br><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper</span><br><span class="line">  PUBLIC <span class="string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line">  <span class="string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="配置文件编写"><a href="#配置文件编写" class="headerlink" title="配置文件编写"></a>配置文件编写</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    // 导入 properties 文件</span><br><span class="line">    &lt;properties resource="jdbc.properties" &gt;&lt;/properties&gt;</span><br><span class="line">    &lt;!-- 和 spring 整合后 environments 配置将废除 --&gt;</span><br><span class="line">    &lt;environments default=<span class="string">"development"</span>&gt;</span><br><span class="line">        &lt;environment id=<span class="string">"development"</span>&gt;</span><br><span class="line">            &lt;!-- 使用 JDBC 事务管理 --&gt;</span><br><span class="line">            &lt;transactionManager type=<span class="string">"JDBC"</span> /&gt;</span><br><span class="line">            &lt;!-- 数据库连接池 --&gt;</span><br><span class="line">            &lt;dataSource type=<span class="string">"POOLED"</span>&gt;</span><br><span class="line">                &lt;property name=<span class="string">"driver"</span> value=<span class="string">"$&#123;jdbc.driverClassName&#125;"</span>/&gt;</span><br><span class="line">                &lt;property name=<span class="string">"url"</span> value=<span class="string">"$&#123;jdbc.url&#125;"</span> /&gt;</span><br><span class="line">                &lt;property name=<span class="string">"username"</span> value=<span class="string">"$&#123;jdbc.user&#125;"</span> /&gt;</span><br><span class="line">                &lt;property name=<span class="string">"password"</span> value=<span class="string">"$&#123;jdbc.password&#125;"</span>/&gt;</span><br><span class="line">            &lt;/dataSource&gt;</span><br><span class="line">        &lt;/environment&gt;</span><br><span class="line">    &lt;/environments&gt;</span><br><span class="line">    &lt;!-- 加载映射文件 --&gt;</span><br><span class="line">    &lt;mappers&gt;</span><br><span class="line">        &lt;mapper resource=<span class="string">"url/mapper.xml"</span>/&gt;</span><br><span class="line">    &lt;/mappers&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="映射文件编写"><a href="#映射文件编写" class="headerlink" title="映射文件编写"></a>映射文件编写</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- namespace 用于隔离 sql 语句 --&gt;</span><br><span class="line">&lt;mapper namespace=<span class="string">"student"</span>&gt;</span><br><span class="line">    // id -&gt; sql 语句标识符  parameterType -&gt; 入参的数据类型  resultType -&gt; 返回结果数据类型</span><br><span class="line">    &lt;select id=<span class="string">"getStudentById"</span> parameterType=<span class="string">"int"</span> resultType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        //  <span class="comment">#&#123;&#125; 点位符号, 类似 JDBC 的 ?</span></span><br><span class="line">        //  $&#123;&#125; 字符串拼接指令, 如果入参为普通类型 &#123;&#125; 只能写 value 如 : <span class="string">'%$&#123;value&#125;%'</span></span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">    // 多个查询</span><br><span class="line">    &lt;select id=<span class="string">"getStudentByStudentName"</span> parameterType=<span class="string">"string"</span> resultType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">    // 插入</span><br><span class="line">    &lt;insert id=<span class="string">"insertStudent"</span> parameterType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/insert&gt;</span><br><span class="line"></span><br><span class="line">    // 修改</span><br><span class="line">    &lt;update id=<span class="string">"updateStudent"</span> parameterType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/update&gt;</span><br><span class="line"></span><br><span class="line">    // 删除</span><br><span class="line">    &lt;delete id=<span class="string">"deleteStudent"</span> parameterType=<span class="string">"int"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/delete&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="映射文件-Mapper-编写"><a href="#映射文件-Mapper-编写" class="headerlink" title="映射文件 Mapper 编写"></a>映射文件 Mapper 编写</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- namespace 用于隔离 sql 语句 --&gt;</span><br><span class="line">&lt;mapper namespace=<span class="string">"student"</span>&gt;</span><br><span class="line">    // id -&gt; sql 语句标识符  parameterType -&gt; 入参的数据类型  resultType -&gt; 返回结果数据类型</span><br><span class="line">    &lt;select id=<span class="string">"getStudentById"</span> parameterType=<span class="string">"int"</span> resultType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        //  <span class="comment">#&#123;&#125; 点位符号, 类似 JDBC 的 ?</span></span><br><span class="line">        //  $&#123;&#125; 字符串拼接指令, 如果入参为普通类型 &#123;&#125; 只能写 value 如 : <span class="string">'%$&#123;value&#125;%'</span></span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">    // 多个查询</span><br><span class="line">    &lt;select id=<span class="string">"getStudentByStudentName"</span> parameterType=<span class="string">"string"</span> resultType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">    // 插入</span><br><span class="line">    &lt;insert id=<span class="string">"insertStudent"</span> parameterType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/insert&gt;</span><br><span class="line"></span><br><span class="line">    // 修改</span><br><span class="line">    &lt;update id=<span class="string">"updateStudent"</span> parameterType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/update&gt;</span><br><span class="line"></span><br><span class="line">    // 删除</span><br><span class="line">    &lt;delete id=<span class="string">"deleteStudent"</span> parameterType=<span class="string">"int"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/delete&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 创建 SqlSeesionFactoryBuilder 对象</span><br><span class="line">SqlSessionFactoryBuilder ssfb = new SqlSessionFactoryBuilder();</span><br><span class="line"></span><br><span class="line">// 创建核心配置文件输入流</span><br><span class="line">InputStream <span class="keyword">is</span> = Resources.getResourceAsStream(<span class="string">"SqlMapConfig.xml"</span>);</span><br><span class="line"></span><br><span class="line">// 通过输入流创建 SqlSessionFactory 对象</span><br><span class="line">SqlSessionFactory ssf = ssfb.build(<span class="keyword">is</span>);</span><br><span class="line"></span><br><span class="line">// 创建SqlSession 对象</span><br><span class="line">SqlSession ss = ssf.openSession();</span><br><span class="line"></span><br><span class="line">// 执行查询 (单个)</span><br><span class="line">Student stu = ss.selectOne(<span class="string">"student.getStudentById"</span>, <span class="number">2</span>);</span><br><span class="line">// 查找多个, 映射的 resultType 直接用 List 内部数据类型</span><br><span class="line">List&lt;Student&gt; list = selectList();</span><br><span class="line"></span><br><span class="line">// 执行插入</span><br><span class="line">Student student = new Student();</span><br><span class="line">ss.insert(<span class="string">"student.insertStudent"</span>, student);</span><br><span class="line">// 执行 commit 提交才能成功插入, 或者在openSession(true) 传入 true</span><br><span class="line">ss.commit();</span><br><span class="line"></span><br><span class="line">// 执行修改, 删除</span><br><span class="line">// 如果参数包含多个 Student 类的属性则将需要的属性赋值即可</span><br><span class="line">Student stu = new Student();</span><br><span class="line">ss.update(<span class="string">"student.updateStudent"</span>, stu);</span><br><span class="line">ss.delete(<span class="string">"student.deleteStudent"</span>, <span class="number">1</span>);</span><br><span class="line">// 执行 commit 提交才能成功执行, 或者在openSession(true) 传入 true</span><br><span class="line">ss.commit();</span><br><span class="line">ss.close();</span><br></pre></td></tr></table></figure>
-<h3 id="动态开发代理"><a href="#动态开发代理" class="headerlink" title="动态开发代理"></a>动态开发代理</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- namespace 是接口的全路径名 </span><br><span class="line">	接口方法名必须与 sql id一致 </span><br><span class="line">	接口的入参必须与 parameterType 类型一致 </span><br><span class="line">	接口的返回值必须与 resultType 类型一致 --&gt;</span><br><span class="line">&lt;mapper namespace=<span class="string">"com.uerax.mybatis.mapper.StudentMapper"</span>&gt;</span><br><span class="line">    // 和上方写法一致</span><br><span class="line">&lt;/mapper&gt;</span><br><span class="line"></span><br><span class="line">// StudentMapper 是一个接口, 只要遵守上方四条规则底层会自动帮我们实现</span><br><span class="line">public interface StudentMapper &#123;</span><br><span class="line">    Student getStudentByI(Integer id);</span><br><span class="line">    List&lt;Student&gt; getStudent();</span><br><span class="line">    void insertStudent(Student stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="动态开发代理"><a href="#动态开发代理" class="headerlink" title="动态开发代理"></a>动态开发代理</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- namespace 是接口的全路径名 </span><br><span class="line">	接口方法名必须与 sql id一致 </span><br><span class="line">	接口的入参必须与 parameterType 类型一致 </span><br><span class="line">	接口的返回值必须与 resultType 类型一致 --&gt;</span><br><span class="line">&lt;mapper namespace=<span class="string">"com.uerax.mybatis.mapper.StudentMapper"</span>&gt;</span><br><span class="line">    // 和上方写法一致</span><br><span class="line">&lt;/mapper&gt;</span><br><span class="line"></span><br><span class="line">// StudentMapper 是一个接口, 只要遵守上方四条规则底层会自动帮我们实现</span><br><span class="line">public interface StudentMapper &#123;</span><br><span class="line">    Student getStudentByI(Integer id);</span><br><span class="line">    List&lt;Student&gt; getStudent();</span><br><span class="line">    void insertStudent(Student stu);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 调用时需要获取映射</span><br><span class="line">SqlSession.getMapper(StudentMapper.<span class="keyword">class</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="别名设置"><a href="#别名设置" class="headerlink" title="别名设置"></a>别名设置</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;typeAliases&gt;</span><br><span class="line">    &lt;!-- 单个别名定义, 不区分大小写 --&gt;</span><br><span class="line">    &lt;typeAlias type=<span class="string">"com.uerax.mybatis.domain.Student"</span> alias=<span class="string">"student"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 包扫描器, 别名是类的全称,不区分大小写 --&gt;</span><br><span class="line">    &lt;package name=<span class="string">"com.uerax.mybatis.domain"</span>/&gt;</span><br><span class="line">&lt;/typeAliases&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="映射文件加载方法"><a href="#映射文件加载方法" class="headerlink" title="映射文件加载方法"></a>映射文件加载方法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;mappers&gt;</span><br><span class="line"></span><br><span class="line">    &lt;mapper resource=<span class="string">"url"</span> /&gt;</span><br><span class="line">    // 接口文件必须与映射文件在同一目录下, 接口文件必须与映射文件名称一致</span><br><span class="line">    &lt;mapper class="package.mapperName" /&gt;</span><br><span class="line">    / 包扫描, 接口文件必须与映射文件在同一目录下, 接口文件必须与映射文件名称一致</span><br><span class="line">    &lt;package name=<span class="string">"package"</span> /&gt;</span><br><span class="line">&lt;/mappers&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="映射文件加载方法"><a href="#映射文件加载方法" class="headerlink" title="映射文件加载方法"></a>映射文件加载方法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;mappers&gt;</span><br><span class="line">    &lt;mapper resource=<span class="string">"url"</span> /&gt;</span><br><span class="line">    // 接口文件必须与映射文件在同一目录下, 接口文件必须与映射文件名称一致</span><br><span class="line">    &lt;mapper class="package.mapperName" /&gt;</span><br><span class="line">    / 包扫描, 接口文件必须与映射文件在同一目录下, 接口文件必须与映射文件名称一致</span><br><span class="line">    &lt;package name=<span class="string">"package"</span> /&gt;</span><br><span class="line">&lt;/mappers&gt;</span><br></pre></td></tr></table></figure>
+
     </div>
 </article>
 
@@ -300,6 +302,24 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/01/servletNote/">Servlet / JDBC 笔记(补)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/31/mybatisNote2/">mybatisNote2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/10/30/mybatisNote1/">MyBatis学习笔记(1)</a>
                 </span>
             </li>
@@ -337,24 +357,6 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2018/06/27/livemail/">如何申请msn.com、live.com、live.cn等后缀邮箱</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/26/reOS/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
@@ -376,6 +378,12 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/10/15/Git学习/">Git学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
                 </span>
             </li>
@@ -388,19 +396,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/06/27/livemail/">如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/10/16/javaRegex/">javaRegex</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
+                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/27/livemail/">如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
@@ -412,25 +426,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/springnote-2/">Spring学习笔记(2)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/06/26/reOS/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/15/Git学习/">Git学习</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
+                    <a href="/2018/10/28/springnote-2/">Spring学习笔记(2)</a>
                 </span>
             </li>
             
@@ -455,31 +457,35 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/bbr/" style="font-size: 17.37077897228544px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/git/" style="font-size: 11.453603463509594px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/linux/" style="font-size: 10.073202471387447px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/bbr/" style="font-size: 13.355515449597661px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/mybatis/" style="font-size: 12.521291729979875px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/linux/" style="font-size: 14.324752736513906px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/java/" style="font-size: 10.727094159387319px;" class="tag-cloud-link">java</a>
+    <a href="/tags/mybatis/" style="font-size: 14.702778064368175px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/regex/" style="font-size: 15.078320678281713px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/java/" style="font-size: 18.2920752673383px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/paypal/" style="font-size: 10.888311201788943px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/email/" style="font-size: 17.647567542761767px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/email/" style="font-size: 13.920028826961456px;" class="tag-cloud-link">email</a>
+    <a href="/tags/paypal/" style="font-size: 8.476700225949873px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/spring/" style="font-size: 8.926425278525617px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/regex/" style="font-size: 10.320658602811886px;" class="tag-cloud-link">regex</a>
     
-    <a href="/tags/debian/" style="font-size: 18.671578936953665px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/serlvet/" style="font-size: 9.012330002640862px;" class="tag-cloud-link">serlvet</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 14.158087732001052px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/jdbc/" style="font-size: 19.899785012881686px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/git/" style="font-size: 17.104030920000206px;" class="tag-cloud-link">git</a>
+    <a href="/tags/spring/" style="font-size: 15.721476577404882px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/hexo/" style="font-size: 13.17028377000915px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 8.756533993031482px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/github/" style="font-size: 11.52654926643518px;" class="tag-cloud-link">github</a>
+    <a href="/tags/github/" style="font-size: 15.66977922344968px;" class="tag-cloud-link">github</a>
+    
+    <a href="/tags/debian/" style="font-size: 14.10939830260206px;" class="tag-cloud-link">debian</a>
+    
+    <a href="/tags/ubuntu/" style="font-size: 15.12351258448308px;" class="tag-cloud-link">ubuntu</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
