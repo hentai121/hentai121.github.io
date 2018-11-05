@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="UerAx">
+    
+    
+    
+    
+    
+    
+    <title>MyBatis 学习笔记(1) | UerAx</title>
+    <link href=”“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/phonebg.jpg');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">UerAx</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/note/">note</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/linux/">linux</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/others/">others</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/bbr/">bbr</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/linux/">linux</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="https://github.com/hentai121">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">UerAx</a>
+        >
+        <span>MyBatis 学习笔记(1)</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/10/30/mybatis_note_1/">MyBatis 学习笔记(1)</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/mybatis/">mybatis</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-10-30
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/10/30/mybatis_note_1/">MyBatis 学习笔记(1)</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-10-30
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/mybatis/">mybatis</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><ul>
+<li>基础 jar 包 : MyBatis 自带所有 jar 包</li>
+<li>编写数据库的 JAVA 类并提供 GET / Set 方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 配置文件依赖</span><br><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line">&lt;!DOCTYPE configuration</span><br><span class="line">  PUBLIC <span class="string">"-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line">  <span class="string">"http://mybatis.org/dtd/mybatis-3-config.dtd"</span>&gt;</span><br><span class="line">  </span><br><span class="line">// 映射文件依赖</span><br><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper</span><br><span class="line">  PUBLIC <span class="string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line">  <span class="string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="配置文件编写"><a href="#配置文件编写" class="headerlink" title="配置文件编写"></a>配置文件编写</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    // 导入 properties 文件</span><br><span class="line">    &lt;properties resource="jdbc.properties" &gt;&lt;/properties&gt;</span><br><span class="line">    &lt;!-- 和 spring 整合后 environments 配置将废除 --&gt;</span><br><span class="line">    &lt;environments default=<span class="string">"development"</span>&gt;</span><br><span class="line">        &lt;environment id=<span class="string">"development"</span>&gt;</span><br><span class="line">            &lt;!-- 使用 JDBC 事务管理 --&gt;</span><br><span class="line">            &lt;transactionManager type=<span class="string">"JDBC"</span> /&gt;</span><br><span class="line">            &lt;!-- 数据库连接池 --&gt;</span><br><span class="line">            &lt;dataSource type=<span class="string">"POOLED"</span>&gt;</span><br><span class="line">                &lt;property name=<span class="string">"driver"</span> value=<span class="string">"$&#123;jdbc.driverClassName&#125;"</span>/&gt;</span><br><span class="line">                &lt;property name=<span class="string">"url"</span> value=<span class="string">"$&#123;jdbc.url&#125;"</span> /&gt;</span><br><span class="line">                &lt;property name=<span class="string">"username"</span> value=<span class="string">"$&#123;jdbc.user&#125;"</span> /&gt;</span><br><span class="line">                &lt;property name=<span class="string">"password"</span> value=<span class="string">"$&#123;jdbc.password&#125;"</span>/&gt;</span><br><span class="line">            &lt;/dataSource&gt;</span><br><span class="line">        &lt;/environment&gt;</span><br><span class="line">    &lt;/environments&gt;</span><br><span class="line">    &lt;!-- 加载映射文件 --&gt;</span><br><span class="line">    &lt;mappers&gt;</span><br><span class="line">        &lt;mapper resource=<span class="string">"url/mapper.xml"</span>/&gt;</span><br><span class="line">    &lt;/mappers&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="映射文件-Mapper-编写"><a href="#映射文件-Mapper-编写" class="headerlink" title="映射文件 Mapper 编写"></a>映射文件 Mapper 编写</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- namespace 用于隔离 sql 语句 --&gt;</span><br><span class="line">&lt;mapper namespace=<span class="string">"student"</span>&gt;</span><br><span class="line">    // id -&gt; sql 语句标识符  parameterType -&gt; 入参的数据类型  resultType -&gt; 返回结果数据类型</span><br><span class="line">    &lt;select id=<span class="string">"getStudentById"</span> parameterType=<span class="string">"int"</span> resultType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        //  <span class="comment">#&#123;&#125; 点位符号, 类似 JDBC 的 ?</span></span><br><span class="line">        //  $&#123;&#125; 字符串拼接指令, 如果入参为普通类型 &#123;&#125; 只能写 value 如 : <span class="string">'%$&#123;value&#125;%'</span></span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">    // 多个查询</span><br><span class="line">    &lt;select id=<span class="string">"getStudentByStudentName"</span> parameterType=<span class="string">"string"</span> resultType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">    // 插入</span><br><span class="line">    &lt;insert id=<span class="string">"insertStudent"</span> parameterType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/insert&gt;</span><br><span class="line"></span><br><span class="line">    // 修改</span><br><span class="line">    &lt;update id=<span class="string">"updateStudent"</span> parameterType=<span class="string">"com.uerax.mybatis.domain.Student"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/update&gt;</span><br><span class="line"></span><br><span class="line">    // 删除</span><br><span class="line">    &lt;delete id=<span class="string">"deleteStudent"</span> parameterType=<span class="string">"int"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/delete&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 创建 SqlSeesionFactoryBuilder 对象</span><br><span class="line">SqlSessionFactoryBuilder ssfb = new SqlSessionFactoryBuilder();</span><br><span class="line"></span><br><span class="line">// 创建核心配置文件输入流</span><br><span class="line">InputStream <span class="keyword">is</span> = Resources.getResourceAsStream(<span class="string">"SqlMapConfig.xml"</span>);</span><br><span class="line"></span><br><span class="line">// 通过输入流创建 SqlSessionFactory 对象</span><br><span class="line">SqlSessionFactory ssf = ssfb.build(<span class="keyword">is</span>);</span><br><span class="line"></span><br><span class="line">// 创建SqlSession 对象</span><br><span class="line">SqlSession ss = ssf.openSession();</span><br><span class="line"></span><br><span class="line">// 执行查询 (单个)</span><br><span class="line">Student stu = ss.selectOne(<span class="string">"student.getStudentById"</span>, <span class="number">2</span>);</span><br><span class="line">// 查找多个, 映射的 resultType 直接用 List 内部数据类型</span><br><span class="line">List&lt;Student&gt; list = selectList();</span><br><span class="line"></span><br><span class="line">// 执行插入</span><br><span class="line">Student student = new Student();</span><br><span class="line">ss.insert(<span class="string">"student.insertStudent"</span>, student);</span><br><span class="line">// 执行 commit 提交才能成功插入, 或者在openSession(true) 传入 true</span><br><span class="line">ss.commit();</span><br><span class="line"></span><br><span class="line">// 执行修改, 删除</span><br><span class="line">// 如果参数包含多个 Student 类的属性则将需要的属性赋值即可</span><br><span class="line">Student stu = new Student();</span><br><span class="line">ss.update(<span class="string">"student.updateStudent"</span>, stu);</span><br><span class="line">ss.delete(<span class="string">"student.deleteStudent"</span>, <span class="number">1</span>);</span><br><span class="line">// 执行 commit 提交才能成功执行, 或者在openSession(true) 传入 true</span><br><span class="line">ss.commit();</span><br><span class="line">ss.close();</span><br></pre></td></tr></table></figure>
+<h3 id="动态开发代理"><a href="#动态开发代理" class="headerlink" title="动态开发代理"></a>动态开发代理</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- namespace 是接口的全路径名 </span><br><span class="line">	接口方法名必须与 sql id一致 </span><br><span class="line">	接口的入参必须与 parameterType 类型一致 </span><br><span class="line">	接口的返回值必须与 resultType 类型一致 --&gt;</span><br><span class="line">&lt;mapper namespace=<span class="string">"com.uerax.mybatis.mapper.StudentMapper"</span>&gt;</span><br><span class="line">    // 和上方写法一致</span><br><span class="line">&lt;/mapper&gt;</span><br><span class="line"></span><br><span class="line">// StudentMapper 是一个接口, 只要遵守上方四条规则底层会自动帮我们实现</span><br><span class="line">public interface StudentMapper &#123;</span><br><span class="line">    Student getStudentByI(Integer id);</span><br><span class="line">    List&lt;Student&gt; getStudent();</span><br><span class="line">    void insertStudent(Student stu);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 调用时需要获取映射</span><br><span class="line">SqlSession.getMapper(StudentMapper.<span class="keyword">class</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="别名设置"><a href="#别名设置" class="headerlink" title="别名设置"></a>别名设置</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;typeAliases&gt;</span><br><span class="line">    &lt;!-- 单个别名定义, 不区分大小写 --&gt;</span><br><span class="line">    &lt;typeAlias type=<span class="string">"com.uerax.mybatis.domain.Student"</span> alias=<span class="string">"student"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 包扫描器, 别名是类的全称,不区分大小写 --&gt;</span><br><span class="line">    &lt;package name=<span class="string">"com.uerax.mybatis.domain"</span>/&gt;</span><br><span class="line">&lt;/typeAliases&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="映射文件加载方法"><a href="#映射文件加载方法" class="headerlink" title="映射文件加载方法"></a>映射文件加载方法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;mappers&gt;</span><br><span class="line">    &lt;mapper resource=<span class="string">"url"</span> /&gt;</span><br><span class="line">    // 接口文件必须与映射文件在同一目录下, 接口文件必须与映射文件名称一致</span><br><span class="line">    &lt;mapper class="package.mapperName" /&gt;</span><br><span class="line">    / 包扫描, 接口文件必须与映射文件在同一目录下, 接口文件必须与映射文件名称一致</span><br><span class="line">    &lt;package name=<span class="string">"package"</span> /&gt;</span><br><span class="line">&lt;/mappers&gt;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            UerAx
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/05/springmvc_note/">SpringMVC 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/03/spring_mybatis/">MyBatis 整合 Spring 框架</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/01/javaweb_note/">JavaWeb 笔记(补)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/31/mybatis_note_2/">MyBatis 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/30/mybatis_note_1/">MyBatis 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/spring_note_2/">Spring 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring_note_1/">Spring 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/16/java_regex/">javaRegex</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/15/git_note/">Git学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/15/git_note/">Git学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/16/java_regex/">javaRegex</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/hello_world/">GitHub + Hexo 搭建博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/re_os/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/01/javaweb_note/">JavaWeb 笔记(补)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring_note_1/">Spring 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/spring_note_2/">Spring 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/03/spring_mybatis/">MyBatis 整合 Spring 框架</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/10/30/mybatis_note_1/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/10/30/mybatis_note_1/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/10/30/mybatis_note_1/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/git/" style="font-size: 14.478389898891129px;" class="tag-cloud-link">git</a>
+    
+    <a href="/tags/bbr/" style="font-size: 19.357557045476305px;" class="tag-cloud-link">bbr</a>
+    
+    <a href="/tags/linux/" style="font-size: 16.89951600706852px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/java/" style="font-size: 17.82604592199984px;" class="tag-cloud-link">java</a>
+    
+    <a href="/tags/regex/" style="font-size: 19.985144027260898px;" class="tag-cloud-link">regex</a>
+    
+    <a href="/tags/paypal/" style="font-size: 11.265655871073694px;" class="tag-cloud-link">paypal</a>
+    
+    <a href="/tags/hexo/" style="font-size: 12.461715361914145px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/github/" style="font-size: 10.350251894951553px;" class="tag-cloud-link">github</a>
+    
+    <a href="/tags/debian/" style="font-size: 11.316800388785113px;" class="tag-cloud-link">debian</a>
+    
+    <a href="/tags/ubuntu/" style="font-size: 15.546759875775537px;" class="tag-cloud-link">ubuntu</a>
+    
+    <a href="/tags/servlet/" style="font-size: 9.262055528156875px;" class="tag-cloud-link">servlet</a>
+    
+    <a href="/tags/jdbc/" style="font-size: 14.03048853364242px;" class="tag-cloud-link">jdbc</a>
+    
+    <a href="/tags/jsp/" style="font-size: 15.522142555725551px;" class="tag-cloud-link">jsp</a>
+    
+    <a href="/tags/mybatis/" style="font-size: 16.496917951571923px;" class="tag-cloud-link">mybatis</a>
+    
+    <a href="/tags/springmvc/" style="font-size: 10.593158065808478px;" class="tag-cloud-link">springmvc</a>
+    
+    <a href="/tags/email/" style="font-size: 12.594194701746526px;" class="tag-cloud-link">email</a>
+    
+    <a href="/tags/spring/" style="font-size: 8.748630192206537px;" class="tag-cloud-link">spring</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://github.com/hentai121" target="_blank">UerAx</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/hentai121" target="_blank">Github</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 UerAx Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+</html>
