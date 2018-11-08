@@ -117,11 +117,11 @@
                         </li>
                         
                         <li>
-                            <a href="/categories/linux/">linux</a>
+                            <a href="/categories/others/">others</a>
                         </li>
                         
                         <li>
-                            <a href="/categories/others/">others</a>
+                            <a href="/categories/linux/">linux</a>
                         </li>
                         
                         
@@ -143,15 +143,15 @@
                         
                         
                         <li>
-                            <a href="/tags/git/">git</a>
+                            <a href="/tags/java/">java</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/bbr/">bbr</a>
+                            <a href="/tags/regex/">regex</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/linux/">linux</a>
+                            <a href="/tags/servlet/">servlet</a>
                         </li>
                         
                         
@@ -246,15 +246,24 @@
         </center>
     </div>
     <div class="content-article">
-        <h3 id="Servlet-配置"><a href="#Servlet-配置" class="headerlink" title="Servlet 配置"></a>Servlet 配置</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;ServletName&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">package</span>.<span class="title">ServletName</span>&lt;/<span class="title">servlet</span>-<span class="title">class</span>&gt;</span></span><br><span class="line">    // 可选, 使 Servlet 在服务器启动时就创建, 根据 n(n &gt; 0) 的值从小到大开始</span><br><span class="line">    &lt;load-on-startup&gt;n&lt;/load-on-startup&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;ServletName&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/urlName&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">// 表单传递</span><br><span class="line">&lt;form action=<span class="string">"urlName"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"valueName"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+        <ul>
+<li><a href="#none">目录</a><ul>
+<li><a href="#servlet">Servlet</a></li>
+<li><a href="#fal">Filter/Listener</a></li>
+<li><a href="#jsp">JSP</a></li>
+<li><a href="#jdbc">JDBC</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Servlet-配置"><a href="#Servlet-配置" class="headerlink" title="Servlet 配置"></a><h2 id="servlet">Servlet 配置</h2></h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;ServletName&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">package</span>.<span class="title">ServletName</span>&lt;/<span class="title">servlet</span>-<span class="title">class</span>&gt;</span></span><br><span class="line">    // 可选, 使 Servlet 在服务器启动时就创建, 根据 n(n &gt; 0) 的值从小到大开始</span><br><span class="line">    &lt;load-on-startup&gt;n&lt;/load-on-startup&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;ServletName&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/urlName&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">// 表单传递</span><br><span class="line">&lt;form action=<span class="string">"urlName"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"valueName"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="Servlet-Config"><a href="#Servlet-Config" class="headerlink" title="Servlet Config"></a>Servlet Config</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 获取表单参数</span><br><span class="line">String str = request.getParameter(<span class="string">"valueName"</span>);</span><br><span class="line"></span><br><span class="line">// 参数放入暂存区</span><br><span class="line">request.setAttribute(<span class="string">"number"</span>, str);</span><br><span class="line"></span><br><span class="line">// 从暂存区取出参数</span><br><span class="line">String str = (String) request.getAttribute(<span class="string">"number"</span>);</span><br><span class="line">// 从暂存区删除删除</span><br><span class="line">request.removeAttribute(<span class="string">"number"</span>);</span><br><span class="line"></span><br><span class="line">// 配置文件配置公共参数, 定义的参数在 JSP 中也能调用</span><br><span class="line">&lt;web-app&gt;</span><br><span class="line">    &lt;context-param&gt;</span><br><span class="line">        &lt;param-name&gt;name&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;value&lt;/param-value&gt;</span><br><span class="line">    &lt;/context-param&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br><span class="line"></span><br><span class="line">// 获取公共参数</span><br><span class="line">String value = getInitParameter(<span class="string">"name"</span>);</span><br><span class="line"></span><br><span class="line">// 跳转到 servletName , 地址栏中的地址不变</span><br><span class="line">request.getRequestDispatcher(<span class="string">"servletName"</span>).forward(request, response);</span><br><span class="line">// 运行(不跳转) servletName 后继续运行原 Servlet</span><br><span class="line">request.getRequestDispatcher(<span class="string">"servletName"</span>).include(request, response);</span><br><span class="line">// 重定向到 servletName , 地址栏中的地址改变</span><br><span class="line">request.sendRedirect(<span class="string">"servletName"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="Filter-Listener"><a href="#Filter-Listener" class="headerlink" title="Filter / Listener"></a>Filter / Listener</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 配置文件配置参数</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;name&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-<span class="class"><span class="keyword">class</span>&gt;<span class="title">package</span>.<span class="title">filterClass</span>&lt;/<span class="title">filter</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="class">&lt;<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">filter</span>-<span class="title">name</span>&gt;<span class="title">name</span>&lt;/<span class="title">filter</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">    // 过滤器作用的对象</span></span><br><span class="line"><span class="class">    &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;*.<span class="title">jsp</span>&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">&lt;<span class="title">listener</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">listener</span>-<span class="title">class</span>&gt;<span class="title">package</span>.<span class="title">listener</span>&lt;/<span class="title">listener</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// JSP 指令 &lt;%@ 指令名 key1=<span class="string">"value1"</span> key2=<span class="string">"value2"</span> %&gt;</span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> <span class="keyword">import</span>=<span class="string">"java.util.*, java.lang.*"</span> pageEncoding=<span class="string">"utf-8"</span> %&gt;</span><br><span class="line"></span><br><span class="line">// JSP 代码段</span><br><span class="line">// 存在 Servlet 的 Service 方法内, 每次刷新页面重新定义</span><br><span class="line">// 不能定义方法</span><br><span class="line">&lt;% int i = <span class="number">1</span>; %&gt;</span><br><span class="line"></span><br><span class="line">// JSP 表达式</span><br><span class="line">&lt;%= i %&gt;</span><br><span class="line"></span><br><span class="line">// JSP 定义区</span><br><span class="line">// 存在 Servlet 内作为其属性, 刷新页面不会重新定义</span><br><span class="line">// 可以定义方法</span><br><span class="line">&lt;%! int i = <span class="number">2</span>; %&gt;</span><br><span class="line"></span><br><span class="line">// JSP 注释</span><br><span class="line">&lt;%--  --%&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Filter-Listener"><a href="#Filter-Listener" class="headerlink" title="Filter / Listener"></a><h2 id="fal">Filter / Listener</h2></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 配置文件配置参数</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;name&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-<span class="class"><span class="keyword">class</span>&gt;<span class="title">package</span>.<span class="title">filterClass</span>&lt;/<span class="title">filter</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">filter</span>&gt;</span></span><br><span class="line"><span class="class">&lt;<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">filter</span>-<span class="title">name</span>&gt;<span class="title">name</span>&lt;/<span class="title">filter</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">    // 过滤器作用的对象</span></span><br><span class="line"><span class="class">    &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;*.<span class="title">jsp</span>&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">filter</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">&lt;<span class="title">listener</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">listener</span>-<span class="title">class</span>&gt;<span class="title">package</span>.<span class="title">listener</span>&lt;/<span class="title">listener</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a><h2 id="jsp">JSP</h2></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// JSP 指令 &lt;%@ 指令名 key1=<span class="string">"value1"</span> key2=<span class="string">"value2"</span> %&gt;</span><br><span class="line">&lt;%@ page language=<span class="string">"java"</span> <span class="keyword">import</span>=<span class="string">"java.util.*, java.lang.*"</span> pageEncoding=<span class="string">"utf-8"</span> %&gt;</span><br><span class="line"></span><br><span class="line">// JSP 代码段</span><br><span class="line">// 存在 Servlet 的 Service 方法内, 每次刷新页面重新定义</span><br><span class="line">// 不能定义方法</span><br><span class="line">&lt;% int i = <span class="number">1</span>; %&gt;</span><br><span class="line"></span><br><span class="line">// JSP 表达式</span><br><span class="line">&lt;%= i %&gt;</span><br><span class="line"></span><br><span class="line">// JSP 定义区</span><br><span class="line">// 存在 Servlet 内作为其属性, 刷新页面不会重新定义</span><br><span class="line">// 可以定义方法</span><br><span class="line">&lt;%! int i = <span class="number">2</span>; %&gt;</span><br><span class="line"></span><br><span class="line">// JSP 注释</span><br><span class="line">&lt;%--  --%&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="JSTL-标签库"><a href="#JSTL-标签库" class="headerlink" title="JSTL 标签库"></a>JSTL 标签库</h3><ul>
 <li>需要的 jar 包 : JSTL 包</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">// jsp 文件导入 jstl 标签库</span><br><span class="line">&lt;%@ taglib uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> prefix=<span class="string">"c"</span>%&gt;</span><br><span class="line"></span><br><span class="line">// c:forEach</span><br><span class="line">// items 集合对象, var 每一次值存放的变量</span><br><span class="line">&lt;c:forEach items=<span class="string">"$&#123;&#125;"</span> var=<span class="string">"$&#123;var&#125;"</span> begin=<span class="string">""</span> end=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;c:out value=<span class="string">"$&#123;var&#125;"</span> /&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br><span class="line"></span><br><span class="line">// c:forTokens</span><br><span class="line">// delims -&gt; 分隔符</span><br><span class="line">&lt;c:forTokens items=<span class="string">""</span> delims=<span class="string">""</span> var=<span class="string">"$&#123;var&#125;"</span>&gt;</span><br><span class="line">    &lt;c:out value=<span class="string">"$&#123;var&#125;"</span> /&gt;</span><br><span class="line">&lt;/c:forTokens&gt;</span><br><span class="line"></span><br><span class="line">// c:set 存放数据</span><br><span class="line">&lt;c:set var=<span class="string">"key"</span> value=<span class="string">"value"</span>&gt;</span><br><span class="line">// 存放 Map 及对象, target 是 Map 则 property 指定的是 key, 是对象则 property 指定的是对象的属性</span><br><span class="line">&lt;c:set target=<span class="string">"$&#123;&#125;"</span> property=<span class="string">"name"</span> value=<span class="string">"value"</span> /&gt;</span><br><span class="line"></span><br><span class="line">// c:remove</span><br><span class="line">&lt;c:remove var=<span class="string">""</span>&gt;</span><br><span class="line"></span><br><span class="line">// c:out 类似 &lt;%= %&gt;</span><br><span class="line">&lt;c:out value=<span class="string">"$&#123;key&#125;"</span> /&gt;</span><br><span class="line"></span><br><span class="line">// c:catch 获取错误信息并存放到变量里</span><br><span class="line">&lt;c:catch var=""&gt;Exception&lt;/c:catch&gt;</span><br><span class="line"></span><br><span class="line">// c:if 即 if 语句 test -&gt; 条件</span><br><span class="line">&lt;c:if test="$&#123;&#125;"&gt;&lt;/c:if&gt;</span><br><span class="line"></span><br><span class="line">// c:choose 类似 switch 语句, c:when 类似 case, c:otherwise 类似 default</span><br><span class="line">&lt;c:choose&gt;</span><br><span class="line">    &lt;c:when test=<span class="string">""</span>&gt;</span><br><span class="line">    &lt;/c:when&gt;</span><br><span class="line">    &lt;c:otherwise&gt;</span><br><span class="line">    &lt;/c:otherwise&gt;</span><br><span class="line">&lt;/c:choose&gt;</span><br><span class="line"></span><br><span class="line">// c:redirect 重定向</span><br><span class="line">&lt;c:redirect url=<span class="string">""</span>/&gt;</span><br><span class="line"></span><br><span class="line">// c:url 将 URL 地址格式化为一个字符串</span><br><span class="line">&lt;c:url var=<span class="string">""</span> url=<span class="string">""</span>/&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">private String JDBC_URL = <span class="string">"jdbc:mysql:///database_name"</span>;</span><br><span class="line">private String USERNAME = <span class="string">"username"</span>;</span><br><span class="line">private String PASSWORD = <span class="string">"password"</span>;</span><br><span class="line">// 使用 ? 作为占位符</span><br><span class="line">private String SQL = <span class="string">"select * from table where id = ?"</span> </span><br><span class="line"></span><br><span class="line">// 检查驱动是否存在</span><br><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">// 获取连接</span><br><span class="line">Connection conn = DriverManager.gerConnection(JDBC_URL, USERNAME, PASSWORD;</span><br><span class="line">// 读取 SQL 语句 </span><br><span class="line">PreparedStatement ps = conn.prepareStatement(SQL);</span><br><span class="line">// 按输入的数据类型选择方法, <span class="number">1</span> 代表第一个 ？</span><br><span class="line">ps.setString(<span class="number">1</span>, <span class="string">"test"</span>);</span><br><span class="line"></span><br><span class="line">// 增删改</span><br><span class="line">ps.executeUpdate();</span><br><span class="line"></span><br><span class="line">// 查</span><br><span class="line">// 使用 ResultSet 保存取出来的数据</span><br><span class="line">ResultSet rs = ps.executeQuery();</span><br><span class="line">// 遍历 ResultSet 获取数据, 每次一条</span><br><span class="line"><span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">    int sqlCol = rs.setInt(<span class="string">"sql_col"</span>);</span><br><span class="line">    String sqlColName = rs.setString(<span class="string">"sql_col_name"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a><h2 id="jdbc">JDBC</h2></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">private String JDBC_URL = <span class="string">"jdbc:mysql:///database_name"</span>;</span><br><span class="line">private String USERNAME = <span class="string">"username"</span>;</span><br><span class="line">private String PASSWORD = <span class="string">"password"</span>;</span><br><span class="line">// 使用 ? 作为占位符</span><br><span class="line">private String SQL = <span class="string">"select * from table where id = ?"</span> </span><br><span class="line"></span><br><span class="line">// 检查驱动是否存在</span><br><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">// 获取连接</span><br><span class="line">Connection conn = DriverManager.gerConnection(JDBC_URL, USERNAME, PASSWORD;</span><br><span class="line">// 读取 SQL 语句 </span><br><span class="line">PreparedStatement ps = conn.prepareStatement(SQL);</span><br><span class="line">// 按输入的数据类型选择方法, <span class="number">1</span> 代表第一个 ？</span><br><span class="line">ps.setString(<span class="number">1</span>, <span class="string">"test"</span>);</span><br><span class="line"></span><br><span class="line">// 增删改</span><br><span class="line">ps.executeUpdate();</span><br><span class="line"></span><br><span class="line">// 查</span><br><span class="line">// 使用 ResultSet 保存取出来的数据</span><br><span class="line">ResultSet rs = ps.executeQuery();</span><br><span class="line">// 遍历 ResultSet 获取数据, 每次一条</span><br><span class="line"><span class="keyword">while</span> (rs.next()) &#123;</span><br><span class="line">    int sqlCol = rs.setInt(<span class="string">"sql_col"</span>);</span><br><span class="line">    String sqlColName = rs.setString(<span class="string">"sql_col_name"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
 
@@ -379,7 +388,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/15/git_note/">Git学习</a>
+                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
                 </span>
             </li>
             
@@ -391,25 +400,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/16/java_regex/">javaRegex</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/26/re_os/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/01/javaweb_note/">JavaWeb 笔记(补)</a>
+                    <a href="/2018/10/31/mybatis_note_2/">MyBatis 学习笔记(2)</a>
                 </span>
             </li>
             
@@ -421,19 +418,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/10/15/git_note/">Git学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/re_os/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/11/05/springmvc_note/">SpringMVC 学习笔记(1)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                    <a href="/2018/10/28/spring_note_2/">Spring 学习笔记(2)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/spring_note_2/">Spring 学习笔记(2)</a>
+                    <a href="/2018/10/27/spring_note_1/">Spring 学习笔记(1)</a>
                 </span>
             </li>
             
@@ -458,39 +467,39 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/git/" style="font-size: 19.25938005435645px;" class="tag-cloud-link">git</a>
+    <a href="/tags/java/" style="font-size: 17.13696032161025px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/bbr/" style="font-size: 11.302934819500948px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/regex/" style="font-size: 18.814368006890447px;" class="tag-cloud-link">regex</a>
     
-    <a href="/tags/linux/" style="font-size: 13.198783512054016px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/servlet/" style="font-size: 19.448411124169727px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/java/" style="font-size: 11.318780706132594px;" class="tag-cloud-link">java</a>
+    <a href="/tags/jdbc/" style="font-size: 19.12718932919937px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/regex/" style="font-size: 13.114416616494012px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/jsp/" style="font-size: 11.860823897095788px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/paypal/" style="font-size: 15.911033850524653px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/hexo/" style="font-size: 9.860363325948448px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/hexo/" style="font-size: 13.372606533511762px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/github/" style="font-size: 10.573997102414467px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/github/" style="font-size: 16.809919309063133px;" class="tag-cloud-link">github</a>
+    <a href="/tags/email/" style="font-size: 9.981443062144756px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/debian/" style="font-size: 16.93132687610464px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/bbr/" style="font-size: 14.060435425397674px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 18.128552887255797px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/linux/" style="font-size: 9.819865480143168px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/servlet/" style="font-size: 10.482616005050616px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/paypal/" style="font-size: 18.236296228772392px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/jdbc/" style="font-size: 9.135695514135604px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/mybatis/" style="font-size: 12.711644977464463px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/jsp/" style="font-size: 9.104330491558457px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/spring/" style="font-size: 10.917700838677343px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/mybatis/" style="font-size: 13.348198474397414px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/git/" style="font-size: 10.648067163031037px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/springmvc/" style="font-size: 13.84022489807009px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/debian/" style="font-size: 17.84883507621916px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/email/" style="font-size: 9.795683671048955px;" class="tag-cloud-link">email</a>
+    <a href="/tags/ubuntu/" style="font-size: 19.46723407146261px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/spring/" style="font-size: 14.296098875039476px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/springmvc/" style="font-size: 8.008217392070105px;" class="tag-cloud-link">springmvc</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
