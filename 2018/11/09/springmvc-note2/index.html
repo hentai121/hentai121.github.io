@@ -10,7 +10,7 @@
     
     
     
-    <title>Spring 学习笔记(2) | UerAx</title>
+    <title>SpringMVC 学习笔记(2) | UerAx</title>
     <link href=”“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -187,13 +187,13 @@
         <i class="fa fa-home"></i>
         <a href="">UerAx</a>
         >
-        <span>Spring 学习笔记(2)</span>
+        <span>SpringMVC 学习笔记(2)</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2018/10/28/spring_note_2/">Spring 学习笔记(2)</a>
+                <a href="/2018/11/09/springmvc-note2/">SpringMVC 学习笔记(2)</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -203,12 +203,12 @@
                 
                 <a href="/tags/java/">java</a>, 
                 
-                <a href="/tags/spring/">spring</a>
+                <a href="/tags/springmvc/">springmvc</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-10-28
+                <i class="fa fa-calendar"></i> 2018-11-09
             </span>
             
         </div>
@@ -218,11 +218,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2018/10/28/spring_note_2/">Spring 学习笔记(2)</a>
+                    <a href="/2018/11/09/springmvc-note2/">SpringMVC 学习笔记(2)</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2018-10-28
+                <i class="fa fa-calendar"></i> 2018-11-09
             </p>
             <p>
                 
@@ -230,7 +230,7 @@
                 
                 <a href="/tags/java/">java</a>, 
                 
-                <a href="/tags/spring/">spring</a>
+                <a href="/tags/springmvc/">springmvc</a>
                 
                 
                 
@@ -238,35 +238,21 @@
         </center>
     </div>
     <div class="content-article">
-        <blockquote>
-<p>Spring JDBC</p>
-</blockquote>
-<ul>
-<li>需要引入的 jar 包 : Spring 的 JDBC , tx , aop 的包和数据库驱动的包</li>
+        <h3 id="Restful-风格"><a href="#Restful-风格" class="headerlink" title="Restful 风格"></a>Restful 风格</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping("test/&#123;id&#125;")</span></span><br><span class="line">// public String test(@PathVariable(<span class="string">"id"</span>) Integer integer) &#123;&#125;</span><br><span class="line">public String test(@PathVariable Integer id) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// 编写拦截器</span><br><span class="line">public class MyInterceptor implements HandlerInterceptor &#123;</span><br><span class="line"></span><br><span class="line">    // 方法执行之后执行, 处理异常, 清理资源, 记录日志</span><br><span class="line">    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)throws Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 方法执行之后, 返回 ModelAndView 前执行。设置页面的共同参数</span><br><span class="line">    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,ModelAndView modelAndView) throws Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 进入方法前执行, 登陆拦截, 权限校验</span><br><span class="line">    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)throws Exception &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 在 SpringMVC 配置文件中配置</span><br><span class="line">&lt;mvc:interceptors&gt;</span><br><span class="line">    &lt;mvc:interceptor&gt;</span><br><span class="line">        &lt;!-- /** 拦截所有请求, 包括二级目录 --&gt;</span><br><span class="line">        &lt;mvc:mapping path=<span class="string">"/**"</span> /&gt;</span><br><span class="line">        &lt;!-- 配置不拦截目录 --&gt;</span><br><span class="line">        &lt;mvc:exclude-mapping path=<span class="string">""</span> /&gt;</span><br><span class="line">        &lt;bean class="com.uerax.springmvc.interceptor.MyInterceptor" /&gt;</span><br><span class="line">    &lt;/mvc:interceptor&gt;</span><br><span class="line">    &lt;!-- 若添加多个拦截器则 preHandle 方法按照堆顺序先入先执行, postHandle 和 afterCompletion 按照出栈先入后执行 --&gt;</span><br><span class="line">    &lt;mvc:interceptor&gt;</span><br><span class="line">        &lt;!-- /** 拦截所有请求, 包括二级目录 --&gt;</span><br><span class="line">        &lt;mvc:mapping path=<span class="string">"/**"</span>/&gt;</span><br><span class="line">        &lt;bean class="com.uerax.springmvc.interceptor.MyInterceptor2" /&gt;</span><br><span class="line">    &lt;/mvc:interceptor&gt;</span><br><span class="line">&lt;/mvc:interceptors&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="日期转换器"><a href="#日期转换器" class="headerlink" title="日期转换器"></a>日期转换器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 编写日期转换器实现 Converter 接口</span><br><span class="line">public class DateConvert implements Converter&lt;String, Date&gt; &#123;</span><br><span class="line"></span><br><span class="line">    public Date convert(String source) &#123;</span><br><span class="line">        Date date = null;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            // 与 JSP 传入的格式一致</span><br><span class="line">            SimpleDateFormat sdf = new SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">            date = sdf.parse(source);</span><br><span class="line">        &#125; catch (ParseException e) &#123;</span><br><span class="line">            e.printStackTrack();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> date;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// Spring 配置</span><br><span class="line">&lt;!-- 使用自定义转换器 --&gt;</span><br><span class="line">&lt;mvc:annotation-driven conversion-service=<span class="string">"MyConvert"</span> /&gt;</span><br><span class="line">&lt;!-- 定义转换器 --&gt;</span><br><span class="line">&lt;bean id="MyConvert" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"converters"</span>&gt;</span><br><span class="line">        &lt;set&gt;</span><br><span class="line">            &lt;bean class="package.DateConvert" /&gt;</span><br><span class="line">        &lt;/set&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="GET-请求乱码"><a href="#GET-请求乱码" class="headerlink" title="GET 请求乱码"></a>GET 请求乱码</h3><ul>
+<li>把 tomcat 配置文件 server.xml 的 <connector connectiontimeout="20000" port="8080" protocol="HTTP/1.1" redirectport="8443"> 添加上 URIEncoding=”utf-8” 属性</connector></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 将连接池和模板交给 Spring 管理</span><br><span class="line">// 配置连接池</span><br><span class="line">&lt;bean id="dataSourceId" class="org.springframework.jdbc.datasource.DriverManagerDataSource"&gt;</span><br><span class="line">    // 配置数据库驱动</span><br><span class="line">    &lt;property name=<span class="string">"driverClassName"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span><br><span class="line">    // 配置数据库 database</span><br><span class="line">    &lt;property name=<span class="string">"url"</span> value=<span class="string">"jdbc:mysql:///database"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"username"</span> value=<span class="string">"username"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"password"</span> value=<span class="string">"password"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSourceId"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 增 删 改 使用 update方法</span><br><span class="line">jdbcTemplate.update(<span class="string">"sql"</span>, args);</span><br><span class="line"></span><br><span class="line">// 查 使用 queryForObject方法</span><br><span class="line">// 返回 String 类型的值</span><br><span class="line">String str = jdbcTemplate.queryForObject(<span class="string">"sql"</span>, String.<span class="keyword">class</span>, args)</span><br></pre></td></tr></table></figure>
-<h3 id="使用开源连接池-DBCP-连接池"><a href="#使用开源连接池-DBCP-连接池" class="headerlink" title="使用开源连接池 DBCP 连接池"></a>使用开源连接池 DBCP 连接池</h3><ul>
-<li>需要引入的 jar 包 : apache 的 dbcp , pool 包</li>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 编写全局异常处理器</span><br><span class="line">public class CustomerExceptionResolver implements HandlerExceptionResolver &#123;</span><br><span class="line">    public ModelAndView resolveException(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2,Exception arg3) &#123;</span><br><span class="line">        // 系统出现异常则返回该试图</span><br><span class="line">        ModelAndView mav = new ModelAndView();</span><br><span class="line">        <span class="keyword">return</span> mav;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 配置 SpringMVC</span><br><span class="line">&lt;bean class="com.uerax.springmvc.exception.CustomerExceptionResolver" /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h3><ul>
+<li>需要导入的 jar 包 : fileupload 和 io 包</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 只需要将配置连接池的 <span class="class"><span class="keyword">class</span> 改成 <span class="title">org</span>.<span class="title">apache</span>.<span class="title">commons</span>.<span class="title">dbcp2</span>.<span class="title">BasicDataSource</span> 其他用法不变</span></span><br><span class="line">&lt;bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"driverClassName"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"url"</span> value=<span class="string">"jdbc:mysql:///spring"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"username"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"password"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="使用-C3P0-连接池"><a href="#使用-C3P0-连接池" class="headerlink" title="使用 C3P0 连接池"></a>使用 C3P0 连接池</h3><ul>
-<li>需要引入的 jar 包 : c3p0 的 c3p0 , mchange-commons 包</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 在 tomcat 的 server.xml 文件中配置</span><br><span class="line">// docBase -&gt; 文件所在的目录  path -&gt; 配置访问路径</span><br><span class="line">&lt;Context docBase=<span class="string">"url"</span> path=<span class="string">"/pic"</span> reloadable=<span class="string">"true"</span> /&gt;</span><br><span class="line"></span><br><span class="line">// 在 SpringMVC 的配置文件中配置多媒体处理器</span><br><span class="line">&lt;bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver"&gt;</span><br><span class="line">    &lt;!-- 最大上传文件, value 用字节计算--&gt;</span><br><span class="line">    &lt;property name=<span class="string">"maxUploadSize"</span> value=<span class="string">""</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 控制器获取图片参数, 表单必须添加 enctype=<span class="string">"multipart/form-data"</span>, 必须使用 POST 方法</span><br><span class="line">&lt;form action="" enctype="multipart/form-data" method="POST"&gt;&lt;/form&gt;</span><br><span class="line">public String test(MultipartFile pictureFile) &#123;</span><br><span class="line">    // 图片新名称</span><br><span class="line">    String newName = UUID.randomUUID().toString();</span><br><span class="line">    // 图片旧名称</span><br><span class="line">    String oldName = pictureFile.getOriginalFilename();</span><br><span class="line">    // 获取图片后缀</span><br><span class="line">    String sux = oldName.subString(oldName.lastIndexOf(<span class="string">"."</span>));</span><br><span class="line">    File file = new File(<span class="string">"url"</span> + newName + sux);</span><br><span class="line">    // 写入磁盘</span><br><span class="line">    pictureFile.transferTo(file);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="JSON-交互"><a href="#JSON-交互" class="headerlink" title="JSON 交互"></a>JSON 交互</h3><ul>
+<li>需要导入的 jar 包 : jackson-annotations, jackson-core, jackson-databind</li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"driverClass"</span> value=<span class="string">"com.mysql.jdbc.Driver"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"jdbcUrl"</span> value=<span class="string">"jdbc:mysql:///spring"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"user"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">    &lt;property name=<span class="string">"password"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="通过-properties-文件保存"><a href="#通过-properties-文件保存" class="headerlink" title="通过 properties 文件保存"></a>通过 properties 文件保存</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 创建 properties 文件, 语法为 key=value</span><br><span class="line">driverClass=com.mysql.jdbc.Driver</span><br><span class="line"></span><br><span class="line">// 需要在配置文件配置</span><br><span class="line">&lt;context:property-placeholder location=<span class="string">"classpath:file.properties"</span>&gt;</span><br><span class="line"></span><br><span class="line">// 通过 $&#123;&#125; 调用</span><br><span class="line">&lt;property name=<span class="string">""</span> value=<span class="string">"$&#123;key&#125;"</span>&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Spring 事务管理</p>
-</blockquote>
-<h3 id="声明式事务"><a href="#声明式事务" class="headerlink" title="声明式事务"></a>声明式事务</h3><ul>
-<li>通过配置实现</li>
-<li>需要引入的 jar 包 : AOP 所需要的全部包</li>
-</ul>
-<h4 id="XML-配置方法"><a href="#XML-配置方法" class="headerlink" title="XML 配置方法"></a>XML 配置方法</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 配置平台管理器</span><br><span class="line">&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;</span><br><span class="line">    // 配置数据库连接池</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 配置增强</span><br><span class="line">&lt;tx:advice id=<span class="string">"txAdvice"</span> transaction-manager=<span class="string">"transactionManager"</span>&gt;</span><br><span class="line">    &lt;tx:attributes&gt;</span><br><span class="line">        &lt;tx:method name=<span class="string">"methodName"</span> propagation=<span class="string">"REQUIRED"</span>/&gt;</span><br><span class="line">    &lt;/tx:attributes&gt;</span><br><span class="line">&lt;/tx:advice&gt;</span><br><span class="line"></span><br><span class="line">// AOP 配置</span><br><span class="line">&lt;aop:config&gt;</span><br><span class="line">    &lt;aop:pointcut expression=<span class="string">"execution(* com.uerax.spring.tx.demo1.StudentServiceImpl.*(..))"</span> id=<span class="string">"pointcut1"</span> /&gt;</span><br><span class="line">    &lt;aop:advisor advice-ref=<span class="string">"txAdvice"</span> pointcut-ref=<span class="string">"pointcut1"</span> /&gt;</span><br><span class="line">&lt;/aop:config&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="注解方法"><a href="#注解方法" class="headerlink" title="注解方法"></a>注解方法</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 配置平台管理器</span><br><span class="line">&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;</span><br><span class="line">    // 配置数据库连接池</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 开启注解事务</span><br><span class="line">&lt;tx:annotation-driven transaction-manager=<span class="string">"transactionManager"</span>/&gt;</span><br><span class="line"></span><br><span class="line">// 在业务层添加注解</span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line">public class Service &#123;&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="编程式事务"><a href="#编程式事务" class="headerlink" title="编程式事务"></a>编程式事务</h3><ul>
-<li>需要手动书写代码</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 配置平台管理器</span><br><span class="line">&lt;bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"&gt;</span><br><span class="line">    // 配置数据库连接池</span><br><span class="line">    &lt;property name=<span class="string">"dataSource"</span> ref=<span class="string">"dataSource"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 配置事务管理模板</span><br><span class="line">&lt;bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"transactionManager"</span> ref=<span class="string">"transactionManager"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 在需要添加事务的方法中添加</span><br><span class="line">transactionTemplate.execute(new TransactionCallbackWithoutResult() &#123;</span><br><span class="line">    protected void doInTransactionWithoutResult(TransactionStatus arg0) &#123;</span><br><span class="line">        // 需要添加事务的方法</span><br><span class="line">    &#125;&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping("test")</span></span><br><span class="line">public @ResponseBody Student test(@RequestBody Student student) &#123;</span><br><span class="line">    <span class="keyword">return</span> student;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
 
@@ -427,19 +413,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/09/springmvc-note2/">SpringMVC 学习笔记(2)</a>
+                    <a href="/2018/11/03/spring_mybatis/">MyBatis 整合 Spring 框架</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring_note_1/">Spring 学习笔记(1)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2018/10/15/git_note/">Git学习</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/05/springmvc_note/">SpringMVC 学习笔记(1)</a>
                 </span>
             </li>
             
@@ -458,51 +444,51 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/2018/10/28/spring_note_2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/11/09/springmvc-note2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/2018/10/28/spring_note_2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/11/09/springmvc-note2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/2018/10/28/spring_note_2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/11/09/springmvc-note2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/bbr/" style="font-size: 10.104380892646418px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/bbr/" style="font-size: 16.188072965510543px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/linux/" style="font-size: 19.11161159664415px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/linux/" style="font-size: 16.774185813358244px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/email/" style="font-size: 8.820895713691705px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 14.739095923431353px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/hexo/" style="font-size: 18.077886386662865px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 16.996711180345226px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/github/" style="font-size: 16.81302047763238px;" class="tag-cloud-link">github</a>
+    <a href="/tags/github/" style="font-size: 15.614639101476094px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/servlet/" style="font-size: 15.881548414702005px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/servlet/" style="font-size: 8.861894884341417px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/java/" style="font-size: 9.637126294304366px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 8.375781895477306px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/jdbc/" style="font-size: 11.177354509230483px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/jdbc/" style="font-size: 13.889898565170437px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/jsp/" style="font-size: 8.386867764026341px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/jsp/" style="font-size: 9.216896449080268px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/mybatis/" style="font-size: 17.346085152048524px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/mybatis/" style="font-size: 18.716674444877494px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/paypal/" style="font-size: 12.167150536299019px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/paypal/" style="font-size: 8.476750453263362px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/debian/" style="font-size: 15.349322643414236px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/debian/" style="font-size: 14.661875358507665px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 13.788793148989784px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/ubuntu/" style="font-size: 8.920122958167507px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/spring/" style="font-size: 12.02805649286106px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 17.231115246571377px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/springmvc/" style="font-size: 17.12788840940983px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/springmvc/" style="font-size: 15.219295148350916px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/git/" style="font-size: 9.690798428556302px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 19.81783676614967px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/regex/" style="font-size: 10.082318666845243px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 15.733048560654243px;" class="tag-cloud-link">regex</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
