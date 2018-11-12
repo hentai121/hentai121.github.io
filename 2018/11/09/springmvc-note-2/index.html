@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="UerAx">
+    
+    
+    
+    
+    
+    
+    <title>SpringMVC 学习笔记(2) | UerAx</title>
+    <link href=”“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/phonebg.jpg');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">UerAx</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/linux/">linux</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/others/">others</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/note/">note</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/bbr/">bbr</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/linux/">linux</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="https://github.com/hentai121">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">UerAx</a>
+        >
+        <span>SpringMVC 学习笔记(2)</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/springmvc/">springmvc</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-11-09
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-11-09
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/springmvc/">springmvc</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h3 id="Restful-风格"><a href="#Restful-风格" class="headerlink" title="Restful 风格"></a>Restful 风格</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping("test/&#123;id&#125;")</span></span><br><span class="line">// public String test(@PathVariable(<span class="string">"id"</span>) Integer integer) &#123;&#125;</span><br><span class="line">public String test(@PathVariable Integer id) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// 编写拦截器</span><br><span class="line">public class MyInterceptor implements HandlerInterceptor &#123;</span><br><span class="line"></span><br><span class="line">    // 方法执行之后执行, 处理异常, 清理资源, 记录日志</span><br><span class="line">    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)throws Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 方法执行之后, 返回 ModelAndView 前执行。设置页面的共同参数</span><br><span class="line">    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,ModelAndView modelAndView) throws Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 进入方法前执行, 登陆拦截, 权限校验</span><br><span class="line">    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)throws Exception &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 在 SpringMVC 配置文件中配置</span><br><span class="line">&lt;mvc:interceptors&gt;</span><br><span class="line">    &lt;mvc:interceptor&gt;</span><br><span class="line">        &lt;!-- /** 拦截所有请求, 包括二级目录 --&gt;</span><br><span class="line">        &lt;mvc:mapping path=<span class="string">"/**"</span> /&gt;</span><br><span class="line">        &lt;!-- 配置不拦截目录 --&gt;</span><br><span class="line">        &lt;mvc:exclude-mapping path=<span class="string">""</span> /&gt;</span><br><span class="line">        &lt;bean class="com.uerax.springmvc.interceptor.MyInterceptor" /&gt;</span><br><span class="line">    &lt;/mvc:interceptor&gt;</span><br><span class="line">    &lt;!-- 若添加多个拦截器则 preHandle 方法按照堆顺序先入先执行, postHandle 和 afterCompletion 按照出栈先入后执行 --&gt;</span><br><span class="line">    &lt;mvc:interceptor&gt;</span><br><span class="line">        &lt;!-- /** 拦截所有请求, 包括二级目录 --&gt;</span><br><span class="line">        &lt;mvc:mapping path=<span class="string">"/**"</span>/&gt;</span><br><span class="line">        &lt;bean class="com.uerax.springmvc.interceptor.MyInterceptor2" /&gt;</span><br><span class="line">    &lt;/mvc:interceptor&gt;</span><br><span class="line">&lt;/mvc:interceptors&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="日期转换器"><a href="#日期转换器" class="headerlink" title="日期转换器"></a>日期转换器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 编写日期转换器实现 Converter 接口</span><br><span class="line">public class DateConvert implements Converter&lt;String, Date&gt; &#123;</span><br><span class="line"></span><br><span class="line">    public Date convert(String source) &#123;</span><br><span class="line">        Date date = null;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            // 与 JSP 传入的格式一致</span><br><span class="line">            SimpleDateFormat sdf = new SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">            date = sdf.parse(source);</span><br><span class="line">        &#125; catch (ParseException e) &#123;</span><br><span class="line">            e.printStackTrack();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> date;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// Spring 配置</span><br><span class="line">&lt;!-- 使用自定义转换器 --&gt;</span><br><span class="line">&lt;mvc:annotation-driven conversion-service=<span class="string">"MyConvert"</span> /&gt;</span><br><span class="line">&lt;!-- 定义转换器 --&gt;</span><br><span class="line">&lt;bean id="MyConvert" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"converters"</span>&gt;</span><br><span class="line">        &lt;set&gt;</span><br><span class="line">            &lt;bean class="package.DateConvert" /&gt;</span><br><span class="line">        &lt;/set&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="GET-请求乱码"><a href="#GET-请求乱码" class="headerlink" title="GET 请求乱码"></a>GET 请求乱码</h3><ul>
+<li>把 tomcat 配置文件 server.xml 的 <connector connectiontimeout="20000" port="8080" protocol="HTTP/1.1" redirectport="8443"> 添加上 URIEncoding=”utf-8” 属性</connector></li>
+</ul>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 编写全局异常处理器</span><br><span class="line">public class CustomerExceptionResolver implements HandlerExceptionResolver &#123;</span><br><span class="line">    public ModelAndView resolveException(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2,Exception arg3) &#123;</span><br><span class="line">        // 系统出现异常则返回该试图</span><br><span class="line">        ModelAndView mav = new ModelAndView();</span><br><span class="line">        <span class="keyword">return</span> mav;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 配置 SpringMVC</span><br><span class="line">&lt;bean class="com.uerax.springmvc.exception.CustomerExceptionResolver" /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h3><ul>
+<li>需要导入的 jar 包 : fileupload 和 io 包</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 在 tomcat 的 server.xml 文件中配置</span><br><span class="line">// docBase -&gt; 文件所在的目录  path -&gt; 配置访问路径</span><br><span class="line">&lt;Context docBase=<span class="string">"url"</span> path=<span class="string">"/pic"</span> reloadable=<span class="string">"true"</span> /&gt;</span><br><span class="line"></span><br><span class="line">// 在 SpringMVC 的配置文件中配置多媒体处理器</span><br><span class="line">&lt;bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver"&gt;</span><br><span class="line">    &lt;!-- 最大上传文件, value 用字节计算--&gt;</span><br><span class="line">    &lt;property name=<span class="string">"maxUploadSize"</span> value=<span class="string">""</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">// 控制器获取图片参数, 表单必须添加 enctype=<span class="string">"multipart/form-data"</span>, 必须使用 POST 方法</span><br><span class="line">&lt;form action="" enctype="multipart/form-data" method="POST"&gt;&lt;/form&gt;</span><br><span class="line">public String test(MultipartFile pictureFile) &#123;</span><br><span class="line">    // 图片新名称</span><br><span class="line">    String newName = UUID.randomUUID().toString();</span><br><span class="line">    // 图片旧名称</span><br><span class="line">    String oldName = pictureFile.getOriginalFilename();</span><br><span class="line">    // 获取图片后缀</span><br><span class="line">    String sux = oldName.subString(oldName.lastIndexOf(<span class="string">"."</span>));</span><br><span class="line">    File file = new File(<span class="string">"url"</span> + newName + sux);</span><br><span class="line">    // 写入磁盘</span><br><span class="line">    pictureFile.transferTo(file);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="JSON-交互"><a href="#JSON-交互" class="headerlink" title="JSON 交互"></a>JSON 交互</h3><ul>
+<li>需要导入的 jar 包 : jackson-annotations, jackson-core, jackson-databind</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping("test")</span></span><br><span class="line">public @ResponseBody Student test(@RequestBody Student student) &#123;</span><br><span class="line">    <span class="keyword">return</span> student;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            UerAx
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/10/maven-eclipse/">Maven</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/16/java-regex/">javaRegex</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/11/09/springmvc-note-2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/11/09/springmvc-note-2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/11/09/springmvc-note-2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/bbr/" style="font-size: 9.580243214603014px;" class="tag-cloud-link">bbr</a>
+    
+    <a href="/tags/linux/" style="font-size: 10.548590437040907px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/hexo/" style="font-size: 11.052669533658193px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/github/" style="font-size: 13.71051608055991px;" class="tag-cloud-link">github</a>
+    
+    <a href="/tags/servlet/" style="font-size: 18.438660225564934px;" class="tag-cloud-link">servlet</a>
+    
+    <a href="/tags/java/" style="font-size: 12.489992173628064px;" class="tag-cloud-link">java</a>
+    
+    <a href="/tags/jdbc/" style="font-size: 17.73610285465498px;" class="tag-cloud-link">jdbc</a>
+    
+    <a href="/tags/jsp/" style="font-size: 8.333963334819366px;" class="tag-cloud-link">jsp</a>
+    
+    <a href="/tags/regex/" style="font-size: 17.412096677992295px;" class="tag-cloud-link">regex</a>
+    
+    <a href="/tags/mybatis/" style="font-size: 13.17428133306721px;" class="tag-cloud-link">mybatis</a>
+    
+    <a href="/tags/email/" style="font-size: 19.645241440677943px;" class="tag-cloud-link">email</a>
+    
+    <a href="/tags/maven/" style="font-size: 19.131840617362702px;" class="tag-cloud-link">maven</a>
+    
+    <a href="/tags/paypal/" style="font-size: 11.56414305392164px;" class="tag-cloud-link">paypal</a>
+    
+    <a href="/tags/debian/" style="font-size: 10.339184223922857px;" class="tag-cloud-link">debian</a>
+    
+    <a href="/tags/ubuntu/" style="font-size: 14.043102605174013px;" class="tag-cloud-link">ubuntu</a>
+    
+    <a href="/tags/spring/" style="font-size: 17.612085124536264px;" class="tag-cloud-link">spring</a>
+    
+    <a href="/tags/springmvc/" style="font-size: 19.516443288439387px;" class="tag-cloud-link">springmvc</a>
+    
+    <a href="/tags/git/" style="font-size: 17.00691739177896px;" class="tag-cloud-link">git</a>
+    
+    <a href="/tags/ssm/" style="font-size: 9.76611109704627px;" class="tag-cloud-link">ssm</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://github.com/hentai121" target="_blank">UerAx</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/hentai121" target="_blank">Github</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 UerAx Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+</html>

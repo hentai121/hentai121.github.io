@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="UerAx">
+    
+    
+    
+    
+    
+    
+    <title>MyBatis 分页插件 | UerAx</title>
+    <link href=”“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/phonebg.jpg');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">UerAx</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/linux/">linux</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/others/">others</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/note/">note</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/bbr/">bbr</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/linux/">linux</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="https://github.com/hentai121">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">UerAx</a>
+        >
+        <span>MyBatis 分页插件</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/mybatis/">mybatis</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-11-12
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-11-12
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/mybatis/">mybatis</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <ul>
+<li>需要引入的 jar 包 : pagehelper 包, sql 解析器的 sqlparser 包</li>
+<li>使用 maven 只需要添加 pagehelper 依赖</li>
+</ul>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 使用 MyBatis 配置文件配置</span><br><span class="line">&lt;plugins&gt;</span><br><span class="line">    &lt;!-- com.github.pagehelper为PageHelper类所在包名 --&gt;</span><br><span class="line">    &lt;plugin interceptor=<span class="string">"com.github.pagehelper.PageInterceptor"</span>&gt;</span><br><span class="line">        &lt;!-- 使用下面的方式配置参数，后面会有所有的参数介绍 --&gt;</span><br><span class="line">        &lt;property name=<span class="string">"param1"</span> value=<span class="string">"value1"</span>/&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line">&lt;/plugins&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"&gt;</span><br><span class="line">  &lt;!-- 注意其他配置 --&gt;</span><br><span class="line">  &lt;property name=<span class="string">"plugins"</span>&gt;</span><br><span class="line">    &lt;array&gt;</span><br><span class="line">      &lt;bean class="com.github.pagehelper.PageInterceptor"&gt;</span><br><span class="line">        &lt;property name=<span class="string">"properties"</span>&gt;</span><br><span class="line">          &lt;!--使用下面的方式配置参数，一行配置一个 --&gt;</span><br><span class="line">          &lt;value&gt;</span><br><span class="line">            params=value1</span><br><span class="line">          &lt;/value&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">      &lt;/bean&gt;</span><br><span class="line">    &lt;/array&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// reasonable：分页合理化参数，默认值为false。当该参数设置为 true 时，pageNum&lt;=<span class="number">0</span> 时会查询第一页， pageNum&gt;pages（超过总数时），会查询最后一页。默认false 时，直接根据参数进行查询。</span><br><span class="line">&lt;property name=<span class="string">"reasonable"</span> value=<span class="string">"true"</span>/&gt;</span><br><span class="line"></span><br><span class="line">// offsetAsPageNum：默认值为 false，该参数对使用 RowBounds 作为分页参数时有效。 当该参数设置为 true 时，会将 RowBounds 中的 offset 参数当成 pageNum 使用，可以用页码和页面大小两个参数进行分页。</span><br><span class="line">&lt;property name=<span class="string">"reasonable"</span> value=<span class="string">"true"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 只有紧跟在PageHelper.startPage方法后的第一个Mybatis的查询（Select）方法会被分页。</span><br><span class="line"></span><br><span class="line">public String getEmp(Model model, @RequestParam(defaultValue=<span class="string">"1"</span>) Integer startPage) &#123;</span><br><span class="line">    // 获取第<span class="number">1</span>页，<span class="number">10</span>条内容，默认查询总数count</span><br><span class="line">    PageHelper.startPage(startPage, <span class="number">5</span>);</span><br><span class="line">    List&lt;Employee&gt; list = employeeService.getEmployee();</span><br><span class="line">    // 将 list 放进 PageInfo 并设置显示页码数如不设置默认为<span class="number">8</span></span><br><span class="line">    PageInfo page = new PageInfo(list, <span class="number">5</span>);</span><br><span class="line">    model.addAttribute(<span class="string">"pageInfo"</span>, page);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"list"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// pageContext.setAttribute(<span class="string">"APP_PATH"</span>, request.getContextPath());</span><br><span class="line">// 获取 PageInfo 内的 list 遍历</span><br><span class="line">&lt;c:forEach items="$&#123; pageInfo.list &#125;" var="emp"&gt;&lt;/c:forEach&gt;</span><br><span class="line">// 修改 bootstrap 默认的分页模板</span><br><span class="line">&lt;div class="row"&gt;</span><br><span class="line">    &lt;div class="col-md-3 col-md-offset-8"&gt;</span><br><span class="line">        &lt;nav aria-label=<span class="string">"Page navigation"</span>&gt;</span><br><span class="line">            &lt;ul class="pagination"&gt;</span><br><span class="line">                &lt;li&gt;&lt;a href=<span class="string">"$&#123; APP_PATH &#125;/emps?startPage=$&#123; pageInfo.pageNum - 1 &#125;"</span> aria-label=<span class="string">"Previous"</span>&gt; &lt;span</span><br><span class="line">                        aria-hidden="true"&gt;&amp;laquo;&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                &lt;!-- 获取所有导航页码遍历 --&gt;</span><br><span class="line">                &lt;c:forEach items=<span class="string">"$&#123; pageInfo.navigatepageNums &#125;"</span> var=<span class="string">"page"</span>&gt;</span><br><span class="line">                    &lt;!-- 判断是否为当前页码 --&gt;</span><br><span class="line">                    &lt;c:<span class="keyword">if</span> test=<span class="string">"$&#123; page == pageInfo.pageNum &#125;"</span>&gt;</span><br><span class="line">                        &lt;li class="active"&gt;&lt;a href="#"&gt;$&#123; page &#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                    &lt;/c:if&gt;</span><br><span class="line">                    &lt;c:<span class="keyword">if</span> test=<span class="string">"$&#123;page != pageInfo.pageNum &#125;"</span>&gt;</span><br><span class="line">                        &lt;li&gt;&lt;a href="$&#123; APP_PATH &#125;/emps?startPage=$&#123;page&#125;"&gt;$&#123; page &#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">                    &lt;/c:if&gt;</span><br><span class="line">                &lt;/c:forEach&gt;</span><br><span class="line">                &lt;li&gt;&lt;a href=<span class="string">"$&#123; APP_PATH &#125;/emps?startPage=$&#123; pageInfo.pageNum + 1 &#125;"</span> aria-label=<span class="string">"Next"</span>&gt; &lt;span</span><br><span class="line">                        aria-hidden="true"&gt;&amp;raquo;&lt;/span&gt;</span><br><span class="line">                &lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/nav&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            UerAx
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/10/maven-eclipse/">Maven</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/16/java-regex/">javaRegex</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/re-os/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/15/git-note/">Git学习</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/11/12/pagehelper/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/11/12/pagehelper/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/11/12/pagehelper/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/bbr/" style="font-size: 11.417749820913869px;" class="tag-cloud-link">bbr</a>
+    
+    <a href="/tags/linux/" style="font-size: 19.602810123670682px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/hexo/" style="font-size: 19.990233432344166px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/github/" style="font-size: 13.895649261117306px;" class="tag-cloud-link">github</a>
+    
+    <a href="/tags/servlet/" style="font-size: 11.567434114665446px;" class="tag-cloud-link">servlet</a>
+    
+    <a href="/tags/java/" style="font-size: 12.389985876815139px;" class="tag-cloud-link">java</a>
+    
+    <a href="/tags/jdbc/" style="font-size: 12.78240068669703px;" class="tag-cloud-link">jdbc</a>
+    
+    <a href="/tags/jsp/" style="font-size: 9.28616227328041px;" class="tag-cloud-link">jsp</a>
+    
+    <a href="/tags/regex/" style="font-size: 17.22585910479553px;" class="tag-cloud-link">regex</a>
+    
+    <a href="/tags/mybatis/" style="font-size: 16.925954356834257px;" class="tag-cloud-link">mybatis</a>
+    
+    <a href="/tags/email/" style="font-size: 9.97553391966365px;" class="tag-cloud-link">email</a>
+    
+    <a href="/tags/maven/" style="font-size: 12.099716668751551px;" class="tag-cloud-link">maven</a>
+    
+    <a href="/tags/paypal/" style="font-size: 14.50434308116617px;" class="tag-cloud-link">paypal</a>
+    
+    <a href="/tags/debian/" style="font-size: 10.049468102813604px;" class="tag-cloud-link">debian</a>
+    
+    <a href="/tags/ubuntu/" style="font-size: 14.496918160442501px;" class="tag-cloud-link">ubuntu</a>
+    
+    <a href="/tags/spring/" style="font-size: 10.20717521131333px;" class="tag-cloud-link">spring</a>
+    
+    <a href="/tags/springmvc/" style="font-size: 12.95227806291858px;" class="tag-cloud-link">springmvc</a>
+    
+    <a href="/tags/git/" style="font-size: 13.503860325160822px;" class="tag-cloud-link">git</a>
+    
+    <a href="/tags/ssm/" style="font-size: 8.228107872186332px;" class="tag-cloud-link">ssm</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://github.com/hentai121" target="_blank">UerAx</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/hentai121" target="_blank">Github</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 UerAx Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+</html>
