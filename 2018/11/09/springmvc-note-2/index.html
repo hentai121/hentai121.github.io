@@ -113,15 +113,15 @@
                         
                         
                         <li>
+                            <a href="/categories/note/">note</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/linux/">linux</a>
                         </li>
                         
                         <li>
                             <a href="/categories/others/">others</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/note/">note</a>
                         </li>
                         
                         
@@ -143,15 +143,15 @@
                         
                         
                         <li>
+                            <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/bbr/">bbr</a>
                         </li>
                         
                         <li>
                             <a href="/tags/linux/">linux</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/hexo/">hexo</a>
                         </li>
                         
                         
@@ -239,6 +239,7 @@
     </div>
     <div class="content-article">
         <h3 id="Restful-风格"><a href="#Restful-风格" class="headerlink" title="Restful 风格"></a>Restful 风格</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping("test/&#123;id&#125;")</span></span><br><span class="line">// public String test(@PathVariable(<span class="string">"id"</span>) Integer integer) &#123;&#125;</span><br><span class="line">public String test(@PathVariable Integer id) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="POST-请求乱码"><a href="#POST-请求乱码" class="headerlink" title="POST 请求乱码"></a>POST 请求乱码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 通过过滤器自动设置 POST 请求编码 --&gt;</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;encoding&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-<span class="class"><span class="keyword">class</span>&gt;<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">web</span>.<span class="title">filter</span>.<span class="title">CharacterEncodingFilter</span>&lt;/<span class="title">filter</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;!-- 设置编码参是<span class="title">UTF8</span> --&gt;</span></span><br><span class="line"><span class="class">    &lt;init-param&gt;</span></span><br><span class="line"><span class="class">        &lt;param-name&gt;encoding&lt;/param-name&gt;</span></span><br><span class="line"><span class="class">        &lt;param-value&gt;UTF-8&lt;/param-value&gt;</span></span><br><span class="line"><span class="class">    &lt;/init-param&gt;</span></span><br><span class="line"><span class="class">&lt;/filter&gt;</span></span><br><span class="line"><span class="class">&lt;filter-mapping&gt;</span></span><br><span class="line"><span class="class">    &lt;filter-name&gt;encoding&lt;/filter-name&gt;</span></span><br><span class="line"><span class="class">    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span></span><br><span class="line"><span class="class">&lt;/filter-mapping&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// 编写拦截器</span><br><span class="line">public class MyInterceptor implements HandlerInterceptor &#123;</span><br><span class="line"></span><br><span class="line">    // 方法执行之后执行, 处理异常, 清理资源, 记录日志</span><br><span class="line">    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)throws Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 方法执行之后, 返回 ModelAndView 前执行。设置页面的共同参数</span><br><span class="line">    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,ModelAndView modelAndView) throws Exception &#123;&#125;</span><br><span class="line"></span><br><span class="line">    // 进入方法前执行, 登陆拦截, 权限校验</span><br><span class="line">    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)throws Exception &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 在 SpringMVC 配置文件中配置</span><br><span class="line">&lt;mvc:interceptors&gt;</span><br><span class="line">    &lt;mvc:interceptor&gt;</span><br><span class="line">        &lt;!-- /** 拦截所有请求, 包括二级目录 --&gt;</span><br><span class="line">        &lt;mvc:mapping path=<span class="string">"/**"</span> /&gt;</span><br><span class="line">        &lt;!-- 配置不拦截目录 --&gt;</span><br><span class="line">        &lt;mvc:exclude-mapping path=<span class="string">""</span> /&gt;</span><br><span class="line">        &lt;bean class="com.uerax.springmvc.interceptor.MyInterceptor" /&gt;</span><br><span class="line">    &lt;/mvc:interceptor&gt;</span><br><span class="line">    &lt;!-- 若添加多个拦截器则 preHandle 方法按照堆顺序先入先执行, postHandle 和 afterCompletion 按照出栈先入后执行 --&gt;</span><br><span class="line">    &lt;mvc:interceptor&gt;</span><br><span class="line">        &lt;!-- /** 拦截所有请求, 包括二级目录 --&gt;</span><br><span class="line">        &lt;mvc:mapping path=<span class="string">"/**"</span>/&gt;</span><br><span class="line">        &lt;bean class="com.uerax.springmvc.interceptor.MyInterceptor2" /&gt;</span><br><span class="line">    &lt;/mvc:interceptor&gt;</span><br><span class="line">&lt;/mvc:interceptors&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="日期转换器"><a href="#日期转换器" class="headerlink" title="日期转换器"></a>日期转换器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 编写日期转换器实现 Converter 接口</span><br><span class="line">public class DateConvert implements Converter&lt;String, Date&gt; &#123;</span><br><span class="line"></span><br><span class="line">    public Date convert(String source) &#123;</span><br><span class="line">        Date date = null;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            // 与 JSP 传入的格式一致</span><br><span class="line">            SimpleDateFormat sdf = new SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">            date = sdf.parse(source);</span><br><span class="line">        &#125; catch (ParseException e) &#123;</span><br><span class="line">            e.printStackTrack();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> date;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// Spring 配置</span><br><span class="line">&lt;!-- 使用自定义转换器 --&gt;</span><br><span class="line">&lt;mvc:annotation-driven conversion-service=<span class="string">"MyConvert"</span> /&gt;</span><br><span class="line">&lt;!-- 定义转换器 --&gt;</span><br><span class="line">&lt;bean id="MyConvert" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"&gt;</span><br><span class="line">    &lt;property name=<span class="string">"converters"</span>&gt;</span><br><span class="line">        &lt;set&gt;</span><br><span class="line">            &lt;bean class="package.DateConvert" /&gt;</span><br><span class="line">        &lt;/set&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="GET-请求乱码"><a href="#GET-请求乱码" class="headerlink" title="GET 请求乱码"></a>GET 请求乱码</h3><ul>
@@ -307,7 +308,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/10/maven-eclipse/">Maven</a>
+                    <a href="/2018/11/10/maven/">Maven</a>
                 </span>
             </li>
             
@@ -377,31 +378,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/16/java-regex/">javaRegex</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
                 </span>
             </li>
             
@@ -413,13 +396,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
+                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
+                    <a href="/2018/10/16/regex/">javaRegex</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
                 </span>
             </li>
             
@@ -431,7 +420,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
+                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
                 </span>
             </li>
             
@@ -456,43 +457,43 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/bbr/" style="font-size: 9.580243214603014px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/git/" style="font-size: 17.525653792092005px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/linux/" style="font-size: 10.548590437040907px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/bbr/" style="font-size: 17.21849863022174px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/hexo/" style="font-size: 11.052669533658193px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/linux/" style="font-size: 12.252895788266397px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/github/" style="font-size: 13.71051608055991px;" class="tag-cloud-link">github</a>
+    <a href="/tags/servlet/" style="font-size: 14.283666245642536px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/servlet/" style="font-size: 18.438660225564934px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/java/" style="font-size: 12.392969423606374px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/java/" style="font-size: 12.489992173628064px;" class="tag-cloud-link">java</a>
+    <a href="/tags/jdbc/" style="font-size: 19.4824447197508px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/jdbc/" style="font-size: 17.73610285465498px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/jsp/" style="font-size: 10.39526145560716px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/jsp/" style="font-size: 8.333963334819366px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/hexo/" style="font-size: 11.296535047142745px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/regex/" style="font-size: 17.412096677992295px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/github/" style="font-size: 8.330847715862578px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/mybatis/" style="font-size: 13.17428133306721px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/maven/" style="font-size: 17.113013168185347px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/email/" style="font-size: 19.645241440677943px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 10.964931721392608px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/maven/" style="font-size: 19.131840617362702px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/paypal/" style="font-size: 16.32623237471588px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/paypal/" style="font-size: 11.56414305392164px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/mybatis/" style="font-size: 10.080827486443926px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/debian/" style="font-size: 10.339184223922857px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/spring/" style="font-size: 8.426343294416139px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 14.043102605174013px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/regex/" style="font-size: 13.870364722922485px;" class="tag-cloud-link">regex</a>
     
-    <a href="/tags/spring/" style="font-size: 17.612085124536264px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/debian/" style="font-size: 11.962199727272374px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/springmvc/" style="font-size: 19.516443288439387px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/ubuntu/" style="font-size: 16.658704455309206px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/git/" style="font-size: 17.00691739177896px;" class="tag-cloud-link">git</a>
+    <a href="/tags/springmvc/" style="font-size: 10.291819275001219px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/ssm/" style="font-size: 9.76611109704627px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/ssm/" style="font-size: 13.338146722073496px;" class="tag-cloud-link">ssm</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

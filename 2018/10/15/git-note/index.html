@@ -113,15 +113,15 @@
                         
                         
                         <li>
+                            <a href="/categories/note/">note</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/linux/">linux</a>
                         </li>
                         
                         <li>
                             <a href="/categories/others/">others</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/note/">note</a>
                         </li>
                         
                         
@@ -143,15 +143,15 @@
                         
                         
                         <li>
+                            <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/bbr/">bbr</a>
                         </li>
                         
                         <li>
                             <a href="/tags/linux/">linux</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/hexo/">hexo</a>
                         </li>
                         
                         
@@ -237,48 +237,47 @@
         <blockquote>
 <p>Login</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"username"</span></span><br><span class="line">git config --global email.name <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">"username"</span></span><br><span class="line">git config --<span class="keyword">global</span> email.name <span class="string">"email"</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>初始化一个Git仓库</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//GitHub创建库后<span class="built_in">clone</span></span><br><span class="line">git <span class="built_in">clone</span> &lt;URL&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>添加文件到Git仓库</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//可以用git add .直接将所有文件放入暂存区</span><br><span class="line">git add &lt;file-name&gt;</span><br><span class="line"></span><br><span class="line">//提交到版本库, 描述本次提交的说明</span><br><span class="line">git commit -m <span class="string">"本次提交的说明"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//可以用git add .直接将所有文件放入暂存区</span><br><span class="line">git add &lt;file-name&gt;</span><br><span class="line"></span><br><span class="line">//提交到版本库, 描述本次提交的说明</span><br><span class="line">git commit -m <span class="string">"本次提交的说明"</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>获取工作区的状态</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//查看是否有文件进行修改</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line">//查看修改内容</span><br><span class="line">git diff</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//查看是否有文件进行修改</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line">//查看修改内容</span><br><span class="line">git diff</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>版本控制</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//查看提交日志</span><br><span class="line">git <span class="built_in">log</span></span><br><span class="line">//</span><br><span class="line">git <span class="built_in">log</span> --graph --pretty=oneline --abbrev-commit</span><br><span class="line"></span><br><span class="line">//HEAD代表当前版本, HEAD^是上个版本, HEAD^^上上个版本, HEAD~N前N个版本</span><br><span class="line">//也可以用版本号指定</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;version&gt;</span><br><span class="line">//由于使用reset回退版本后之前版本的提交日志也会消失</span><br><span class="line">//可以显示你每次命令可以查看到被你回退的版本号</span><br><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//查看提交日志</span><br><span class="line">git log</span><br><span class="line">//</span><br><span class="line">git log --graph --pretty=oneline --abbrev-commit</span><br><span class="line"></span><br><span class="line">//HEAD代表当前版本, HEAD^是上个版本, HEAD^^上上个版本, HEAD~N前N个版本</span><br><span class="line">//也可以用版本号指定</span><br><span class="line"></span><br><span class="line">git reset --hard &lt;version&gt;</span><br><span class="line">//由于使用reset回退版本后之前版本的提交日志也会消失</span><br><span class="line">//可以显示你每次命令可以查看到被你回退的版本号</span><br><span class="line">git reflog</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>撤销修改</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//让文件回到最近一次git add或者git commit的状态</span><br><span class="line">git checkout -- &lt;file-name&gt;</span><br><span class="line"></span><br><span class="line">//将文件移出暂存区, 即取消git add操作</span><br><span class="line">git reset HEAD -- &lt;file-name&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//让文件回到最近一次git add或者git commit的状态</span><br><span class="line">git checkout -- &lt;file-name&gt;</span><br><span class="line"></span><br><span class="line">//将文件移出暂存区, 即取消git add操作</span><br><span class="line">git reset HEAD -- &lt;file-name&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>删除文件</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//与git add的用法一样</span><br><span class="line">//从版本库里中删除文件</span><br><span class="line">git rm &lt;file-name&gt;</span><br><span class="line">git commit -m <span class="string">"本次提交的说明"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//与git add的用法一样</span><br><span class="line">//从版本库里中删除文件</span><br><span class="line">git rm &lt;file-name&gt;</span><br><span class="line">git commit -m <span class="string">"本次提交的说明"</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>远程仓库</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//添加远程仓库</span><br><span class="line">//origin是远程仓库的默认名称可更改</span><br><span class="line">git remote add origin git@github.com:&lt;github_username&gt;/&lt;repository&gt;</span><br><span class="line"></span><br><span class="line">//第一次推送加上-u参数, Git会将本地 master 分支和远程 master 分支关联起来, 以后在推送时可简化命令</span><br><span class="line">git push -u origin master</span><br><span class="line">//推送分支</span><br><span class="line">git push origin &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//将远程仓库中的改动同步到本地</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line">//如果git pull提示no tracking information, 则说明本地分支和远程分支的链接关系没有创建</span><br><span class="line">git branch --<span class="built_in">set</span>-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//查看远程仓库信息, 添加-v常熟可显示更详细信息</span><br><span class="line">git remote</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//添加远程仓库</span><br><span class="line">//origin是远程仓库的默认名称可更改</span><br><span class="line">git remote add origin git@github.com:&lt;github_username&gt;/&lt;repository&gt;</span><br><span class="line"></span><br><span class="line">//第一次推送加上-u参数, Git会将本地 master 分支和远程 master 分支关联起来, 以后在推送时可简化命令</span><br><span class="line">git push -u origin master</span><br><span class="line">//推送分支</span><br><span class="line">git push origin &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//将远程仓库中的改动同步到本地</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line">//如果git pull提示no tracking information, 则说明本地分支和远程分支的链接关系没有创建</span><br><span class="line">git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//查看远程仓库信息, 添加-v常熟可显示更详细信息</span><br><span class="line">git remote</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>分支</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//创建分支, 并且切换到该分支</span><br><span class="line">git branch &lt;branch-name&gt;</span><br><span class="line">git checkout &lt;branch-name&gt;</span><br><span class="line">//-b参数相当于上面两条命令</span><br><span class="line">git checkout -b &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//在本地创建和远程分支对应的分支, 本地和远程分支的名称最好一致</span><br><span class="line">git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//合并指定分支到当前分支</span><br><span class="line">git merge &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//删除分支</span><br><span class="line">git branch -d &lt;branch-name&gt;</span><br><span class="line">//如果当前分支还未合并则需要-D参数强行删除</span><br><span class="line">git branch -D &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//创建分支, 并且切换到该分支</span><br><span class="line">git branch &lt;branch-name&gt;</span><br><span class="line">git checkout &lt;branch-name&gt;</span><br><span class="line">//-b参数相当于上面两条命令</span><br><span class="line">git checkout -b &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//在本地创建和远程分支对应的分支, 本地和远程分支的名称最好一致</span><br><span class="line">git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//合并指定分支到当前分支</span><br><span class="line">git merge &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line">//删除分支</span><br><span class="line">git branch -d &lt;branch-name&gt;</span><br><span class="line">//如果当前分支还未合并则需要-D参数强行删除</span><br><span class="line">git branch -D &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>工作暂存</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//将未提交的修改（包括暂存的和非暂存的）都保存起来</span><br><span class="line">git stash</span><br><span class="line">//推荐使用可添加说明方法</span><br><span class="line">git stash save  <span class="string">"本次提交的说明"</span></span><br><span class="line"></span><br><span class="line">//将缓存堆栈中的stash应用到当前工作目录下, 不删除stash</span><br><span class="line">git stash apply &lt;stash&gt;</span><br><span class="line"></span><br><span class="line">//移除stash</span><br><span class="line">git stash drop &lt;stash&gt;</span><br><span class="line"></span><br><span class="line">//将缓存堆栈中的第一个stash删除, 并将对应修改应用到当前工作目录下</span><br><span class="line">git stash pop</span><br><span class="line"></span><br><span class="line">//查看现有的stash</span><br><span class="line">git stash list</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//将未提交的修改（包括暂存的和非暂存的）都保存起来</span><br><span class="line">git stash</span><br><span class="line">//推荐使用可添加说明方法</span><br><span class="line">git stash save  <span class="string">"本次提交的说明"</span></span><br><span class="line"></span><br><span class="line">//将缓存堆栈中的stash应用到当前工作目录下, 不删除stash</span><br><span class="line">git stash apply &lt;stash&gt;</span><br><span class="line"></span><br><span class="line">//移除stash</span><br><span class="line">git stash drop &lt;stash&gt;</span><br><span class="line"></span><br><span class="line">//将缓存堆栈中的第一个stash删除, 并将对应修改应用到当前工作目录下</span><br><span class="line">git stash pop</span><br><span class="line"></span><br><span class="line">//查看现有的stash</span><br><span class="line">git stash list</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>标签</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//新建一个标签，不写&lt;commit-id&gt;则默认为HEAD</span><br><span class="line">git tag &lt;tag-name&gt; &lt;commit-id&gt;</span><br><span class="line">//可以用参数-a指定标签名，-m指定说明文字</span><br><span class="line">git tag -a &lt;tag-name&gt; -m <span class="string">"说明"</span> &lt;commit-id&gt;</span><br><span class="line"></span><br><span class="line">//查看标签信息和说明文字, 按字母排序</span><br><span class="line">git show &lt;tag-name&gt;</span><br><span class="line"></span><br><span class="line">//删除本地标签</span><br><span class="line">git tag -d &lt;tag-name&gt;</span><br><span class="line">//删除远程仓库标签</span><br><span class="line">git push origin :refs/tags/&lt;tag-name&gt;</span><br><span class="line"></span><br><span class="line">//将标签推送到远程仓库, 可以用--tags参数代替&lt;tag-name&gt;直接将所有标签推送到远程仓库</span><br><span class="line">git push origin &lt;tag-name&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//新建一个标签，不写&lt;commit-id&gt;则默认为HEAD</span><br><span class="line">git tag &lt;tag-name&gt; &lt;commit-id&gt;</span><br><span class="line">//可以用参数-a指定标签名，-m指定说明文字</span><br><span class="line">git tag -a &lt;tag-name&gt; -m <span class="string">"说明"</span> &lt;commit-id&gt;</span><br><span class="line"></span><br><span class="line">//查看标签信息和说明文字, 按字母排序</span><br><span class="line">git show &lt;tag-name&gt;</span><br><span class="line"></span><br><span class="line">//删除本地标签</span><br><span class="line">git tag -d &lt;tag-name&gt;</span><br><span class="line">//删除远程仓库标签</span><br><span class="line">git push origin :refs/tags/&lt;tag-name&gt;</span><br><span class="line"></span><br><span class="line">//将标签推送到远程仓库, 可以用--tags参数代替&lt;tag-name&gt;直接将所有标签推送到远程仓库</span><br><span class="line">git push origin &lt;tag-name&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>创建别名</p>
 </blockquote>
@@ -286,10 +285,11 @@
 <blockquote>
 <p>忽略特殊文件</p>
 </blockquote>
-<p>Git为我们提供了.gitignore文件，此文件专门来做忽略，只要在此文件中设置你想忽略的内容就可以了。<br>不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。<br>所有配置文件可以直接在线浏览：<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a></p>
-<p>如希望.gitignore文件作用于所有工作目录, 不希望每次都要在工作目录添加.gitignore文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在用户文件夹下创建.gitconfig_global并写入规则</span><br><span class="line">如果无法创建空文件名</span><br><span class="line">直接创建 .gitignore_global. 文件, 系统提示<span class="string">"如果改变文件扩展名，可能会导致文件不可用。确实要更改吗？"</span>选择确定即可</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在用户文件夹(Users/用户名/)下修改.gitconfig配置, 在[core]下添加</span><br><span class="line">excludesfile = 用户文件夹\\.gitconfig_global</span><br><span class="line"></span><br><span class="line">也可以使用Git命令进行设置</span><br><span class="line">git config --<span class="keyword">global</span> core.excludesfile ~/.gitconfig_global</span><br><span class="line"></span><br><span class="line">最后可以通过git config --list查看是否设置成功</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Git为我们提供了.gitignore文件，此文件专门来做忽略，只要在此文件中设置你想忽略的内容就可以了。</span><br><span class="line">不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。</span><br><span class="line">所有配置文件可以直接在线浏览：https://github.com/github/gitignore</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>下载远程仓库</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;URL&gt;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
 
@@ -344,7 +344,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/10/maven-eclipse/">Maven</a>
+                    <a href="/2018/11/10/maven/">Maven</a>
                 </span>
             </li>
             
@@ -414,19 +414,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                    <a href="/2018/10/15/git-note/">Git学习</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/16/java-regex/">javaRegex</a>
+                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
+                    <a href="/2018/11/10/maven/">Maven</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
                 </span>
             </li>
             
@@ -444,25 +456,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                    <a href="/2018/06/26/re-os/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/15/git-note/">Git学习</a>
+                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
                 </span>
             </li>
             
@@ -493,43 +493,43 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/bbr/" style="font-size: 19.51637274829164px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/git/" style="font-size: 16.28557880827401px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/linux/" style="font-size: 12.200573467904551px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/bbr/" style="font-size: 8.893462740263043px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/hexo/" style="font-size: 13.754497193526777px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/linux/" style="font-size: 14.888231312071815px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/github/" style="font-size: 16.658862149344216px;" class="tag-cloud-link">github</a>
+    <a href="/tags/servlet/" style="font-size: 11.517247696807406px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/servlet/" style="font-size: 10.408543502760967px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/java/" style="font-size: 14.879947455718892px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/java/" style="font-size: 11.88043265035245px;" class="tag-cloud-link">java</a>
+    <a href="/tags/jdbc/" style="font-size: 14.002189815954047px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/jdbc/" style="font-size: 16.516919904778135px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/jsp/" style="font-size: 9.945947364062478px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/jsp/" style="font-size: 18.554165579762643px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/hexo/" style="font-size: 11.81498050369449px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/regex/" style="font-size: 15.252988659216886px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/github/" style="font-size: 17.27669792410919px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/mybatis/" style="font-size: 10.23228967706417px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/maven/" style="font-size: 8.352484354402925px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/email/" style="font-size: 9.877342543728675px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 19.25064558282526px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/maven/" style="font-size: 9.58351222699915px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/paypal/" style="font-size: 10.201849280395415px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/paypal/" style="font-size: 9.398259328079979px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/mybatis/" style="font-size: 11.192262116116886px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/debian/" style="font-size: 14.97574105126277px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/spring/" style="font-size: 18.786346448622773px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 17.436226706028528px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/regex/" style="font-size: 13.368426576020706px;" class="tag-cloud-link">regex</a>
     
-    <a href="/tags/spring/" style="font-size: 17.934917756342223px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/debian/" style="font-size: 9.796050266301954px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/springmvc/" style="font-size: 16.483627708725564px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/ubuntu/" style="font-size: 17.09338818676194px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/git/" style="font-size: 11.002223902054599px;" class="tag-cloud-link">git</a>
+    <a href="/tags/springmvc/" style="font-size: 9.88309318049414px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/ssm/" style="font-size: 13.388188968193981px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/ssm/" style="font-size: 13.791051761184614px;" class="tag-cloud-link">ssm</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
