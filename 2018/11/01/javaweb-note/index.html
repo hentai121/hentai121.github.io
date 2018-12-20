@@ -113,15 +113,15 @@
                         
                         
                         <li>
-                            <a href="/categories/linux/">linux</a>
-                        </li>
-                        
-                        <li>
                             <a href="/categories/note/">note</a>
                         </li>
                         
                         <li>
                             <a href="/categories/others/">others</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/linux/">linux</a>
                         </li>
                         
                         
@@ -143,15 +143,15 @@
                         
                         
                         <li>
-                            <a href="/tags/bbr/">bbr</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/linux/">linux</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/servlet/">servlet</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/java/">java</a>
                         </li>
                         
                         
@@ -201,9 +201,9 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/java/">java</a>, 
-                
                 <a href="/tags/servlet/">servlet</a>, 
+                
+                <a href="/tags/java/">java</a>, 
                 
                 <a href="/tags/jdbc/">jdbc</a>, 
                 
@@ -232,9 +232,9 @@
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/java/">java</a>, 
-                
                 <a href="/tags/servlet/">servlet</a>, 
+                
+                <a href="/tags/java/">java</a>, 
                 
                 <a href="/tags/jdbc/">jdbc</a>, 
                 
@@ -247,13 +247,10 @@
     </div>
     <div class="content-article">
         <ul>
-<li><a href="#none">目录</a><ul>
 <li><a href="#servlet">Servlet</a></li>
 <li><a href="#fal">Filter/Listener</a></li>
 <li><a href="#jsp">JSP</a></li>
 <li><a href="#jdbc">JDBC</a></li>
-</ul>
-</li>
 </ul>
 <h3 id="Servlet-配置"><a href="#Servlet-配置" class="headerlink" title="Servlet 配置"></a><h2 id="servlet">Servlet 配置</h2></h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;ServletName&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">package</span>.<span class="title">ServletName</span>&lt;/<span class="title">servlet</span>-<span class="title">class</span>&gt;</span></span><br><span class="line">    // 可选, 使 Servlet 在服务器启动时就创建, 根据 n(n &gt; 0) 的值从小到大开始</span><br><span class="line">    &lt;load-on-startup&gt;n&lt;/load-on-startup&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;ServletName&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/urlName&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">// 表单传递</span><br><span class="line">&lt;form action=<span class="string">"urlName"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"valueName"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="Servlet-Config"><a href="#Servlet-Config" class="headerlink" title="Servlet Config"></a>Servlet Config</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 获取表单参数</span><br><span class="line">String str = request.getParameter(<span class="string">"valueName"</span>);</span><br><span class="line"></span><br><span class="line">// 参数放入暂存区</span><br><span class="line">request.setAttribute(<span class="string">"number"</span>, str);</span><br><span class="line"></span><br><span class="line">// 从暂存区取出参数</span><br><span class="line">String str = (String) request.getAttribute(<span class="string">"number"</span>);</span><br><span class="line">// 从暂存区删除删除</span><br><span class="line">request.removeAttribute(<span class="string">"number"</span>);</span><br><span class="line"></span><br><span class="line">// 配置文件配置公共参数, 定义的参数在 JSP 中也能调用</span><br><span class="line">&lt;web-app&gt;</span><br><span class="line">    &lt;context-param&gt;</span><br><span class="line">        &lt;param-name&gt;name&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;value&lt;/param-value&gt;</span><br><span class="line">    &lt;/context-param&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br><span class="line"></span><br><span class="line">// 获取公共参数</span><br><span class="line">String value = getInitParameter(<span class="string">"name"</span>);</span><br><span class="line"></span><br><span class="line">// 跳转到 servletName , 地址栏中的地址不变</span><br><span class="line">request.getRequestDispatcher(<span class="string">"servletName"</span>).forward(request, response);</span><br><span class="line">// 运行(不跳转) servletName 后继续运行原 Servlet</span><br><span class="line">request.getRequestDispatcher(<span class="string">"servletName"</span>).include(request, response);</span><br><span class="line">// 重定向到 servletName , 地址栏中的地址改变</span><br><span class="line">request.sendRedirect(<span class="string">"servletName"</span>);</span><br></pre></td></tr></table></figure>
@@ -312,6 +309,18 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/11/28/server-speeder/">锐速</a>
                 </span>
             </li>
@@ -358,18 +367,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -388,31 +385,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/10/15/git-note/">Git学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
+                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/10/maven/">Maven</a>
+                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/28/server-speeder/">锐速</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
                 </span>
             </li>
             
@@ -424,7 +421,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
+                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
                 </span>
             </li>
             
@@ -436,13 +433,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
+                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/16/regex/">正则表达式</a>
+                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
                 </span>
             </li>
             
@@ -467,43 +464,43 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/bbr/" style="font-size: 19.221319351731207px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/git/" style="font-size: 14.925279061112025px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/linux/" style="font-size: 17.509069699337807px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/servlet/" style="font-size: 13.055565971154968px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/git/" style="font-size: 8.877130589394248px;" class="tag-cloud-link">git</a>
+    <a href="/tags/java/" style="font-size: 17.45625940006347px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/email/" style="font-size: 19.800162827247572px;" class="tag-cloud-link">email</a>
+    <a href="/tags/jdbc/" style="font-size: 15.919271870712873px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/mybatis/" style="font-size: 14.950088747671511px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/jsp/" style="font-size: 15.992680005412975px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/java/" style="font-size: 10.308908514904594px;" class="tag-cloud-link">java</a>
+    <a href="/tags/hexo/" style="font-size: 17.08814846633453px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/hexo/" style="font-size: 12.900830343201289px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/github/" style="font-size: 16.644406865013444px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/github/" style="font-size: 13.597522381579724px;" class="tag-cloud-link">github</a>
+    <a href="/tags/maven/" style="font-size: 15.46409260431168px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/servlet/" style="font-size: 8.989560666142825px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/mybatis/" style="font-size: 12.773738661051832px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/jdbc/" style="font-size: 13.288009358424866px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/email/" style="font-size: 18.6272327049565px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/jsp/" style="font-size: 14.751662390249388px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/paypal/" style="font-size: 17.37591042160592px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/spring/" style="font-size: 16.166102737886785px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/linux/" style="font-size: 12.753937946615038px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/maven/" style="font-size: 11.986429629942378px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/debian/" style="font-size: 10.909424824928964px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/debian/" style="font-size: 16.71468437923118px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/ubuntu/" style="font-size: 13.110956256467766px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 18.44909588638973px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/spring/" style="font-size: 17.63297074523974px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/paypal/" style="font-size: 17.89511651266991px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/springmvc/" style="font-size: 19.83188683813984px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/springmvc/" style="font-size: 9.729906359487682px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/ssm/" style="font-size: 12.783913276967482px;" class="tag-cloud-link">ssm</a>
     
-    <a href="/tags/ssm/" style="font-size: 19.968098569567122px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/bbr/" style="font-size: 14.999618392895904px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/regex/" style="font-size: 12.675036619437016px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 14.706030942344542px;" class="tag-cloud-link">regex</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

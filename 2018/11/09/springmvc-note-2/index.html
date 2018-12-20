@@ -113,15 +113,15 @@
                         
                         
                         <li>
-                            <a href="/categories/linux/">linux</a>
-                        </li>
-                        
-                        <li>
                             <a href="/categories/note/">note</a>
                         </li>
                         
                         <li>
                             <a href="/categories/others/">others</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/linux/">linux</a>
                         </li>
                         
                         
@@ -143,15 +143,15 @@
                         
                         
                         <li>
-                            <a href="/tags/bbr/">bbr</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/linux/">linux</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/servlet/">servlet</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/java/">java</a>
                         </li>
                         
                         
@@ -239,7 +239,6 @@
     </div>
     <div class="content-article">
         <ul>
-<li><a href="#none">目录</a><ul>
 <li><a href="#restful">Restful 风格</a></li>
 <li><a href="#messy">POST 请求乱码</a></li>
 <li><a href="#interceptor">拦截器</a></li>
@@ -249,8 +248,6 @@
 <li><a href="#image">图片上传</a></li>
 <li><a href="#json">JSON 交互</a></li>
 <li><a href="#put_del">PUT, DELETE 方法支持</a></li>
-</ul>
-</li>
 </ul>
 <h3 id="Restful-风格"><a href="#Restful-风格" class="headerlink" title="Restful 风格"></a><h2 id="restful">Restful 风格</h2></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping("test/&#123;id&#125;")</span></span><br><span class="line">// public String test(@PathVariable(<span class="string">"id"</span>) Integer integer) &#123;&#125;</span><br><span class="line">public String test(@PathVariable Integer id) &#123;&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="POST-请求乱码"><a href="#POST-请求乱码" class="headerlink" title="POST 请求乱码"></a><h2 id="messy">POST 请求乱码</h2></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 通过过滤器自动设置 POST 请求编码 --&gt;</span><br><span class="line">&lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;encoding&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-<span class="class"><span class="keyword">class</span>&gt;<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">web</span>.<span class="title">filter</span>.<span class="title">CharacterEncodingFilter</span>&lt;/<span class="title">filter</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;!-- 设置编码参是<span class="title">UTF8</span> --&gt;</span></span><br><span class="line"><span class="class">    &lt;init-param&gt;</span></span><br><span class="line"><span class="class">        &lt;param-name&gt;encoding&lt;/param-name&gt;</span></span><br><span class="line"><span class="class">        &lt;param-value&gt;UTF-8&lt;/param-value&gt;</span></span><br><span class="line"><span class="class">    &lt;/init-param&gt;</span></span><br><span class="line"><span class="class">&lt;/filter&gt;</span></span><br><span class="line"><span class="class">&lt;filter-mapping&gt;</span></span><br><span class="line"><span class="class">    &lt;filter-name&gt;encoding&lt;/filter-name&gt;</span></span><br><span class="line"><span class="class">    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span></span><br><span class="line"><span class="class">&lt;/filter-mapping&gt;</span></span><br></pre></td></tr></table></figure>
@@ -318,6 +315,18 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/11/28/server-speeder/">锐速</a>
                 </span>
             </li>
@@ -364,18 +373,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -400,31 +397,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
+                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/10/maven/">Maven</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                    <a href="/2018/11/28/server-speeder/">锐速</a>
                 </span>
             </li>
             
@@ -436,19 +427,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
+                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
+                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/16/regex/">正则表达式</a>
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
                 </span>
             </li>
             
@@ -473,43 +470,43 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/bbr/" style="font-size: 17.378403421554214px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/git/" style="font-size: 13.840874723923378px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/linux/" style="font-size: 11.039582495311388px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/servlet/" style="font-size: 12.974509446216043px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/git/" style="font-size: 13.678094861252088px;" class="tag-cloud-link">git</a>
+    <a href="/tags/java/" style="font-size: 18.049409380919883px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/email/" style="font-size: 13.716877113845626px;" class="tag-cloud-link">email</a>
+    <a href="/tags/jdbc/" style="font-size: 8.992819179759788px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/mybatis/" style="font-size: 9.258532307361595px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/jsp/" style="font-size: 10.575352975822979px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/java/" style="font-size: 13.94830686448443px;" class="tag-cloud-link">java</a>
+    <a href="/tags/hexo/" style="font-size: 13.563874753518393px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/hexo/" style="font-size: 12.474844509086982px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/github/" style="font-size: 15.535696141275775px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/github/" style="font-size: 12.758598535934336px;" class="tag-cloud-link">github</a>
+    <a href="/tags/maven/" style="font-size: 17.972661485604252px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/servlet/" style="font-size: 13.310618380443966px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/mybatis/" style="font-size: 19.63526146857479px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/jdbc/" style="font-size: 17.128071860782807px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/email/" style="font-size: 14.581506412656559px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/jsp/" style="font-size: 14.265212323061004px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/paypal/" style="font-size: 9.452343197590434px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/spring/" style="font-size: 11.961533267478998px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/linux/" style="font-size: 8.838031547986894px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/maven/" style="font-size: 13.320677149928127px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/debian/" style="font-size: 14.177809045833579px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/debian/" style="font-size: 15.044143150333056px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/ubuntu/" style="font-size: 8.944018453421268px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 12.57064546281558px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/spring/" style="font-size: 14.003450330314443px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/paypal/" style="font-size: 8.725328284660637px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/springmvc/" style="font-size: 8.373871916499844px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/springmvc/" style="font-size: 15.317887916787278px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/ssm/" style="font-size: 17.708026353765042px;" class="tag-cloud-link">ssm</a>
     
-    <a href="/tags/ssm/" style="font-size: 14.271428157060466px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/bbr/" style="font-size: 15.064265964018484px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/regex/" style="font-size: 16.90835297163009px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 9.78158242101326px;" class="tag-cloud-link">regex</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

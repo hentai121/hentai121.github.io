@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="UerAx">
+    
+    
+    
+    
+    
+    
+    <title>Mybatis 逆向工程 | UerAx</title>
+    <link href=”“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/phonebg.jpg');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">UerAx</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/note/">note</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/others/">others</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/linux/">linux</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/servlet/">servlet</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/java/">java</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="https://github.com/hentai121">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">UerAx</a>
+        >
+        <span>Mybatis 逆向工程</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/mybatis/">mybatis</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-12-20
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-12-20
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/mybatis/">mybatis</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h3 id="MyBatis-逆向工程"><a href="#MyBatis-逆向工程" class="headerlink" title="MyBatis 逆向工程"></a><h2 id="generator">MyBatis 逆向工程</h2></h3><ul>
+<li>需要的 jar 包 : mybatis-generator-core 包 (安装了插件不需要导入 jar 包s)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">        PUBLIC <span class="string">"-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"</span></span><br><span class="line">        <span class="string">"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"</span>&gt;</span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line">    &lt;context id=<span class="string">"testTables"</span> targetRuntime=<span class="string">"MyBatis3"</span>&gt;</span><br><span class="line">        &lt;commentGenerator&gt;</span><br><span class="line">            &lt;!-- 是否去除自动生成的注释 true：是 ： false:否 --&gt;</span><br><span class="line">            &lt;property name=<span class="string">"suppressAllComments"</span> value=<span class="string">"true"</span> /&gt;</span><br><span class="line">        &lt;/commentGenerator&gt;</span><br><span class="line">        &lt;!--数据库连接的信息：驱动类、连接地址、用户名、密码 --&gt;</span><br><span class="line">        &lt;jdbcConnection driverClass=<span class="string">"com.mysql.jdbc.Driver"</span></span><br><span class="line">                        connectionURL=<span class="string">"jdbc:mysql://localhost:3306/spring"</span> userId=<span class="string">"root"</span></span><br><span class="line">                        password=<span class="string">"root"</span>&gt;</span><br><span class="line">        &lt;/jdbcConnection&gt;</span><br><span class="line">        &lt;!--</span><br><span class="line">             默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，</span><br><span class="line">             为 true时把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal</span><br><span class="line">        --&gt;</span><br><span class="line">        &lt;javaTypeResolver&gt;</span><br><span class="line">            &lt;property name=<span class="string">"forceBigDecimals"</span> value=<span class="string">"false"</span> /&gt;</span><br><span class="line">        &lt;/javaTypeResolver&gt;</span><br><span class="line">        &lt;!-- targetProject:生成PO类的位置 --&gt;</span><br><span class="line">        &lt;javaModelGenerator targetPackage=<span class="string">"com.uerax.crud.domain"</span></span><br><span class="line">                            targetProject=<span class="string">".\src\main\java"</span>&gt;</span><br><span class="line">            &lt;property name=<span class="string">"enableSubPackages"</span> value=<span class="string">"false"</span> /&gt;</span><br><span class="line">            &lt;!-- 从数据库返回的值被清理前后的空格 --&gt;</span><br><span class="line">            &lt;property name=<span class="string">"trimStrings"</span> value=<span class="string">"true"</span> /&gt;</span><br><span class="line">        &lt;/javaModelGenerator&gt;</span><br><span class="line">        &lt;!-- mapper映射文件生成的位置 --&gt;</span><br><span class="line">        &lt;sqlMapGenerator targetPackage=<span class="string">"mapper"</span></span><br><span class="line">                         targetProject=<span class="string">".\src\main\resource"</span>&gt;</span><br><span class="line">            &lt;property name=<span class="string">"enableSubPackages"</span> value=<span class="string">"false"</span> /&gt;</span><br><span class="line">        &lt;/sqlMapGenerator&gt;</span><br><span class="line">        &lt;!-- mapper接口生成的位置 --&gt;</span><br><span class="line">        &lt;javaClientGenerator type=<span class="string">"XMLMAPPER"</span></span><br><span class="line">                             targetPackage=<span class="string">"com.uerax.crud.mapper"</span></span><br><span class="line">                             targetProject=<span class="string">".\src\main\java"</span>&gt;</span><br><span class="line">            &lt;property name=<span class="string">"enableSubPackages"</span> value=<span class="string">"false"</span> /&gt;</span><br><span class="line">        &lt;/javaClientGenerator&gt;</span><br><span class="line">        &lt;!-- 指定数据库表 --&gt;</span><br><span class="line">        &lt;table schema="" tableName="employee"&gt;&lt;/table&gt;</span><br><span class="line">        &lt;table schema="" tableName="department"&gt;&lt;/table&gt;</span><br><span class="line">    &lt;/context&gt;</span><br><span class="line">&lt;/generatorConfiguration&gt;</span><br><span class="line"></span><br><span class="line">// 安装插件直接执行 xml 文件即可生成, 没有安装插件则执行</span><br><span class="line">List&lt;String&gt; warnings = new ArrayList&lt;String&gt;();</span><br><span class="line">boolean overwrite = true;</span><br><span class="line">File configFile = new File(<span class="string">"generatorConfig.xml"</span>);</span><br><span class="line">ConfigurationParser cp = new ConfigurationParser(warnings);</span><br><span class="line">Configuration config = cp.parseConfiguration(configFile);</span><br><span class="line">DefaultShellCallback callback = new DefaultShellCallback(overwrite);</span><br><span class="line">MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);</span><br><span class="line">myBatisGenerator.generate(null);</span><br><span class="line"></span><br><span class="line">// 使用 selectByExample</span><br><span class="line">public void testSelectByExample() &#123;</span><br><span class="line">    StudentMapper stuMapper = applicationContext.getBean(StudentMapper.<span class="keyword">class</span>);</span><br><span class="line">    StudentExample example = new StudentExample();</span><br><span class="line">    // 创建 Criteria</span><br><span class="line">    Criteria c = example.createCriteria();</span><br><span class="line">    // 设置查询条件 c.andAgeBetween(<span class="number">11</span>, <span class="number">23</span>);</span><br><span class="line">    List&lt;Student&gt; list = stuMapper.selectByExample(example);</span><br><span class="line">    <span class="keyword">for</span> (Student stu : list) &#123;</span><br><span class="line">        System.out.println(stu);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用 insertSelective 自动忽略不插入的值</span><br><span class="line">public void testInsertSelective() &#123;</span><br><span class="line">    StudentMapper stuMapper = applicationContext.getBean(StudentMapper.<span class="keyword">class</span>);</span><br><span class="line">    Student stu = new Student();</span><br><span class="line">    stu.setName(<span class="string">""</span>);</span><br><span class="line">    stu.setAge(<span class="number">41</span>);</span><br><span class="line">    stu.setMoney(<span class="number">22221</span>);</span><br><span class="line">    stuMapper.insertSelective(stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// class A &#123; private B b&#125;</span><br><span class="line">// 在 Mapper 接口内添加自定义方法</span><br><span class="line"></span><br><span class="line">// 在 Mapper 配置文件中添加</span><br><span class="line">&lt;sql id=<span class="string">"sql_id"</span>&gt;</span><br><span class="line">    // 需要查询出来的字段</span><br><span class="line">&lt;/sql&gt;</span><br><span class="line"></span><br><span class="line">&lt;resultMap id=<span class="string">"WithDeptResultMap"</span> type=<span class="string">"package.A"</span>&gt;</span><br><span class="line">// 将 BaseDeptResultMap 的内容复制进来</span><br><span class="line">&lt;association property=<span class="string">"b"</span> javaType=<span class="string">"package.B"</span>&gt;</span><br><span class="line">    &lt;id column=<span class="string">""</span> property=<span class="string">""</span> /&gt;</span><br><span class="line">    &lt;result column=<span class="string">""</span> property=<span class="string">""</span> /&gt;</span><br><span class="line">&lt;/association&gt;</span><br><span class="line"></span><br><span class="line">List&lt;Employee&gt; selectByExampleWithA(A a);</span><br><span class="line"></span><br><span class="line">&lt;select id=<span class="string">"selectByExampleWithA"</span> parameterType=<span class="string">"package.AExample"</span> resultMap=<span class="string">"WithDeptResultMap"</span>&gt;</span><br><span class="line">// 换成我们需要的查询的字段</span><br><span class="line">&lt;include refid=<span class="string">"sql_id"</span> /&gt;</span><br><span class="line">// 修改成多表查询语句</span><br><span class="line"><span class="keyword">from</span> employee e left join department d on e.dept_id = d.dept_id</span><br><span class="line">&lt;/select&gt;</span><br><span class="line"></span><br><span class="line">// 添加自定义指定查询语句</span><br><span class="line">Employee selectByPrimaryKeyWithA(Integer a.primaryKey);</span><br><span class="line"></span><br><span class="line">&lt;select id=<span class="string">"selectByPrimaryKeyWithA"</span> parameterType=<span class="string">"java.lang.Integer"</span> resultMap=<span class="string">"WithDeptResultMap"</span>&gt;</span><br><span class="line">select</span><br><span class="line">&lt;include refid=<span class="string">"sql_id"</span> /&gt;</span><br><span class="line"><span class="keyword">from</span> employee e left join department d on e.dept_id = d.dept_id</span><br><span class="line">where emp_id = <span class="comment">#&#123;empId,jdbcType=INTEGER&#125;</span></span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Idea-使用-maven-创建-Mybatis-逆向工程"><a href="#Idea-使用-maven-创建-Mybatis-逆向工程" class="headerlink" title="Idea 使用 maven 创建 Mybatis 逆向工程"></a>Idea 使用 maven 创建 Mybatis 逆向工程</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// pom.xml 文件添加插件</span><br><span class="line">// 必须放在 pluginManagement 标签同级的 plugins 标签内</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.2&lt;/version&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;verbose&gt;true&lt;/verbose&gt;</span><br><span class="line">        &lt;overwrite&gt;true&lt;/overwrite&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">    // 添加数据库驱动依赖复制找不到 JDBC Driver</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;mysql.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;runtime&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">// maven 的 mybatis-gererator 插件默认作用于 resources 文件夹内的 generatorConfig.xml 配置文件</span><br></pre></td></tr></table></figure>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            UerAx
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/28/server-speeder/">锐速</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/10/maven/">Maven</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/15/git-note/">Git学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/10/maven/">Maven</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/16/regex/">正则表达式</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/12/20/mybatis-generator/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/12/20/mybatis-generator/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/12/20/mybatis-generator/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/git/" style="font-size: 19.47953609121528px;" class="tag-cloud-link">git</a>
+    
+    <a href="/tags/servlet/" style="font-size: 19.89706126774707px;" class="tag-cloud-link">servlet</a>
+    
+    <a href="/tags/java/" style="font-size: 9.663377154287408px;" class="tag-cloud-link">java</a>
+    
+    <a href="/tags/jdbc/" style="font-size: 14.9414086139756px;" class="tag-cloud-link">jdbc</a>
+    
+    <a href="/tags/jsp/" style="font-size: 8.49897282067776px;" class="tag-cloud-link">jsp</a>
+    
+    <a href="/tags/hexo/" style="font-size: 9.975214939748046px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/github/" style="font-size: 19.67524420718688px;" class="tag-cloud-link">github</a>
+    
+    <a href="/tags/maven/" style="font-size: 13.557673925896216px;" class="tag-cloud-link">maven</a>
+    
+    <a href="/tags/mybatis/" style="font-size: 17.733736935794706px;" class="tag-cloud-link">mybatis</a>
+    
+    <a href="/tags/email/" style="font-size: 17.665129389834085px;" class="tag-cloud-link">email</a>
+    
+    <a href="/tags/paypal/" style="font-size: 17.094702300051328px;" class="tag-cloud-link">paypal</a>
+    
+    <a href="/tags/linux/" style="font-size: 9.428476258553708px;" class="tag-cloud-link">linux</a>
+    
+    <a href="/tags/debian/" style="font-size: 12.7535023150433px;" class="tag-cloud-link">debian</a>
+    
+    <a href="/tags/ubuntu/" style="font-size: 15.639036276177666px;" class="tag-cloud-link">ubuntu</a>
+    
+    <a href="/tags/spring/" style="font-size: 14.189288559736543px;" class="tag-cloud-link">spring</a>
+    
+    <a href="/tags/springmvc/" style="font-size: 11.895968642699351px;" class="tag-cloud-link">springmvc</a>
+    
+    <a href="/tags/ssm/" style="font-size: 18.00839175386697px;" class="tag-cloud-link">ssm</a>
+    
+    <a href="/tags/bbr/" style="font-size: 9.30978288285656px;" class="tag-cloud-link">bbr</a>
+    
+    <a href="/tags/regex/" style="font-size: 10.615102348026145px;" class="tag-cloud-link">regex</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="https://github.com/hentai121" target="_blank">UerAx</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/hentai121" target="_blank">Github</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 UerAx Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+</html>

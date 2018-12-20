@@ -113,15 +113,15 @@
                         
                         
                         <li>
-                            <a href="/categories/linux/">linux</a>
-                        </li>
-                        
-                        <li>
                             <a href="/categories/note/">note</a>
                         </li>
                         
                         <li>
                             <a href="/categories/others/">others</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/linux/">linux</a>
                         </li>
                         
                         
@@ -143,15 +143,15 @@
                         
                         
                         <li>
-                            <a href="/tags/bbr/">bbr</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/linux/">linux</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/servlet/">servlet</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/java/">java</a>
                         </li>
                         
                         
@@ -201,9 +201,9 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/mybatis/">mybatis</a>, 
+                <a href="/tags/java/">java</a>, 
                 
-                <a href="/tags/java/">java</a>
+                <a href="/tags/mybatis/">mybatis</a>
                 
             </span>
             
@@ -228,9 +228,9 @@
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/mybatis/">mybatis</a>, 
+                <a href="/tags/java/">java</a>, 
                 
-                <a href="/tags/java/">java</a>
+                <a href="/tags/mybatis/">mybatis</a>
                 
                 
                 
@@ -239,13 +239,9 @@
     </div>
     <div class="content-article">
         <ul>
-<li><a href="#none">目录</a><ul>
 <li><a href="#resultmap">ResultMap</a></li>
 <li><a href="#sql">动态 sql</a></li>
 <li><a href="#join">多表查询</a></li>
-<li><a href="#generator">逆向工程</a></li>
-</ul>
-</li>
 </ul>
 <h3 id="ResultMap-定义"><a href="#ResultMap-定义" class="headerlink" title="ResultMap 定义"></a><h2 id="resultmap">ResultMap 定义</h2></h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;mapper namespace=<span class="string">"com.uerax.mybatis.mapper.StudentMapper"</span>&gt;</span><br><span class="line">    &lt;!-- type -&gt; 数据库对应的 JAVA 实体类 --&gt;</span><br><span class="line">    &lt;resultMap type=<span class="string">"com.uerax.mybatis.domain.Student"</span> id=<span class="string">"result_map_id"</span>&gt;</span><br><span class="line">        &lt;!-- id -&gt; 用于映射主键(primary key) --&gt;</span><br><span class="line">        &lt;!-- property -&gt; 实体类属性  column -&gt; 数据库字段 --&gt;</span><br><span class="line">        &lt;id property=<span class="string">"id"</span> column=<span class="string">"id"</span>/&gt;</span><br><span class="line">        &lt;!-- result -&gt; 用于映射普通字段 --&gt;</span><br><span class="line">        &lt;result property=<span class="string">""</span> column=<span class="string">""</span>/&gt;</span><br><span class="line">    &lt;/resultMap&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 使用 ResultMap --&gt;</span><br><span class="line">    &lt;select id=<span class="string">"getStudentNameById"</span> parameterType=<span class="string">""</span> resultMap=<span class="string">"result_map_id"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="动态-sql"><a href="#动态-sql" class="headerlink" title="动态 sql"></a><h2 id="sql">动态 sql</h2></h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">// <span class="keyword">if</span> 标签</span><br><span class="line">&lt;select&gt;</span><br><span class="line">    select *</span><br><span class="line">    <span class="keyword">from</span> `student`</span><br><span class="line">    where <span class="number">1</span> = <span class="number">1</span></span><br><span class="line">    &lt;<span class="keyword">if</span> test = <span class="string">"name != null and name != ''"</span>&gt;</span><br><span class="line">        <span class="keyword">and</span> name like <span class="string">'%$&#123;name&#125;%'</span></span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">    &lt;<span class="keyword">if</span> test = <span class="string">"age != null and age != ''"</span> &gt;</span><br><span class="line">        <span class="keyword">and</span> age = <span class="comment">#&#123;sex&#125;</span></span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">&lt;/select&gt;</span><br><span class="line"></span><br><span class="line">// where 标签</span><br><span class="line">// 自动补上 where 关键字, 同时处理多余的 <span class="keyword">and</span>, 不能再自行加上 where 关键字</span><br><span class="line">&lt;select&gt;</span><br><span class="line">    select *</span><br><span class="line">    <span class="keyword">from</span> `student`</span><br><span class="line">    &lt;where&gt;</span><br><span class="line">        &lt;<span class="keyword">if</span> test = <span class="string">"name != null and name != ''"</span>&gt;</span><br><span class="line">            <span class="keyword">and</span> name like <span class="string">'%$&#123;name&#125;%'</span></span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;<span class="keyword">if</span> test = <span class="string">"age != null and age != ''"</span> &gt;</span><br><span class="line">            <span class="keyword">and</span> age = <span class="comment">#&#123;sex&#125;</span></span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/where&gt;</span><br><span class="line">&lt;/select&gt;</span><br><span class="line"></span><br><span class="line">// sql 片段</span><br><span class="line"></span><br><span class="line">&lt;sql id=<span class="string">"sql_id"</span>&gt;</span><br><span class="line">    // sql</span><br><span class="line">    *</span><br><span class="line">&lt;/sql&gt;</span><br><span class="line">&lt;select&gt;</span><br><span class="line">    select</span><br><span class="line">    &lt;include refid="sql_id"&gt;&lt;/include&gt;</span><br><span class="line">    <span class="keyword">from</span> `studetn`</span><br><span class="line">&lt;/select&gt;</span><br><span class="line"></span><br><span class="line">// foreach 标签</span><br><span class="line">select *</span><br><span class="line"><span class="keyword">from</span> `student`</span><br><span class="line">&lt;where&gt;</span><br><span class="line">    // collection -&gt; 要遍历的集合(实体类内的集合属性名)  open -&gt; 循环开始前输出的内容</span><br><span class="line">    // separator -&gt; 分割符号  item -&gt; 设置的循环变量  close -&gt; 循环结束输出的内容</span><br><span class="line">    &lt;foreach collection=<span class="string">"ids"</span> open=<span class="string">"id in("</span> item=<span class="string">"id"</span> separator=<span class="string">","</span> close=<span class="string">")"</span>&gt;</span><br><span class="line">        <span class="comment">#&#123;id&#125;</span></span><br><span class="line">    &lt;/foreach&gt;</span><br><span class="line">&lt;/where&gt;</span><br></pre></td></tr></table></figure>
@@ -258,11 +254,6 @@
 </blockquote>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// foreign key(A.col) references B(col)</span><br><span class="line">class B &#123;&#125;</span><br><span class="line">class A &#123;</span><br><span class="line">    private B b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;mapper&gt;</span><br><span class="line">    &lt;resultMap type=<span class="string">"package.A"</span> id=<span class="string">"id"</span>&gt;</span><br><span class="line">        &lt;id property=<span class="string">"alias"</span> column=<span class="string">"primaryKey"</span> /&gt;</span><br><span class="line">        &lt;result property=<span class="string">"alias"</span> column=<span class="string">"columnName"</span> /&gt;</span><br><span class="line"></span><br><span class="line">        // javaType -&gt; B 的数据类型 property -&gt; A 内的 B 属性</span><br><span class="line">        &lt;association property=<span class="string">"b"</span> javaType=<span class="string">"package.B"</span>&gt;</span><br><span class="line">            // 如果在 sql 中设置别名那么 column 要输入别名</span><br><span class="line">            &lt;id property=<span class="string">"alias"</span> column=<span class="string">"primaryKey"</span> /&gt;</span><br><span class="line">            &lt;result property=<span class="string">"alias"</span> column=<span class="string">"columnName"</span> /&gt;</span><br><span class="line">        &lt;/association&gt;</span><br><span class="line">    &lt;/resultMap&gt;</span><br><span class="line">    &lt;select id=<span class="string">""</span> resultMap=<span class="string">"id"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="一对多关联查询"><a href="#一对多关联查询" class="headerlink" title="一对多关联查询"></a>一对多关联查询</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// foreign key(A.col) references B(col)</span><br><span class="line">class B &#123;&#125;</span><br><span class="line">class A &#123;</span><br><span class="line">    private List&lt;B&gt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;mapper&gt;</span><br><span class="line">    &lt;resultMap type=<span class="string">"package.A"</span> id=<span class="string">"id"</span>&gt;</span><br><span class="line">        &lt;id property=<span class="string">"alias"</span> column=<span class="string">"primaryKey"</span> /&gt;</span><br><span class="line">        &lt;result property=<span class="string">"alias"</span> column=<span class="string">"columnName"</span> /&gt;</span><br><span class="line">        // collection 用于配置一对多类型</span><br><span class="line">        // ofType -&gt; B 的数据类型 property -&gt; A 内的 B 属性</span><br><span class="line">        &lt;collection property=<span class="string">"b"</span> ofType=<span class="string">"package.B"</span>&gt;</span><br><span class="line">            &lt;id property=<span class="string">"alias"</span> column=<span class="string">"primaryKey"</span> /&gt;</span><br><span class="line">            &lt;result property=<span class="string">"alias"</span> column=<span class="string">"columnName"</span> /&gt;</span><br><span class="line">        &lt;/collection&gt;</span><br><span class="line">    &lt;/resultMap&gt;</span><br><span class="line">    &lt;select id=<span class="string">""</span> resultMap=<span class="string">"id"</span>&gt;</span><br><span class="line">        // sql</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="MyBatis-逆向工程"><a href="#MyBatis-逆向工程" class="headerlink" title="MyBatis 逆向工程"></a><h2 id="generator">MyBatis 逆向工程</h2></h3><ul>
-<li>需要的 jar 包 : mybatis-generator-core 包 (安装了插件不需要导入 jar 包s)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line">&lt;!DOCTYPE generatorConfiguration</span><br><span class="line">        PUBLIC <span class="string">"-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"</span></span><br><span class="line">        <span class="string">"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"</span>&gt;</span><br><span class="line">&lt;generatorConfiguration&gt;</span><br><span class="line">    &lt;context id=<span class="string">"testTables"</span> targetRuntime=<span class="string">"MyBatis3"</span>&gt;</span><br><span class="line">        &lt;commentGenerator&gt;</span><br><span class="line">            &lt;!-- 是否去除自动生成的注释 true：是 ： false:否 --&gt;</span><br><span class="line">            &lt;property name=<span class="string">"suppressAllComments"</span> value=<span class="string">"true"</span> /&gt;</span><br><span class="line">        &lt;/commentGenerator&gt;</span><br><span class="line">        &lt;!--数据库连接的信息：驱动类、连接地址、用户名、密码 --&gt;</span><br><span class="line">        &lt;jdbcConnection driverClass=<span class="string">"com.mysql.jdbc.Driver"</span></span><br><span class="line">                        connectionURL=<span class="string">"jdbc:mysql://localhost:3306/spring"</span> userId=<span class="string">"root"</span></span><br><span class="line">                        password=<span class="string">"root"</span>&gt;</span><br><span class="line">        &lt;/jdbcConnection&gt;</span><br><span class="line">        &lt;!--</span><br><span class="line">             默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，</span><br><span class="line">             为 true时把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal</span><br><span class="line">        --&gt;</span><br><span class="line">        &lt;javaTypeResolver&gt;</span><br><span class="line">            &lt;property name=<span class="string">"forceBigDecimals"</span> value=<span class="string">"false"</span> /&gt;</span><br><span class="line">        &lt;/javaTypeResolver&gt;</span><br><span class="line">        &lt;!-- targetProject:生成PO类的位置 --&gt;</span><br><span class="line">        &lt;javaModelGenerator targetPackage=<span class="string">"com.uerax.crud.domain"</span></span><br><span class="line">                            targetProject=<span class="string">".\src\main\java"</span>&gt;</span><br><span class="line">            &lt;property name=<span class="string">"enableSubPackages"</span> value=<span class="string">"false"</span> /&gt;</span><br><span class="line">            &lt;!-- 从数据库返回的值被清理前后的空格 --&gt;</span><br><span class="line">            &lt;property name=<span class="string">"trimStrings"</span> value=<span class="string">"true"</span> /&gt;</span><br><span class="line">        &lt;/javaModelGenerator&gt;</span><br><span class="line">        &lt;!-- mapper映射文件生成的位置 --&gt;</span><br><span class="line">        &lt;sqlMapGenerator targetPackage=<span class="string">"mapper"</span></span><br><span class="line">                         targetProject=<span class="string">".\src\main\resource"</span>&gt;</span><br><span class="line">            &lt;property name=<span class="string">"enableSubPackages"</span> value=<span class="string">"false"</span> /&gt;</span><br><span class="line">        &lt;/sqlMapGenerator&gt;</span><br><span class="line">        &lt;!-- mapper接口生成的位置 --&gt;</span><br><span class="line">        &lt;javaClientGenerator type=<span class="string">"XMLMAPPER"</span></span><br><span class="line">                             targetPackage=<span class="string">"com.uerax.crud.mapper"</span></span><br><span class="line">                             targetProject=<span class="string">".\src\main\java"</span>&gt;</span><br><span class="line">            &lt;property name=<span class="string">"enableSubPackages"</span> value=<span class="string">"false"</span> /&gt;</span><br><span class="line">        &lt;/javaClientGenerator&gt;</span><br><span class="line">        &lt;!-- 指定数据库表 --&gt;</span><br><span class="line">        &lt;table schema="" tableName="employee"&gt;&lt;/table&gt;</span><br><span class="line">        &lt;table schema="" tableName="department"&gt;&lt;/table&gt;</span><br><span class="line">    &lt;/context&gt;</span><br><span class="line">&lt;/generatorConfiguration&gt;</span><br><span class="line"></span><br><span class="line">// 安装插件直接执行 xml 文件即可生成, 没有安装插件则执行</span><br><span class="line">List&lt;String&gt; warnings = new ArrayList&lt;String&gt;();</span><br><span class="line">boolean overwrite = true;</span><br><span class="line">File configFile = new File(<span class="string">"generatorConfig.xml"</span>);</span><br><span class="line">ConfigurationParser cp = new ConfigurationParser(warnings);</span><br><span class="line">Configuration config = cp.parseConfiguration(configFile);</span><br><span class="line">DefaultShellCallback callback = new DefaultShellCallback(overwrite);</span><br><span class="line">MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);</span><br><span class="line">myBatisGenerator.generate(null);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 使用 selectByExample</span><br><span class="line">public void testSelectByExample() &#123;</span><br><span class="line">    StudentMapper stuMapper = applicationContext.getBean(StudentMapper.<span class="keyword">class</span>);</span><br><span class="line">    StudentExample example = new StudentExample();</span><br><span class="line">    // 创建 Criteria</span><br><span class="line">    Criteria c = example.createCriteria();</span><br><span class="line">    // 设置查询条件 c.andAgeBetween(<span class="number">11</span>, <span class="number">23</span>);</span><br><span class="line">    List&lt;Student&gt; list = stuMapper.selectByExample(example);</span><br><span class="line">    <span class="keyword">for</span> (Student stu : list) &#123;</span><br><span class="line">        System.out.println(stu);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 使用 insertSelective 自动忽略不插入的值</span><br><span class="line">public void testInsertSelective() &#123;</span><br><span class="line">    StudentMapper stuMapper = applicationContext.getBean(StudentMapper.<span class="keyword">class</span>);</span><br><span class="line">    Student stu = new Student();</span><br><span class="line">    stu.setName(<span class="string">""</span>);</span><br><span class="line">    stu.setAge(<span class="number">41</span>);</span><br><span class="line">    stu.setMoney(<span class="number">22221</span>);</span><br><span class="line">    stuMapper.insertSelective(stu);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="多表查询-1"><a href="#多表查询-1" class="headerlink" title="多表查询"></a>多表查询</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// class A &#123; private B b&#125;</span><br><span class="line">// 在 Mapper 接口内添加自定义方法</span><br><span class="line"></span><br><span class="line">// 在 Mapper 配置文件中添加</span><br><span class="line">&lt;sql id=<span class="string">"sql_id"</span>&gt;</span><br><span class="line">    // 需要查询出来的字段</span><br><span class="line">&lt;/sql&gt;</span><br><span class="line"></span><br><span class="line">&lt;resultMap id=<span class="string">"WithDeptResultMap"</span> type=<span class="string">"package.A"</span>&gt;</span><br><span class="line">// 将 BaseDeptResultMap 的内容复制进来</span><br><span class="line">&lt;association property=<span class="string">"b"</span> javaType=<span class="string">"package.B"</span>&gt;</span><br><span class="line">    &lt;id column=<span class="string">""</span> property=<span class="string">""</span> /&gt;</span><br><span class="line">    &lt;result column=<span class="string">""</span> property=<span class="string">""</span> /&gt;</span><br><span class="line">&lt;/association&gt;</span><br><span class="line"></span><br><span class="line">List&lt;Employee&gt; selectByExampleWithA(A a);</span><br><span class="line"></span><br><span class="line">&lt;select id=<span class="string">"selectByExampleWithA"</span> parameterType=<span class="string">"package.AExample"</span> resultMap=<span class="string">"WithDeptResultMap"</span>&gt;</span><br><span class="line">// 换成我们需要的查询的字段</span><br><span class="line">&lt;include refid=<span class="string">"sql_id"</span> /&gt;</span><br><span class="line">// 修改成多表查询语句</span><br><span class="line"><span class="keyword">from</span> employee e left join department d on e.dept_id = d.dept_id</span><br><span class="line">&lt;/select&gt;</span><br><span class="line"></span><br><span class="line">// 添加自定义指定查询语句</span><br><span class="line">Employee selectByPrimaryKeyWithA(Integer a.primaryKey);</span><br><span class="line"></span><br><span class="line">&lt;select id=<span class="string">"selectByPrimaryKeyWithA"</span> parameterType=<span class="string">"java.lang.Integer"</span> resultMap=<span class="string">"WithDeptResultMap"</span>&gt;</span><br><span class="line">select</span><br><span class="line">&lt;include refid=<span class="string">"sql_id"</span> /&gt;</span><br><span class="line"><span class="keyword">from</span> employee e left join department d on e.dept_id = d.dept_id</span><br><span class="line">where emp_id = <span class="comment">#&#123;empId,jdbcType=INTEGER&#125;</span></span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
     </div>
 </article>
 
@@ -308,6 +299,18 @@
             <i class="fa fa-chevron-circle-up panel-toggle"></i>
         </div>
         <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
+                </span>
+            </li>
             
             <li class="list-group-item">
                 <span class="post-title">
@@ -357,18 +360,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -387,25 +378,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
                 </span>
             </li>
             
@@ -417,13 +390,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
+                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/26/re-os/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
                 </span>
             </li>
             
@@ -435,13 +420,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
+                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
                 </span>
             </li>
             
@@ -466,43 +457,43 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/bbr/" style="font-size: 14.383567336183606px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/git/" style="font-size: 11.523840572777576px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/linux/" style="font-size: 13.954926315235841px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/servlet/" style="font-size: 9.285816813470372px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/git/" style="font-size: 17.520551925430837px;" class="tag-cloud-link">git</a>
+    <a href="/tags/java/" style="font-size: 8.817555572359051px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/email/" style="font-size: 10.267394120521036px;" class="tag-cloud-link">email</a>
+    <a href="/tags/jdbc/" style="font-size: 9.290265408750365px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/mybatis/" style="font-size: 11.817189596064924px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/jsp/" style="font-size: 11.511815204800442px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/java/" style="font-size: 15.396692043821783px;" class="tag-cloud-link">java</a>
+    <a href="/tags/hexo/" style="font-size: 15.461703173864766px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/hexo/" style="font-size: 11.486100730695174px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/github/" style="font-size: 9.39661083813562px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/github/" style="font-size: 18.375112326381128px;" class="tag-cloud-link">github</a>
+    <a href="/tags/maven/" style="font-size: 12.207491743806553px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/servlet/" style="font-size: 16.250415008399628px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/mybatis/" style="font-size: 8.531841702209533px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/jdbc/" style="font-size: 19.355701034303507px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/email/" style="font-size: 8.014839667202875px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/jsp/" style="font-size: 8.323004137935996px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/paypal/" style="font-size: 18.81953486634798px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/spring/" style="font-size: 9.310731910505115px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/linux/" style="font-size: 12.190103568699781px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/maven/" style="font-size: 17.61502007991727px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/debian/" style="font-size: 13.019194077250955px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/debian/" style="font-size: 16.40271852965428px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/ubuntu/" style="font-size: 10.706716749697021px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 9.33856455873276px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/spring/" style="font-size: 19.642221638662416px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/paypal/" style="font-size: 18.12400089166872px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/springmvc/" style="font-size: 16.222654438782403px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/springmvc/" style="font-size: 11.871590730902023px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/ssm/" style="font-size: 9.322890353949067px;" class="tag-cloud-link">ssm</a>
     
-    <a href="/tags/ssm/" style="font-size: 8.408677680259935px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/bbr/" style="font-size: 17.700746966454027px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/regex/" style="font-size: 18.49834732282967px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 15.518787698528447px;" class="tag-cloud-link">regex</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

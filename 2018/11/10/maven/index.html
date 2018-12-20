@@ -113,15 +113,15 @@
                         
                         
                         <li>
-                            <a href="/categories/linux/">linux</a>
-                        </li>
-                        
-                        <li>
                             <a href="/categories/note/">note</a>
                         </li>
                         
                         <li>
                             <a href="/categories/others/">others</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/linux/">linux</a>
                         </li>
                         
                         
@@ -143,15 +143,15 @@
                         
                         
                         <li>
-                            <a href="/tags/bbr/">bbr</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/linux/">linux</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/servlet/">servlet</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/java/">java</a>
                         </li>
                         
                         
@@ -240,7 +240,6 @@
 <li>maven 仓库 <a href="http://mvnrepository.com/" target="_blank" rel="noopener">mvnrespository</a></li>
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 在 pom.xml 文件中的 dependencies 标签内添加</span><br><span class="line">&lt;dependencies&gt;&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="Idea-使用-maven-创建-Mybatis-逆向工程"><a href="#Idea-使用-maven-创建-Mybatis-逆向工程" class="headerlink" title="Idea 使用 maven 创建 Mybatis 逆向工程"></a>Idea 使用 maven 创建 Mybatis 逆向工程</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// pom.xml 文件添加插件</span><br><span class="line">// 必须放在 pluginManagement 标签同级的 plugins 标签内</span><br><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.3.2&lt;/version&gt;</span><br><span class="line">    &lt;configuration&gt;</span><br><span class="line">        &lt;verbose&gt;true&lt;/verbose&gt;</span><br><span class="line">        &lt;overwrite&gt;true&lt;/overwrite&gt;</span><br><span class="line">    &lt;/configuration&gt;</span><br><span class="line">    // 添加数据库驱动依赖复制找不到 JDBC Driver</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;5.1.47&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;runtime&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">// maven 的 mybatis-gererator 插件默认作用于 resources 文件夹内的 generatorConfig.xml 配置文件</span><br></pre></td></tr></table></figure>
 <h3 id="使用-Idea-创建"><a href="#使用-Idea-创建" class="headerlink" title="使用 Idea 创建"></a>使用 Idea 创建</h3><ol>
 <li>选择 maven-archetype-webapp</li>
 <li>修改默认 2.3 版本改用本地 Tomcat 的约束</li>
@@ -297,6 +296,18 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/11/28/server-speeder/">锐速</a>
                 </span>
             </li>
@@ -343,18 +354,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -373,13 +372,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/15/git-note/">Git学习</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
                 </span>
             </li>
             
@@ -391,13 +384,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                    <a href="/2018/11/10/maven/">Maven</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/28/server-speeder/">锐速</a>
+                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
                 </span>
             </li>
             
@@ -409,19 +402,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
+                    <a href="/2018/06/26/re-os/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
+                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
+                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
                 </span>
             </li>
             
@@ -452,43 +451,43 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/bbr/" style="font-size: 19.317166976150297px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/git/" style="font-size: 13.56504445772099px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/linux/" style="font-size: 13.450845683291504px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/servlet/" style="font-size: 12.688812491849657px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/git/" style="font-size: 8.465885378089173px;" class="tag-cloud-link">git</a>
+    <a href="/tags/java/" style="font-size: 19.937209041385007px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/email/" style="font-size: 15.863763257475757px;" class="tag-cloud-link">email</a>
+    <a href="/tags/jdbc/" style="font-size: 8.121468530249434px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/mybatis/" style="font-size: 10.421473547190677px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/jsp/" style="font-size: 14.861182882339332px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/java/" style="font-size: 13.362185119573152px;" class="tag-cloud-link">java</a>
+    <a href="/tags/hexo/" style="font-size: 13.939832635946658px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/hexo/" style="font-size: 9.661430455844194px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/github/" style="font-size: 11.028744292184127px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/github/" style="font-size: 12.57866926022671px;" class="tag-cloud-link">github</a>
+    <a href="/tags/maven/" style="font-size: 13.216761832163504px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/servlet/" style="font-size: 9.14145943478082px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/mybatis/" style="font-size: 8.727329419865315px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/jdbc/" style="font-size: 17.235766986121316px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/email/" style="font-size: 17.997819188153073px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/jsp/" style="font-size: 16.722694563618468px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/paypal/" style="font-size: 13.216301703813858px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/spring/" style="font-size: 15.939653148838179px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/linux/" style="font-size: 13.88557209504638px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/maven/" style="font-size: 12.63402059960815px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/debian/" style="font-size: 13.878433070919993px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/debian/" style="font-size: 19.088425599961887px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/ubuntu/" style="font-size: 15.151241883443488px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 12.492273572350891px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/spring/" style="font-size: 14.805578730614064px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/paypal/" style="font-size: 14.561067918497022px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/springmvc/" style="font-size: 11.122747353903474px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/springmvc/" style="font-size: 12.212312487366404px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/ssm/" style="font-size: 17.32458153521336px;" class="tag-cloud-link">ssm</a>
     
-    <a href="/tags/ssm/" style="font-size: 15.22967513848865px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/bbr/" style="font-size: 19.519666480313717px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/regex/" style="font-size: 13.513443268814815px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 16.879227036149086px;" class="tag-cloud-link">regex</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
