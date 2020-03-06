@@ -10,7 +10,7 @@
     
     
     
-    <title>about | UerAx</title>
+    <title>GitHub + Hexo 搭建博客 | UerAx</title>
     <link href=”“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -185,21 +185,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
-
-
+                    
 <article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">UerAx</a>
+        >
+        <span>GitHub + Hexo 搭建博客</span>
+    </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/about/index.html">about</a>
+                <a href="/2019/06/23/hello-world/">GitHub + Hexo 搭建博客</a>
             </h1>
         </div>
         <div class="tag-article">
+            
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-10-30
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/hexo/">hexo</a>, 
+                
+                <a href="/tags/github/">github</a>
+                
             </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-06-23
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -207,19 +222,44 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/about/index.html">about</a>
+                    <a href="/2019/06/23/hello-world/">GitHub + Hexo 搭建博客</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2018-10-30
+                <i class="fa fa-calendar"></i> 2019-06-23
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/hexo/">hexo</a>, 
+                
+                <a href="/tags/github/">github</a>
+                
+                
+                
             </p>
         </center>
     </div>
     <div class="content-article">
-        
+        <h2 id="事先准备"><a href="#事先准备" class="headerlink" title="事先准备"></a>事先准备</h2><ul>
+<li>Node.js</li>
+<li>git</li>
+</ul>
+<h2 id="创建-GitHub-Pages"><a href="#创建-GitHub-Pages" class="headerlink" title="创建 GitHub Pages"></a>创建 GitHub Pages</h2><p>这个百度都有</p>
+<h2 id="安装-Hexo-并检查是否安装成功"><a href="#安装-Hexo-并检查是否安装成功" class="headerlink" title="安装 Hexo 并检查是否安装成功"></a>安装 Hexo 并检查是否安装成功</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> D://hexo</span><br><span class="line">npm install hexo -g</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<h2 id="初始化-Hexo"><a href="#初始化-Hexo" class="headerlink" title="初始化 Hexo"></a>初始化 Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<h2 id="依赖包安装"><a href="#依赖包安装" class="headerlink" title="依赖包安装"></a>依赖包安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<h2 id="打开服务器"><a href="#打开服务器" class="headerlink" title="打开服务器"></a>打开服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>默认是 localhost:4000</p>
+<h2 id="联系到-GitHub"><a href="#联系到-GitHub" class="headerlink" title="联系到 GitHub"></a>联系到 GitHub</h2><p>打开 Hexo 文件夹里的 _config.yml 文件<br>配置Deployment</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: 你的 repo 值</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h2 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h2 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;file-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
     </div>
 </article>
-
 
 
                 </div>
@@ -342,7 +382,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/04/23/SpringBoot-2/">SpringBoot 学习笔记二</a>
+                    <a href="/2019/04/18/SpringBoot-1/">SpringBoot 学习笔记一</a>
                 </span>
             </li>
             
@@ -354,19 +394,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/06/23/hello-world/">GitHub + Hexo 搭建博客</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
+                    <a href="/2018/11/10/maven/">Maven</a>
                 </span>
             </li>
             
@@ -384,13 +412,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
+                    <a href="/2018/06/26/re-os/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
                 </span>
             </li>
             
@@ -409,61 +449,61 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/about/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/06/23/hello-world/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/about/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/06/23/hello-world/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/about/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/06/23/hello-world/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/spring-boot/" style="font-size: 15.096693579114826px;" class="tag-cloud-link">spring boot</a>
+    <a href="/tags/spring-boot/" style="font-size: 11.734198673513808px;" class="tag-cloud-link">spring boot</a>
     
-    <a href="/tags/java/" style="font-size: 14.566543123873675px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 19.89741838876412px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/hibernate/" style="font-size: 10.829994148877939px;" class="tag-cloud-link">hibernate</a>
+    <a href="/tags/hibernate/" style="font-size: 12.132646583205357px;" class="tag-cloud-link">hibernate</a>
     
-    <a href="/tags/jpa/" style="font-size: 14.135389624384466px;" class="tag-cloud-link">jpa</a>
+    <a href="/tags/jpa/" style="font-size: 19.89872645600578px;" class="tag-cloud-link">jpa</a>
     
-    <a href="/tags/mybatis/" style="font-size: 13.432427184249455px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/mybatis/" style="font-size: 11.510482811946435px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/bbr/" style="font-size: 13.33426783241261px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/bbr/" style="font-size: 16.994727763952273px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/linux/" style="font-size: 10.19942380447145px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/linux/" style="font-size: 10.227584924494726px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/git/" style="font-size: 11.200516715177319px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 19.40211427912074px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/hexo/" style="font-size: 15.751028370484672px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 18.180631090787937px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/github/" style="font-size: 10.70038162181836px;" class="tag-cloud-link">github</a>
+    <a href="/tags/github/" style="font-size: 10.14529394251069px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/servlet/" style="font-size: 16.45007973379545px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/servlet/" style="font-size: 16.199614336449436px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/jdbc/" style="font-size: 11.462640001217478px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/jdbc/" style="font-size: 18.605088060937454px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/jsp/" style="font-size: 11.143121655376678px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/jsp/" style="font-size: 13.768996967310285px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/maven/" style="font-size: 18.49069825517065px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/maven/" style="font-size: 15.665883448509252px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/email/" style="font-size: 9.639602856688382px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 16.87375391616219px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/paypal/" style="font-size: 11.383155728739464px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/paypal/" style="font-size: 8.119975717654071px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/debian/" style="font-size: 14.770885151688738px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/debian/" style="font-size: 18.91119672616652px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 17.40677666760906px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/ubuntu/" style="font-size: 12.65165926055906px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/spring/" style="font-size: 15.113038623896909px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 8.412943648005307px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/springmvc/" style="font-size: 8.788928158132133px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/springmvc/" style="font-size: 12.030143414768546px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/ssm/" style="font-size: 17.99473712489149px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/ssm/" style="font-size: 13.042808135611512px;" class="tag-cloud-link">ssm</a>
     
-    <a href="/tags/regex/" style="font-size: 17.58696618726292px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 11.460330101653557px;" class="tag-cloud-link">regex</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

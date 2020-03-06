@@ -10,7 +10,7 @@
     
     
     
-    <title>about | UerAx</title>
+    <title>JPA 学习笔记 | UerAx</title>
     <link href=”“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -185,21 +185,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
-
-
+                    
 <article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">UerAx</a>
+        >
+        <span>JPA 学习笔记</span>
+    </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/about/index.html">about</a>
+                <a href="/2019/06/23/JPA/">JPA 学习笔记</a>
             </h1>
         </div>
         <div class="tag-article">
+            
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-10-30
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/spring-boot/">spring boot</a>, 
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/hibernate/">hibernate</a>, 
+                
+                <a href="/tags/jpa/">jpa</a>
+                
             </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-06-23
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -207,19 +226,38 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/about/index.html">about</a>
+                    <a href="/2019/06/23/JPA/">JPA 学习笔记</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2018-10-30
+                <i class="fa fa-calendar"></i> 2019-06-23
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/spring-boot/">spring boot</a>, 
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/hibernate/">hibernate</a>, 
+                
+                <a href="/tags/jpa/">jpa</a>
+                
+                
+                
             </p>
         </center>
     </div>
     <div class="content-article">
-        
+        <ul>
+<li><a href="#annotations">注释</a></li>
+<li><a href="#jdbc">JDBC配置</a></li>
+<li><a href="#mybatis">Mybatis</a></li>
+</ul>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a><h2 id="annotations">注释</h2></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity : 说明这个class是实体类</span></span><br><span class="line"><span class="meta">@Table : 定义entity对于数据库表名</span></span><br><span class="line"><span class="meta">@Inheritance : 有多个子类声明对应的子类的对应方式</span></span><br><span class="line">     strategy = InheritanceType.SINGLE_TABLE : 父类子类数据都在同一张表里</span><br><span class="line">     strategy = InheritanceType.TABLE_PER_CLASS ：父类一张表，子类一张表</span><br><span class="line">     strategy = InheritanceType.JOINED ：父类和每个子类组合成一张表</span><br></pre></td></tr></table></figure>
     </div>
 </article>
-
 
 
                 </div>
@@ -342,25 +380,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/04/23/SpringBoot-2/">SpringBoot 学习笔记二</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/15/git-note/">Git学习</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/06/23/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                    <a href="/2018/11/10/maven/">Maven</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
                 </span>
             </li>
             
@@ -372,7 +404,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
+                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
                 </span>
             </li>
             
@@ -384,13 +416,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
+                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
+                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
                 </span>
             </li>
             
@@ -409,61 +447,61 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/about/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/06/23/JPA/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/about/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/06/23/JPA/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/about/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/06/23/JPA/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/spring-boot/" style="font-size: 15.096693579114826px;" class="tag-cloud-link">spring boot</a>
+    <a href="/tags/spring-boot/" style="font-size: 12.500143674919713px;" class="tag-cloud-link">spring boot</a>
     
-    <a href="/tags/java/" style="font-size: 14.566543123873675px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 13.255696879508879px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/hibernate/" style="font-size: 10.829994148877939px;" class="tag-cloud-link">hibernate</a>
+    <a href="/tags/hibernate/" style="font-size: 8.248687106989097px;" class="tag-cloud-link">hibernate</a>
     
-    <a href="/tags/jpa/" style="font-size: 14.135389624384466px;" class="tag-cloud-link">jpa</a>
+    <a href="/tags/jpa/" style="font-size: 9.145394075206905px;" class="tag-cloud-link">jpa</a>
     
-    <a href="/tags/mybatis/" style="font-size: 13.432427184249455px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/mybatis/" style="font-size: 10.854510825748548px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/bbr/" style="font-size: 13.33426783241261px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/bbr/" style="font-size: 15.035169001100801px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/linux/" style="font-size: 10.19942380447145px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/linux/" style="font-size: 19.511750189441592px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/git/" style="font-size: 11.200516715177319px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 13.197617468062308px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/hexo/" style="font-size: 15.751028370484672px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 8.227928549196712px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/github/" style="font-size: 10.70038162181836px;" class="tag-cloud-link">github</a>
+    <a href="/tags/github/" style="font-size: 10.783971800948905px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/servlet/" style="font-size: 16.45007973379545px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/servlet/" style="font-size: 17.616355110108593px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/jdbc/" style="font-size: 11.462640001217478px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/jdbc/" style="font-size: 14.50200935175876px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/jsp/" style="font-size: 11.143121655376678px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/jsp/" style="font-size: 16.317302974024475px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/maven/" style="font-size: 18.49069825517065px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/maven/" style="font-size: 10.463156380979076px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/email/" style="font-size: 9.639602856688382px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 12.653555920546951px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/paypal/" style="font-size: 11.383155728739464px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/paypal/" style="font-size: 15.387487859338648px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/debian/" style="font-size: 14.770885151688738px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/debian/" style="font-size: 8.636286091880068px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 17.40677666760906px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/ubuntu/" style="font-size: 8.81070575716413px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/spring/" style="font-size: 15.113038623896909px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 16.110913437777096px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/springmvc/" style="font-size: 8.788928158132133px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/springmvc/" style="font-size: 19.939072174851123px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/ssm/" style="font-size: 17.99473712489149px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/ssm/" style="font-size: 14.572544716009475px;" class="tag-cloud-link">ssm</a>
     
-    <a href="/tags/regex/" style="font-size: 17.58696618726292px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 11.353729375553554px;" class="tag-cloud-link">regex</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

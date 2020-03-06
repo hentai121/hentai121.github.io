@@ -117,11 +117,11 @@
                         </li>
                         
                         <li>
-                            <a href="/categories/note/">note</a>
+                            <a href="/categories/linux/">linux</a>
                         </li>
                         
                         <li>
-                            <a href="/categories/linux/">linux</a>
+                            <a href="/categories/note/">note</a>
                         </li>
                         
                         
@@ -155,7 +155,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/mybatis/">mybatis</a>
+                            <a href="/tags/hibernate/">hibernate</a>
                         </li>
                         
                         
@@ -251,9 +251,9 @@
 <li><a href="#jdbc">JDBC配置</a></li>
 <li><a href="#mybatis">Mybatis</a></li>
 </ul>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a><h2 id="annotations">注释</h2></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication :</span></span><br><span class="line">复合注解，包括@ComponentScan，和@SpringBootConfiguration，@EnableAutoConfiguration。</span><br><span class="line"><span class="meta">@Configuration :</span></span><br><span class="line">声明该类是为类似 spring 的 XML 配置文件</span><br><span class="line"><span class="meta">@Bean :</span></span><br><span class="line">等价于 XML 中配置的 bean</span><br><span class="line"><span class="meta">@Value :</span></span><br><span class="line">注入 Spring boot application.properties 配置的属性的值,通过$&#123;&#125;获取</span><br><span class="line"><span class="meta">@PropertySource :</span></span><br><span class="line">加载指定的 properties 文件</span><br><span class="line"><span class="meta">@ConfigurationProperties :</span></span><br><span class="line">将指定的前缀的数据封装到实体类相同名称的属性内，即不需要在每个属性都添加 @Value。如果报错可以添加 @Component 注解。需要设置 Getter 和 Setter</span><br><span class="line"><span class="meta">@EnableConfigurationProperties :</span></span><br><span class="line">将指定的实体类作为配置信息</span><br></pre></td></tr></table></figure>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a><h2 id="annotations">注释</h2></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication :</span></span><br><span class="line">复合注解，包括 @ComponentScan，和 @SpringBootConfiguration，@EnableAutoConfiguration。</span><br><span class="line"><span class="meta">@Configuration :</span></span><br><span class="line">声明该类是为类似 spring 的 XML 配置文件</span><br><span class="line"><span class="meta">@Bean :</span></span><br><span class="line">等价于 XML 中配置的 bean</span><br><span class="line"><span class="meta">@Value :</span></span><br><span class="line">注入 Spring boot application.properties 配置的属性的值,通过$&#123;&#125;获取</span><br><span class="line"><span class="meta">@PropertySource :</span></span><br><span class="line">加载指定的 properties 文件</span><br><span class="line"><span class="meta">@ConfigurationProperties :</span></span><br><span class="line">将指定的前缀的数据封装到实体类相同名称的属性内，即不需要在每个属性都添加 @Value。如果报错可以添加 @Component 注解。需要设置 Getter 和 Setter</span><br><span class="line"><span class="meta">@EnableConfigurationProperties :</span></span><br><span class="line">将指定的实体类作为配置信息</span><br></pre></td></tr></table></figure>
 <h3 id="JDBC配置"><a href="#JDBC配置" class="headerlink" title="JDBC配置"></a><h2 id="jdbc">JDBC配置</h2></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">方法一 :</span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = "")</span></span><br><span class="line">public class JdbcProperties &#123;</span><br><span class="line">    private String url;</span><br><span class="line">    public String getUrl() &#123;</span><br><span class="line">        <span class="keyword">return</span> this.url;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setUrl(String url) &#123;</span><br><span class="line">        this.url = url;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties(JdbcProperties.class)</span></span><br><span class="line">public class JdbcConfig &#123;</span><br><span class="line"><span class="meta">    @Bean</span></span><br><span class="line">    public DataSource dataSource(JdbcProperties prop) &#123;</span><br><span class="line">        DruidDataSource dataSource = new DruidDataSource();</span><br><span class="line">        dataSource.setDriverClassName(prop.getDriverClassName());</span><br><span class="line">        dataSource.setUrl(prop.getUrl());</span><br><span class="line">        dataSource.setUsername(prop.getUsername());</span><br><span class="line">        dataSource.setPassword(prop.getPassword());</span><br><span class="line">        <span class="keyword">return</span> dataSource;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">方法二 :</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableConfigurationProperties(JdbcProperties.class)</span></span><br><span class="line">public class JdbcConfig &#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">    @Autowired</span></span><br><span class="line">    private JdbcProperties prop;</span><br><span class="line"></span><br><span class="line"><span class="meta">    @Bean</span></span><br><span class="line">    public DataSource dataSource() &#123;</span><br><span class="line">        DruidDataSource dataSource = new DruidDataSource();</span><br><span class="line">        dataSource.setDriverClassName(prop.getDriverClassName());</span><br><span class="line">        dataSource.setUrl(prop.getUrl());</span><br><span class="line">        dataSource.setUsername(prop.getUsername());</span><br><span class="line">        dataSource.setPassword(prop.getPassword());</span><br><span class="line">        <span class="keyword">return</span> dataSource;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">方法三 :</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line">public class JdbcConfig &#123;</span><br><span class="line"><span class="meta">    @Bean</span></span><br><span class="line"><span class="meta">    @ConfigurationProperties(prefix = "")</span></span><br><span class="line">    public DataSource dataSource() &#123;</span><br><span class="line">        // application.properties 文件的名称必须为 driverClassName,url,username,password</span><br><span class="line">        DruidDataSource dataSource = new DruidDataSource();</span><br><span class="line">        <span class="keyword">return</span> dataSource;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="整合MyBatis"><a href="#整合MyBatis" class="headerlink" title="整合MyBatis"></a><h2 id="mybatis">整合MyBatis</h2></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 事先准备 User 实体类(Getter，Setter)，user 数据库表</span><br><span class="line"></span><br><span class="line">// 创建 MyBatis 的映射</span><br><span class="line"></span><br><span class="line">一.注解法</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line">public interface UserMapper &#123;</span><br><span class="line"><span class="meta">    @Select("select * from user where username = #&#123;username&#125;")</span></span><br><span class="line">    User findUserByUsername(@Param(<span class="string">"username"</span>) String username);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">二.XML配置法</span><br><span class="line">// 需要在 application.yml 额外添加 xml 文件的路径, xml 文件编写见 Mybatis</span><br><span class="line">mybatis:</span><br><span class="line">    mapper-locations: classpath:mapper/*.xml</span><br><span class="line"></span><br><span class="line">// 配置 application.yml 的 DataSource</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    driver-<span class="class"><span class="keyword">class</span>-<span class="title">name</span>:</span> com.mysql.jdbc.Driver</span><br><span class="line">    username: root</span><br><span class="line">    password: root</span><br><span class="line">    url: jdbc:mysql:///springboot?serverTimezone=GMT</span><br><span class="line">// 因为 SpringBoot 使用的是最新 mysql-connector-java <span class="number">8</span>+ ，JDBC 连接到mysql-connector-java <span class="number">6</span>+以上的需要指定时区 serverTimezone=GMT%<span class="number">2</span>B8</span><br></pre></td></tr></table></figure>
+<h3 id="整合MyBatis"><a href="#整合MyBatis" class="headerlink" title="整合MyBatis"></a><h2 id="mybatis">整合MyBatis</h2></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 事先准备 User 实体类(Getter，Setter)，user 数据库表</span><br><span class="line"></span><br><span class="line">// 创建 MyBatis 的映射</span><br><span class="line"></span><br><span class="line">一.注解法</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line">public interface UserMapper &#123;</span><br><span class="line"><span class="meta">    @Select("select * from user where username = #&#123;username&#125;")</span></span><br><span class="line">    User findUserByUsername(@Param(<span class="string">"username"</span>) String username);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">二.XML配置法</span><br><span class="line">// 需要在 application.yml 额外添加 xml 文件的路径, xml 文件编写见 Mybatis</span><br><span class="line">mybatis:</span><br><span class="line">  type-aliases-package: com.uerax.springboot.domain</span><br><span class="line">  mapper-locations: mapper/*.xml</span><br><span class="line"></span><br><span class="line">// UserMapper.java</span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line">public interface UserMapper &#123; </span><br><span class="line">    User findUserById(@Param(<span class="string">"id"</span>) int id);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// UserMapper.xml 编写</span><br><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper</span><br><span class="line">        PUBLIC <span class="string">"-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line">        <span class="string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span><br><span class="line">&lt;mapper namespace=<span class="string">"com.uerax.springboot.mapper.UserMapper"</span>&gt;</span><br><span class="line">    &lt;select id=<span class="string">"findUserById"</span> parameterType=<span class="string">"int"</span> resultType=<span class="string">"User"</span>&gt;</span><br><span class="line">      select * <span class="keyword">from</span> user where id = <span class="comment">#&#123;id&#125;</span></span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br><span class="line"></span><br><span class="line">// 配置 application.yml 的 DataSource</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    driver-<span class="class"><span class="keyword">class</span>-<span class="title">name</span>:</span> com.mysql.jdbc.Driver</span><br><span class="line">    username: root</span><br><span class="line">    password: root</span><br><span class="line">    url: jdbc:mysql:///springboot?serverTimezone=GMT</span><br><span class="line">// 因为 SpringBoot 使用的是最新 mysql-connector-java <span class="number">8</span>+ ，JDBC 连接到mysql-connector-java <span class="number">6</span>+以上的需要指定时区 serverTimezone=GMT%<span class="number">2</span>B8</span><br></pre></td></tr></table></figure>
 
     </div>
 </article>
@@ -303,6 +303,24 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/06/23/JPA/">JPA 学习笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/23/hello-world/">GitHub + Hexo 搭建博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/04/23/SpringBoot-2/">SpringBoot 学习笔记二</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/04/18/SpringBoot-1/">SpringBoot 学习笔记一</a>
                 </span>
             </li>
@@ -343,24 +361,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -385,55 +385,55 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                    <a href="/2019/04/23/SpringBoot-2/">SpringBoot 学习笔记二</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/30/mybatis-note-1/">MyBatis 学习笔记(1)</a>
+                    <a href="/2018/10/15/git-note/">Git学习</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/27/mail/">(已失效)如何申请msn.com、live.com、live.cn等后缀邮箱</a>
+                    <a href="/2019/06/23/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/26/hello-world/">GitHub + Hexo 搭建博客</a>
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/10/maven/">Maven</a>
+                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
+                    <a href="/2018/06/26/re-os/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
+                    <a href="/2018/11/28/server-speeder/">锐速</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
+                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/16/regex/">正则表达式</a>
+                    <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
                 </span>
             </li>
             
@@ -458,45 +458,49 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/spring-boot/" style="font-size: 18.97248383962564px;" class="tag-cloud-link">spring boot</a>
+    <a href="/tags/spring-boot/" style="font-size: 13.800204236346723px;" class="tag-cloud-link">spring boot</a>
     
-    <a href="/tags/java/" style="font-size: 18.57275718001027px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 17.474624406518544px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/mybatis/" style="font-size: 19.703104481051696px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/hibernate/" style="font-size: 16.867156496496012px;" class="tag-cloud-link">hibernate</a>
     
-    <a href="/tags/servlet/" style="font-size: 16.713649329686113px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/jpa/" style="font-size: 17.316792213665178px;" class="tag-cloud-link">jpa</a>
     
-    <a href="/tags/jdbc/" style="font-size: 18.201524263116347px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/mybatis/" style="font-size: 8.163578996259375px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/jsp/" style="font-size: 15.164786059481074px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/bbr/" style="font-size: 17.102608432547633px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/git/" style="font-size: 15.155041950754917px;" class="tag-cloud-link">git</a>
+    <a href="/tags/linux/" style="font-size: 14.783958458962221px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/bbr/" style="font-size: 10.484608484169488px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/git/" style="font-size: 16.72504689544272px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/linux/" style="font-size: 15.784516453648989px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/hexo/" style="font-size: 16.447372386306355px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/email/" style="font-size: 8.688494975717198px;" class="tag-cloud-link">email</a>
+    <a href="/tags/github/" style="font-size: 18.124162607321942px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/paypal/" style="font-size: 18.03509296424416px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/servlet/" style="font-size: 13.592447883251209px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/hexo/" style="font-size: 19.682135608596177px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/jdbc/" style="font-size: 9.186187936773909px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/github/" style="font-size: 10.601772551147777px;" class="tag-cloud-link">github</a>
+    <a href="/tags/jsp/" style="font-size: 19.305775926048405px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/maven/" style="font-size: 10.109220379412424px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/maven/" style="font-size: 8.727361866413517px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/spring/" style="font-size: 16.33316942215497px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/email/" style="font-size: 15.651431822929545px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/debian/" style="font-size: 11.392335944719228px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/paypal/" style="font-size: 12.392820689775435px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 12.665651325027994px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/debian/" style="font-size: 8.167144223920538px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/springmvc/" style="font-size: 11.845175252374048px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/ubuntu/" style="font-size: 12.016539040327414px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/ssm/" style="font-size: 8.979670250798705px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/spring/" style="font-size: 8.970609539810702px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/regex/" style="font-size: 14.83374686727559px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/springmvc/" style="font-size: 16.211292794032776px;" class="tag-cloud-link">springmvc</a>
+    
+    <a href="/tags/ssm/" style="font-size: 12.76687260628448px;" class="tag-cloud-link">ssm</a>
+    
+    <a href="/tags/regex/" style="font-size: 14.32595107071708px;" class="tag-cloud-link">regex</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
