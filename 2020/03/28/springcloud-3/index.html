@@ -10,7 +10,7 @@
     
     
     
-    <title>404 | UerAx</title>
+    <title>SpringCloud 笔记三 | UerAx</title>
     <link href=”“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -185,10 +185,84 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="">UerAx</a>
+        >
+        <span>SpringCloud 笔记三</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/03/28/springcloud-3/">SpringCloud 笔记三</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/springboot/">springboot</a>, 
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/maven/">maven</a>, 
+                
+                <a href="/tags/springcloud/">springcloud</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-03-28
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/03/28/springcloud-3/">SpringCloud 笔记三</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-03-28
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/springboot/">springboot</a>, 
+                
+                <a href="/tags/java/">java</a>, 
+                
+                <a href="/tags/maven/">maven</a>, 
+                
+                <a href="/tags/springcloud/">springcloud</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <ul>
+<li><a href="#gateway">Zuul路由</a></li>
+<li><a href="#filter">Zuul拦截器</a></li>
+</ul>
+<h1 id="Zuul路由"><a href="#Zuul路由" class="headerlink" title="Zuul路由"></a><h2 id="gateway">Zuul路由</h2></h1><p>1.创建 Zuul 的子模块并添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 使用阿里的maven库下载的包有缺漏导致一直爆红。用原生库问题解决 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-zuul<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 用于 eureka --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.在Application启动程序添加注解 @EnableZuulProxy 和配置 Zuul 参数</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将 service-provider 应用绑定到以 /provider 为前缀的请求，Zuul回默认绑定绑定应用名为前缀</span></span><br><span class="line"><span class="attr">zuul:</span></span><br><span class="line"><span class="attr">  routes:</span></span><br><span class="line"><span class="attr">    service-provider:</span> <span class="string">/provider/**</span></span><br><span class="line">  <span class="comment"># 不默认绑定 service-test 到 /service-test 上 </span></span><br><span class="line"><span class="attr">  ignoredServices:</span> <span class="string">service-test</span></span><br></pre></td></tr></table></figure>
+<h1 id="Zuul拦截器"><a href="#Zuul拦截器" class="headerlink" title="Zuul拦截器"></a><h2 id="filter">Zuul拦截器</h2></h1><p>1.创建类并继承 ZuulFilter</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFilter</span> <span class="keyword">extends</span> <span class="title">ZuulFilter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">filterType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// pre: 这种过滤器在请求被路由之前调用。可利用这种过滤器实现身份验证、在集群中选择请求的微服务，记录调试信息等。</span></span><br><span class="line">        <span class="comment">// routing: 这种过滤器将请求路由到微服务。这种过滤器用于构建发送给微服务的请求，并使用apache httpclient或netflix ribbon请求微服务。</span></span><br><span class="line">        <span class="comment">// post: 这种过滤器在路由到微服务以后执行。这种过滤器可用来为响应添加标准的http header、收集统计信息和指标、将响应从微服务发送给客户端等。</span></span><br><span class="line">        <span class="comment">// error: 在其他阶段发送错误时执行该过滤器。 </span></span><br><span class="line">        <span class="keyword">return</span> FilterConstants.PRE_TYPE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">filterOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 通过int值来定义过滤器的执行顺序，越小优先级越高</span></span><br><span class="line">        <span class="keyword">return</span> FilterConstants.PRE_DECORATION_FILTER_ORDER - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 判断是否过滤</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">run</span><span class="params">()</span> <span class="keyword">throws</span> ZuulException </span>&#123;</span><br><span class="line">        <span class="comment">// 过滤器的具体逻辑</span></span><br><span class="line">        RequestContext context = RequestContext.getCurrentContext();</span><br><span class="line">        HttpServletRequest request = context.getRequest();</span><br><span class="line">        String s = request.getParameter(<span class="string">"access-token"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isBlank(s)) &#123;</span><br><span class="line">            context.setSendZuulResponse(<span class="keyword">false</span>);</span><br><span class="line">            context.setResponseStatusCode(HttpStatus.FORBIDDEN.value());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+</article>
 
-<!-- 404 自定义页面 -->
-<!-- 有其他想自定义的page在这里添加判断条件, 并且写好对应的模板渲染文件 -->
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -310,7 +384,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/04/23/SpringBoot-2/">SpringBoot 学习笔记二</a>
+                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
                 </span>
             </li>
             
@@ -322,13 +396,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/15/git-note/">Git学习</a>
+                    <a href="/2019/06/23/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/10/maven/">Maven</a>
+                    <a href="/2018/10/15/git-note/">Git学习</a>
                 </span>
             </li>
             
@@ -340,31 +414,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/28/server-speeder/">锐速</a>
+                    <a href="/2018/10/31/mybatis-note-2/">MyBatis 学习笔记(2)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
+                    <a href="/2020/03/26/springcloud-1/">SpringCloud 笔记一</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                    <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/03/28/springcloud-3/">SpringCloud 笔记三</a>
+                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
                 </span>
             </li>
             
@@ -377,63 +451,63 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/404/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2020/03/28/springcloud-3/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/404/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2020/03/28/springcloud-3/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/404/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2020/03/28/springcloud-3/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/springboot/" style="font-size: 8.901408328021677px;" class="tag-cloud-link">springboot</a>
+    <a href="/tags/springboot/" style="font-size: 16.59129553005271px;" class="tag-cloud-link">springboot</a>
     
-    <a href="/tags/java/" style="font-size: 10.33827788362505px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 18.33143938618253px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/mybatis/" style="font-size: 16.63978668614018px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/mybatis/" style="font-size: 13.318323979183578px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/bbr/" style="font-size: 17.108107003851195px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/bbr/" style="font-size: 19.208563216392506px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/linux/" style="font-size: 15.764953039783652px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/linux/" style="font-size: 10.086192410149591px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/spring-boot/" style="font-size: 11.647689027026333px;" class="tag-cloud-link">spring boot</a>
+    <a href="/tags/spring-boot/" style="font-size: 13.114260480930046px;" class="tag-cloud-link">spring boot</a>
     
-    <a href="/tags/hexo/" style="font-size: 18.930809654423953px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 18.074378924474324px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/github/" style="font-size: 14.916085236588053px;" class="tag-cloud-link">github</a>
+    <a href="/tags/github/" style="font-size: 10.127997751925466px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/git/" style="font-size: 10.38971016211665px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 17.287021495693317px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/servlet/" style="font-size: 15.514200682798881px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/servlet/" style="font-size: 8.24535223854247px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/jdbc/" style="font-size: 17.749350347797876px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/jdbc/" style="font-size: 10.419394097131722px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/jsp/" style="font-size: 12.458907372275089px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/jsp/" style="font-size: 11.870128753061367px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/email/" style="font-size: 15.319100660685436px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 15.298391803224074px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/maven/" style="font-size: 9.043667433109666px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/maven/" style="font-size: 19.25508749799791px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/paypal/" style="font-size: 16.521188868841744px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/paypal/" style="font-size: 16.37337140895006px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/debian/" style="font-size: 14.4595470485673px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/debian/" style="font-size: 11.341805665799757px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 15.916745508232218px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/ubuntu/" style="font-size: 12.391940319774989px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/spring/" style="font-size: 15.179978266694743px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 19.925645013350312px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/springcloud/" style="font-size: 18.710225718233595px;" class="tag-cloud-link">springcloud</a>
+    <a href="/tags/springcloud/" style="font-size: 18.667023276863357px;" class="tag-cloud-link">springcloud</a>
     
-    <a href="/tags/springmvc/" style="font-size: 16.034874479585124px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/springmvc/" style="font-size: 8.209239662904736px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/ssm/" style="font-size: 14.972424888275324px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/ssm/" style="font-size: 11.174220408366072px;" class="tag-cloud-link">ssm</a>
     
-    <a href="/tags/SSR/" style="font-size: 19.159075234879857px;" class="tag-cloud-link">SSR</a>
+    <a href="/tags/SSR/" style="font-size: 8.957726999839714px;" class="tag-cloud-link">SSR</a>
     
-    <a href="/tags/regex/" style="font-size: 19.6268433670605px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 16.57564612857692px;" class="tag-cloud-link">regex</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">

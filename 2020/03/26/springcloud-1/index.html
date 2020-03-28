@@ -113,15 +113,15 @@
                         
                         
                         <li>
+                            <a href="/categories/java/">java</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/linux/">linux</a>
                         </li>
                         
                         <li>
                             <a href="/categories/others/">others</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/java/">java</a>
                         </li>
                         
                         
@@ -147,15 +147,15 @@
                         
                         
                         <li>
-                            <a href="/tags/bbr/">bbr</a>
+                            <a href="/tags/springboot/">springboot</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/linux/">linux</a>
+                            <a href="/tags/java/">java</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/hexo/">hexo</a>
+                            <a href="/tags/mybatis/">mybatis</a>
                         </li>
                         
                         
@@ -261,7 +261,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">spring-cloud.version</span>&gt;</span>Hoxton.SR3<span class="tag">&lt;/<span class="name">spring-cloud.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dependencyManagement 子项目需要引用才有效 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- dependencies 子项目无需引用就有效 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.vintage<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-vintage-engine<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h1 id="Eureka配置Server"><a href="#Eureka配置Server" class="headerlink" title="Eureka配置Server"></a><h2 id="eureka">Eureka配置Server</h2></h1><p>1.添加 Eureka 子工程，添加依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2.在Application启动程序添加注解 @EnableEurekaServer<br>和配置 Eureka 参数</p>
+<p>2.在Application启动程序添加注解 @EnableEurekaServer 和配置 Eureka 参数</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8080</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">eureka-server</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    service-url:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://127.0.0.1:8080/eureka</span></span><br></pre></td></tr></table></figure>
 <h1 id="Eureka配置Client"><a href="#Eureka配置Client" class="headerlink" title="Eureka配置Client"></a><h2 id="client">Eureka配置Client</h2></h1><p>1.新增一个生产者子工程并添加依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -317,6 +317,12 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2020/03/28/springcloud-3/">SpringCloud 笔记三</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2020/03/27/springcloud-2/">SpringCloud 笔记二</a>
                 </span>
             </li>
@@ -329,13 +335,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/02/23/ssr/">SSR一键安装整合</a>
+                    <a href="/2020/02/23/v2ray/">V2Ray+WebSocket+TLS+Nginx一键安装脚本</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/02/23/v2ray/">V2Ray+WebSocket+TLS+Nginx一键安装脚本</a>
+                    <a href="/2020/02/23/ssr/">SSR一键安装整合</a>
                 </span>
             </li>
             
@@ -369,12 +375,6 @@
                 </span>
             </li>
             
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/28/server-speeder/">锐速</a>
-                </span>
-            </li>
-            
         </ul>
     </div>
 </aside>
@@ -393,7 +393,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/04/23/SpringBoot-2/">SpringBoot 学习笔记二</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/04/18/SpringBoot-1/">SpringBoot 学习笔记一</a>
                 </span>
             </li>
             
@@ -405,49 +417,37 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/04/23/SpringBoot-2/">SpringBoot 学习笔记二</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/11/10/maven/">Maven</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
+                    <a href="/2018/06/26/re-os/">Debian(Ubuntu)网络安装/重装系统一键脚本</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/03/spring-mybatis/">MyBatis 整合 Spring 框架</a>
+                    <a href="/2018/11/28/server-speeder/">锐速</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/03/27/springcloud-2/">SpringCloud 笔记二</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/11/05/springmvc-note-1/">SpringMVC 学习笔记(1)</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2018/11/09/springmvc-note-2/">SpringMVC 学习笔记(2)</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/02/23/v2ray/">V2Ray+WebSocket+TLS+Nginx一键安装脚本</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/10/16/regex/">正则表达式</a>
                 </span>
             </li>
             
@@ -472,51 +472,51 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/bbr/" style="font-size: 19.31393115120608px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/springboot/" style="font-size: 11.176391508925676px;" class="tag-cloud-link">springboot</a>
     
-    <a href="/tags/linux/" style="font-size: 13.994663330376918px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/java/" style="font-size: 12.051944166473515px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/hexo/" style="font-size: 15.223137326719712px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/mybatis/" style="font-size: 15.919305355634734px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/github/" style="font-size: 16.098585626591063px;" class="tag-cloud-link">github</a>
+    <a href="/tags/bbr/" style="font-size: 13.951481967648846px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/springboot/" style="font-size: 10.572297644807733px;" class="tag-cloud-link">springboot</a>
+    <a href="/tags/linux/" style="font-size: 14.73087014739724px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/java/" style="font-size: 12.115716190255206px;" class="tag-cloud-link">java</a>
+    <a href="/tags/spring-boot/" style="font-size: 12.278262987704775px;" class="tag-cloud-link">spring boot</a>
     
-    <a href="/tags/mybatis/" style="font-size: 10.793062350866963px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/hexo/" style="font-size: 16.821024196543135px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/git/" style="font-size: 17.808613854888698px;" class="tag-cloud-link">git</a>
+    <a href="/tags/github/" style="font-size: 8.197187959525301px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/email/" style="font-size: 12.847266750370963px;" class="tag-cloud-link">email</a>
+    <a href="/tags/git/" style="font-size: 17.585451700501px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/servlet/" style="font-size: 17.58130222195333px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/servlet/" style="font-size: 18.715699831459986px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/jdbc/" style="font-size: 16.857087286128085px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/jdbc/" style="font-size: 16.3261222880679px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/jsp/" style="font-size: 9.555891971899925px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/jsp/" style="font-size: 17.820878770179068px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/spring-boot/" style="font-size: 13.425979669530113px;" class="tag-cloud-link">spring boot</a>
+    <a href="/tags/email/" style="font-size: 12.272890989335925px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/maven/" style="font-size: 8.022262264457904px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/maven/" style="font-size: 12.707040729859155px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/paypal/" style="font-size: 11.854497780181898px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/paypal/" style="font-size: 14.142568355457128px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/debian/" style="font-size: 10.713597402698504px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/debian/" style="font-size: 14.443917129280107px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 13.657875355632557px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/ubuntu/" style="font-size: 9.258251857973981px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/spring/" style="font-size: 12.295185218823788px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 8.277348024471593px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/springcloud/" style="font-size: 9.396009316991782px;" class="tag-cloud-link">springcloud</a>
+    <a href="/tags/springcloud/" style="font-size: 16.71227863932901px;" class="tag-cloud-link">springcloud</a>
     
-    <a href="/tags/springmvc/" style="font-size: 12.950329417928273px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/springmvc/" style="font-size: 12.123842164679234px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/ssm/" style="font-size: 10.450643667372947px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/ssm/" style="font-size: 13.546167157617479px;" class="tag-cloud-link">ssm</a>
     
-    <a href="/tags/SSR/" style="font-size: 15.224090915139435px;" class="tag-cloud-link">SSR</a>
+    <a href="/tags/SSR/" style="font-size: 15.91332416133096px;" class="tag-cloud-link">SSR</a>
     
-    <a href="/tags/regex/" style="font-size: 12.449864852818571px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 14.065602804276743px;" class="tag-cloud-link">regex</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
