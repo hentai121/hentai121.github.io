@@ -10,7 +10,7 @@
     
     
     
-    <title>一键安装最新内核并开启 BBR 脚本 | UerAx</title>
+    <title>categories: 前端 | UerAx</title>
     <link href=”“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -185,36 +185,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
+                    <article class="article well article-body" id="article-category">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="">UerAx</a>
         >
-        <span>一键安装最新内核并开启 BBR 脚本</span>
+        <span>目录</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                <a href="/categories/前端/index.html">前端</a>
             </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/bbr/">bbr</a>, 
-                
-                <a href="/tags/linux/">linux</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-06-27
-            </span>
-            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -222,66 +205,21 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2018/06/27/bbr/">一键安装最新内核并开启 BBR 脚本</a>
+                    <a href="/categories/前端/index.html">前端</a>
                 </h4>
             </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2018-06-27
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/bbr/">bbr</a>, 
-                
-                <a href="/tags/linux/">linux</a>
-                
-                
-                
-            </p>
         </center>
     </div>
-    <div class="content-article">
-        <blockquote>
-<p>本脚本适用环境</p>
-</blockquote>
-<ul>
-<li>系统支持：CentOS 6+，Debian 7+，Ubuntu 12+</li>
-<li>虚拟技术：OpenVZ 以外的，比如 KVM、Xen、VMware 等</li>
-<li>内存要求：≥128M</li>
-<li><strong>日期 : 2018 年 06 月 09 日</strong></li>
-</ul>
-<blockquote>
-<p>使用root用户登录，运行以下命令</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</span><br></pre></td></tr></table></figure>
-<p>安装完成后，脚本会提示需要重启 VPS，输入 y 并回车后重启</p>
-<blockquote>
-<p>验证</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
-<p>查看内核是否为你刚刚选择版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br></pre></td></tr></table></figure>
-<p>返回值一般为：<br>net.ipv4.tcp_available_congestion_control = bbr cubic reno<br>或者为：<br>net.ipv4.tcp_available_congestion_control = reno cubic bbr</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
-<p>返回值一般为：<br>net.ipv4.tcp_congestion_control = bbr</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.core.default_qdisc</span><br></pre></td></tr></table></figure>
-<p>返回值一般为：<br>net.core.default_qdisc = fq</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
-<p>返回值有 tcp_bbr 模块即说明 bbr 已启动。<br>注意：并不是所有的 VPS 都会有此返回值，若没有也属正常。</p>
-<blockquote>
-<p>特别说明</p>
-</blockquote>
-<p>如果你使用的是 Google Cloud Platform （GCP）更换内核，有时会遇到重启后，整个磁盘变为只读的情况。只需执行以下命令即可恢复</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -o remount rw /</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>转载自</p>
-</blockquote>
-<h1 id="秋水逸冰"><a href="#秋水逸冰" class="headerlink" title="秋水逸冰"></a><a href="https://teddysun.com/489.html" target="_blank" rel="noopener">秋水逸冰</a></h1>
+    <div class="content-article" style="margin-top: 30px;">
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            
+            <a href="/2020/03/29/vue-1/">Vue 笔记一</a>
+            <br>
+            
+            
+        </div>
     </div>
 </article>
-
-
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -402,31 +340,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/04/23/SpringBoot-2/">SpringBoot 学习笔记二</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/06/23/hello-world/">GitHub + Hexo 搭建博客</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/01/javaweb-note/">JavaWeb 笔记(补)</a>
+                    <a href="/2018/12/20/mybatis-generator/">Mybatis 逆向工程</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/11/10/maven/">Maven</a>
+                    <a href="/2018/11/12/pagehelper/">MyBatis 分页插件</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/06/26/paypalfees/">PayPal 更换汇率结算</a>
+                    <a href="/2018/10/27/spring-note-1/">Spring 学习笔记(1)</a>
                 </span>
             </li>
             
@@ -444,7 +376,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/03/28/springcloud-3/">SpringCloud 笔记三</a>
+                    <a href="/2018/10/28/spring-note-2/">Spring 学习笔记(2)</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/02/23/v2ray/">V2Ray+WebSocket+TLS+Nginx一键安装脚本</a>
                 </span>
             </li>
             
@@ -456,7 +394,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/10/16/regex/">正则表达式</a>
+                    <a href="/2018/12/12/thymeleaf/">thymeleaf</a>
                 </span>
             </li>
             
@@ -469,65 +407,65 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/2018/06/27/bbr/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/categories/前端/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/2018/06/27/bbr/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/categories/前端/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/2018/06/27/bbr/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/categories/前端/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/spring-boot/" style="font-size: 14.435798485863344px;" class="tag-cloud-link">spring boot</a>
+    <a href="/tags/spring-boot/" style="font-size: 15.372803472188583px;" class="tag-cloud-link">spring boot</a>
     
-    <a href="/tags/java/" style="font-size: 14.287950454706994px;" class="tag-cloud-link">java</a>
+    <a href="/tags/java/" style="font-size: 9.151972833205924px;" class="tag-cloud-link">java</a>
     
-    <a href="/tags/mybatis/" style="font-size: 9.234259422264913px;" class="tag-cloud-link">mybatis</a>
+    <a href="/tags/mybatis/" style="font-size: 9.13141387627561px;" class="tag-cloud-link">mybatis</a>
     
-    <a href="/tags/springboot/" style="font-size: 18.226249137710507px;" class="tag-cloud-link">springboot</a>
+    <a href="/tags/springboot/" style="font-size: 19.14184754657059px;" class="tag-cloud-link">springboot</a>
     
-    <a href="/tags/bbr/" style="font-size: 18.69978470499175px;" class="tag-cloud-link">bbr</a>
+    <a href="/tags/bbr/" style="font-size: 10.05247429475242px;" class="tag-cloud-link">bbr</a>
     
-    <a href="/tags/linux/" style="font-size: 15.729138129506891px;" class="tag-cloud-link">linux</a>
+    <a href="/tags/linux/" style="font-size: 19.675981645311932px;" class="tag-cloud-link">linux</a>
     
-    <a href="/tags/git/" style="font-size: 12.741388267945924px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 11.194171267375074px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/hexo/" style="font-size: 11.342616822992703px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 11.249528441825765px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/github/" style="font-size: 16.478684724733462px;" class="tag-cloud-link">github</a>
+    <a href="/tags/github/" style="font-size: 13.130695633436963px;" class="tag-cloud-link">github</a>
     
-    <a href="/tags/email/" style="font-size: 11.118069863008909px;" class="tag-cloud-link">email</a>
+    <a href="/tags/email/" style="font-size: 13.647197695987005px;" class="tag-cloud-link">email</a>
     
-    <a href="/tags/servlet/" style="font-size: 17.960561633183872px;" class="tag-cloud-link">servlet</a>
+    <a href="/tags/servlet/" style="font-size: 10.092017410138414px;" class="tag-cloud-link">servlet</a>
     
-    <a href="/tags/jdbc/" style="font-size: 19.71215603885248px;" class="tag-cloud-link">jdbc</a>
+    <a href="/tags/jdbc/" style="font-size: 18.249574801911386px;" class="tag-cloud-link">jdbc</a>
     
-    <a href="/tags/jsp/" style="font-size: 11.199978179183127px;" class="tag-cloud-link">jsp</a>
+    <a href="/tags/jsp/" style="font-size: 9.88299409816453px;" class="tag-cloud-link">jsp</a>
     
-    <a href="/tags/maven/" style="font-size: 8.18331677224823px;" class="tag-cloud-link">maven</a>
+    <a href="/tags/maven/" style="font-size: 17.295229665913133px;" class="tag-cloud-link">maven</a>
     
-    <a href="/tags/paypal/" style="font-size: 19.619958503088185px;" class="tag-cloud-link">paypal</a>
+    <a href="/tags/paypal/" style="font-size: 9.93604195437503px;" class="tag-cloud-link">paypal</a>
     
-    <a href="/tags/springcloud/" style="font-size: 12.807104323431432px;" class="tag-cloud-link">springcloud</a>
+    <a href="/tags/springcloud/" style="font-size: 17.166719108206028px;" class="tag-cloud-link">springcloud</a>
     
-    <a href="/tags/spring/" style="font-size: 10.100052697691883px;" class="tag-cloud-link">spring</a>
+    <a href="/tags/spring/" style="font-size: 15.9543061789564px;" class="tag-cloud-link">spring</a>
     
-    <a href="/tags/debian/" style="font-size: 13.2375212544829px;" class="tag-cloud-link">debian</a>
+    <a href="/tags/debian/" style="font-size: 9.832835682234768px;" class="tag-cloud-link">debian</a>
     
-    <a href="/tags/ubuntu/" style="font-size: 19.428821364674153px;" class="tag-cloud-link">ubuntu</a>
+    <a href="/tags/ubuntu/" style="font-size: 14.412373279200622px;" class="tag-cloud-link">ubuntu</a>
     
-    <a href="/tags/springmvc/" style="font-size: 11.212847582134266px;" class="tag-cloud-link">springmvc</a>
+    <a href="/tags/springmvc/" style="font-size: 12.665275583655657px;" class="tag-cloud-link">springmvc</a>
     
-    <a href="/tags/ssm/" style="font-size: 8.934887546964607px;" class="tag-cloud-link">ssm</a>
+    <a href="/tags/ssm/" style="font-size: 17.124415900665422px;" class="tag-cloud-link">ssm</a>
     
-    <a href="/tags/vue/" style="font-size: 19.876826687631073px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 19.22131742724379px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/regex/" style="font-size: 13.230453924026454px;" class="tag-cloud-link">regex</a>
+    <a href="/tags/regex/" style="font-size: 11.556358639041768px;" class="tag-cloud-link">regex</a>
     
-    <a href="/tags/SSR/" style="font-size: 15.119887171818537px;" class="tag-cloud-link">SSR</a>
+    <a href="/tags/SSR/" style="font-size: 11.286517022793712px;" class="tag-cloud-link">SSR</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
